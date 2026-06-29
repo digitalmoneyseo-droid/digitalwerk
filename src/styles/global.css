@@ -1,8 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Unbounded:wght@400;600;700;800&display=swap");
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Manrope", system-ui, sans-serif;
+  --font-editorial: "Source Serif 4", Georgia, serif;
+  --font-impact: "Unbounded", "Bricolage Grotesque", system-ui, sans-serif;
+  --font-utility: "Azeret Mono", ui-monospace, SFMono-Regular, monospace;
+  --shadow-hard-violet: 10px 10px 0 oklch(0.7 0.12 270 / 0.32);
+  --shadow-hard-ink: 8px 8px 0 oklch(0.16 0.02 270);
+}
 
 :root {
   color-scheme: light;

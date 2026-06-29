@@ -1,0 +1,55 @@
+---
+import {
+  ArrowLeft,
+  ArrowRight,
+  Bot,
+  BriefcaseBusiness,
+  CheckCircle2,
+  ChevronDown,
+  ChevronLeft,
+  Layers3,
+  Mail,
+  Megaphone,
+  Menu,
+  Monitor,
+  Palette,
+  Search,
+  SearchCheck,
+  Share2,
+  Target,
+  X,
+} from "lucide-astro";
+import type { IconName } from "../lib/navigation";
+
+type Props = {
+  name: IconName;
+  size?: number;
+  class?: string;
+};
+
+const icons = {
+  ArrowLeft,
+  ArrowRight,
+  Bot,
+  BriefcaseBusiness,
+  CheckCircle2,
+  ChevronDown,
+  ChevronLeft,
+  Layers3,
+  Mail,
+  Megaphone,
+  Menu,
+  Monitor,
+  Palette,
+  Search,
+  SearchCheck,
+  Share2,
+  Target,
+  X,
+};
+
+const { name, size = 20, class: className = "" } = Astro.props;
+const Component = icons[name];
+---
+
+<Component size={size} class={className} aria-hidden="true" />
