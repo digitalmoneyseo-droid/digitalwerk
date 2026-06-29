@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Unbounded:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: "Manrope", system-ui, sans-serif;
+  background: oklch(1 0 0);
+  color: oklch(0.17 0.025 265);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:not(:disabled),
+a[href] {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid oklch(0.58 0.15 245);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: oklch(0.62 0.14 245);
+  color: white;
+}
+
+.page-rise {
+  animation: page-rise 720ms var(--ease-out-quint) both;
+}
+
+.dw-menu-panel {
+  transform: translateX(-50%) translateY(8px) scale(0.985);
+  transform-origin: top center;
+  filter: blur(3px);
+  transition:
+    opacity 180ms var(--ease-out-quint),
+    visibility 180ms var(--ease-out-quint),
+    transform 180ms var(--ease-out-quint),
+    filter 180ms var(--ease-out-quint);
+}
+
+.dw-menu-panel.visible {
+  transform: translateX(-50%) translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.dw-mobile-menu {
+  animation: menu-rise 190ms var(--ease-out-quint) both;
+  transform-origin: top right;
+}
+
+.dw-hero-cards {
+  animation: hero-focus 780ms var(--ease-out-quint) 120ms both;
+}
+
+.dw-signal-field {
+  background:
+    linear-gradient(115deg, oklch(1 0 0 / 0.78), oklch(0.94 0.018 240 / 0.7) 48%, oklch(0.98 0.008 250 / 0.88)),
+    linear-gradient(90deg, oklch(0.66 0.12 245 / 0.09) 1px, transparent 1px),
+    linear-gradient(0deg, oklch(0.66 0.12 245 / 0.08) 1px, transparent 1px);
+  background-size: auto, 84px 84px, 84px 84px;
+}
+
+.dw-signal-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(110deg, transparent 0 42%, oklch(0.58 0.15 245 / 0.18) 42.1% 42.45%, transparent 42.55%),
+    linear-gradient(110deg, transparent 0 58%, oklch(0.64 0.12 185 / 0.14) 58.1% 58.45%, transparent 58.55%);
+  opacity: 0.9;
+}
+
+.dw-card-rise {
+  animation: card-rise 760ms var(--ease-out-quint) both;
+  transition:
+    transform 180ms var(--ease-out-quint),
+    box-shadow 180ms var(--ease-out-quint);
+}
+
+.dw-card-rise:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px oklch(0.24 0.04 250 / 0.12);
+}
+
+.dw-page-spanning-line {
+  height: 1px;
+  background: oklch(0.74 0.025 265 / 0.36);
+  overflow: hidden;
+}
+
+.dw-page-spanning-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, oklch(0.6 0.16 245 / 0.85), transparent);
+  transform: translateX(-100%);
+  animation: full-line-sweep 4.8s var(--ease-in-out-strong) infinite;
+}
+
+.dw-page-grid {
+  background:
+    radial-gradient(circle at 82% 14%, var(--dw-accent), transparent 22%),
+    linear-gradient(90deg, oklch(0.74 0.025 265 / 0.12) 1px, transparent 1px),
+    linear-gradient(0deg, oklch(0.74 0.025 265 / 0.12) 1px, transparent 1px);
+  background-size: auto, 72px 72px, 72px 72px;
+  opacity: 0.22;
+  mask-image: linear-gradient(to bottom, black 50%, transparent);
+}
+
+.dw-panel-enter {
+  animation: panel-enter 520ms var(--ease-out-quint) 90ms both;
+}
+
+.dw-snap-scroll {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.dw-snap-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.dw-snap-scroll > * {
+  scroll-snap-align: start;
+}
+
+@keyframes page-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes menu-rise {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-focus {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes full-line-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  48%,
+  58% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
