@@ -98,7 +98,7 @@ export const corePageConfigs: Record<
   }
 > = {
   "/leistungen/local-seo": {
-    headline: "Sichtbarkeit entsteht, wenn Suchintention, Standort und Vertrauen zusammenpassen.",
+    headline: "Besser gefunden werden.",
     lead:
       "SEO ist keine einzelne Maßnahme. Für deutsche Unternehmen wird es wirksam, wenn Leistungsseiten, lokale Signale, technische Grundlage und Kontaktwege gemeinsam gedacht werden.",
     columns: [
@@ -108,19 +108,19 @@ export const corePageConfigs: Record<
     ],
     proofTitle: "Woran bessere SEO-Arbeit sichtbar wird",
   },
-  "/leistungen/google-ads": {
-    headline: "Google Ads funktioniert besser, wenn Anzeige und Landingpage dieselbe Entscheidung vorbereiten.",
+  "/leistungen/paid-ads": {
+    headline: "Mehr Wirkung pro Klick.",
     lead:
-      "Budget allein löst kein Nachfrageproblem. Digitalwerk prüft Suchbegriffe, Anzeigenversprechen, Zielseite und Messung gemeinsam.",
+      "Budget allein löst kein Nachfrageproblem. Digitalwerk prüft Kanal, Zielgruppe, Anzeigenversprechen, Zielseite und Messung gemeinsam.",
     columns: [
-      { title: "Suchbegriffe", text: "Wir trennen konkrete Nachfrage von zu breiter Streuung und ordnen Kampagnen nach Absicht, Angebot und Budget." },
+      { title: "Kanalwahl", text: "Wir klären, ob Suche, Social, Video, Retargeting oder ein Mix der passende Weg für Angebot und Zielgruppe ist." },
       { title: "Landingpage", text: "Die Seite nach dem Klick muss das Anzeigenversprechen einlösen und den nächsten Schritt leicht machen." },
       { title: "Messung", text: "Conversions, Formulare, Anrufe und Entscheidungen werden so aufgesetzt, dass aus Daten echte Prioritäten werden." },
     ],
     proofTitle: "Woran bessere Kampagnen erkennbar werden",
   },
   "/leistungen/webdesign": {
-    headline: "Eine Website muss nicht lauter werden. Sie muss schneller verstanden werden.",
+    headline: "Schneller verstanden werden.",
     lead:
       "Gutes Webdesign macht Angebot, Zielgruppe, Belege und nächsten Schritt klar. Der visuelle Auftritt unterstützt diese Entscheidung, statt sie zu überdecken.",
     columns: [

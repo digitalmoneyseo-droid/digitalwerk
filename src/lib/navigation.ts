@@ -15,7 +15,9 @@ export type IconName =
   | "Search"
   | "SearchCheck"
   | "Share2"
+  | "Sparkles"
   | "Target"
+  | "Video"
   | "X";
 
 export type MenuKey = "services" | "work";

@@ -17,98 +17,98 @@ export const siteContent = {
     menuClose: "Menü schließen",
     servicesLabel: "Leistungen",
     workLabel: "Arbeiten",
-    ctaLabel: "Kostenlose Erstberatung",
+    ctaLabel: "Erstberatung",
   },
   globalCta: {
     eyebrow: "Nächster Schritt",
-    title: "Lass uns klären, welcher Hebel für dein Unternehmen zuerst Sinn ergibt.",
-    lead: "In einem kurzen Erstgespräch ordnen wir Website, Sichtbarkeit, Kampagnen und Ziele ein. Danach weißt du, ob Webdesign, SEO, Ads oder Branding der sinnvollste Startpunkt ist.",
-    primaryLabel: "Kostenlose Erstberatung anfragen",
+    title: "Klarer Startpunkt. Saubere Umsetzung.",
+    lead: "Im Erstgespräch ordnen wir Website, Sichtbarkeit und Kampagnen ein. Danach ist klar, welcher Schritt zuerst Sinn ergibt.",
+    primaryLabel: "Erstberatung anfragen",
     secondaryLabel: "Preise ansehen",
   },
   home: {
     one: {
       routeLabel: "Startseite",
       conceptName: "Finale Homepage",
-      heroBadge: "Webdesign, SEO & Performance Marketing für Unternehmen in Deutschland",
-      title: "Websites und Marketing, die aus Besuchern echte Anfragen machen.",
+      heroBadge: "Webdesign, SEO & Performance Marketing",
+      title: "Websites, die Anfragen gewinnen.",
       lead:
-        "Digitalwerk entwickelt professionelle Websites, SEO-Strukturen und Kampagnen für Unternehmen, die online klarer auftreten und mehr passende Kunden gewinnen wollen.",
-      primaryCta: "Kostenlose Erstberatung anfragen",
+        "Digitalwerk baut klare Websites, SEO-Strukturen und Kampagnen für Unternehmen, die professioneller auftreten und mehr passende Kunden erreichen wollen.",
+      primaryCta: "Erstberatung anfragen",
       secondaryCta: "Leistungen ansehen",
-      audienceLine: ["Lokale Dienstleister", "B2B", "E-Commerce", "Praxen und Kanzleien", "Handwerk", "Bildung und Beratung"],
-      serviceRunwayTitle: "Leistungen, die zusammenarbeiten.",
+      audienceLine: ["Lokale Dienstleister", "B2B", "E-Commerce", "Praxen & Kanzleien", "Handwerk"],
+      serviceRunwayTitle: "Leistungen",
       serviceRunwayLead:
-        "Eine Website wirkt besser, wenn sie mit Suchintention, Kampagnen, Markenauftritt und Kontaktweg verbunden ist. Digitalwerk ordnet diese Teile so, dass Besucher schneller verstehen, warum sie anfragen sollten.",
+        "Website, Suche, Kampagnen und Marke greifen besser, wenn sie einem klaren Plan folgen.",
       services: [
         {
           title: "Webdesign",
           href: "/leistungen/webdesign",
-          text: "Websites, Landingpages und Relaunches, die Angebot, Vertrauen und Anfrageführung klar machen.",
+          text: "Websites und Landingpages, die Angebot, Vertrauen und nächsten Schritt klar machen.",
         },
         {
           title: "SEO",
           href: "/leistungen/local-seo",
-          text: "Struktur, Inhalte und Technik für bessere Sichtbarkeit in Google und lokalen Suchergebnissen.",
+          text: "Struktur, Inhalte und Technik für bessere Sichtbarkeit in Google.",
         },
         {
-          title: "Google Ads",
-          href: "/leistungen/google-ads",
-          text: "Kampagnen, Landingpages und Tracking, damit Budget gezielt zu Anfragen führt.",
+          title: "Paid Ads",
+          href: "/leistungen/paid-ads",
+          text: "Werbekampagnen über Google, Meta und weitere Kanäle mit klarer Budgetlogik.",
         },
         {
           title: "Social Media",
           href: "/leistungen/social-media",
-          text: "Content-Serien, Kampagnen und Anzeigenmotive mit erkennbarem Rhythmus für mehr Vertrauen vor der Anfrage.",
+          text: "Content-Serien und Anzeigenmotive mit wiedererkennbarem Rhythmus.",
         },
         {
           title: "Branding",
           href: "/leistungen/branding",
-          text: "Positionierung, Tonalität und visuelle Identität für einen professionellen, wiedererkennbaren Auftritt.",
+          text: "Positionierung, Tonalität und visuelle Identität für einen starken Auftritt.",
         },
         {
           title: "KI & Automatisierung",
           href: "/leistungen/geo",
-          text: "Sinnvolle Automatisierungen, Chatbots und KI-Workflows, wenn sie deinem Unternehmen wirklich helfen.",
+          text: "Chatbots, GEO und Workflows mit messbarem Nutzen.",
         },
       ],
-      projectTypesTitle: "Projektarten, die wir umsetzen",
+      projectTypesTitle: "Projektarten",
       projectTypesLead:
-        "Bis reale Kundencases öffentlich freigegeben sind, zeigen wir lieber ehrlich, welche Projektarten Digitalwerk typischerweise übernimmt.",
+        "Keine künstlichen Erfolgszahlen. Nur typische Arbeiten, bei denen Digitalwerk sinnvoll startet.",
       projectTypes: [
         {
-          title: "Relaunch für lokale Dienstleister",
-          text: "Neue Seitenstruktur, bessere Angebotsführung, lokale SEO-Grundlagen und ein Kontaktweg, der auf Anfragen statt nur auf Optik ausgelegt ist.",
+          title: "Relaunch",
+          text: "Neue Seitenstruktur, bessere Angebotsführung, lokale SEO-Grundlagen und ein Kontaktweg, der auf Anfragen ausgelegt ist.",
         },
         {
-          title: "SEO-Struktur für Praxis oder Kanzlei",
-          text: "Leistungsseiten, Standortsignale, Google Business Profile, interne Verlinkung und verständliche Inhalte für Suchanfragen in der Region.",
+          title: "SEO-Struktur",
+          text: "Leistungsseiten, Standortsignale, interne Verlinkung und verständliche Inhalte für relevante Suchanfragen.",
         },
         {
-          title: "Landingpage für Google Ads",
-          text: "Eine Kampagnenseite, die Anzeige, Suchintention, Angebot, Belege und Anfrageformular sauber miteinander verbindet.",
+          title: "Ads-Landingpage",
+          text: "Eine Kampagnenseite, die Anzeige, Suchintention, Angebot, Belege und Anfrageformular verbindet.",
         },
       ],
       whyTitle: "Warum Digitalwerk",
       whyItems: [
         {
           title: "Strategie vor Design",
-          text: "Wir klären zuerst Angebot, Zielgruppe, Suchintention und Conversion-Ziel, bevor Layouts oder Kampagnen gebaut werden.",
+          text: "Erst werden Angebot, Zielgruppe und Ziel geklärt. Danach entsteht das Interface.",
         },
         {
-          title: "Design, das verkauft",
-          text: "Layouts, Texte und Komponenten führen Besucher gezielt zur Anfrage, ohne die Marke beliebig wirken zu lassen.",
+          title: "Design mit Führung",
+          text: "Layouts, Texte und Komponenten zeigen Besuchern schnell, was wichtig ist.",
         },
         {
-          title: "Sichtbarkeit mit Struktur",
-          text: "SEO, Inhalte und technische Grundlagen werden von Anfang an mitgedacht, nicht erst nach dem Launch ergänzt.",
+          title: "Sichtbarkeit von Anfang an",
+          text: "SEO, Inhalte und Technik werden in die Struktur eingebaut.",
         },
         {
-          title: "Umsetzung ohne Agenturtheater",
-          text: "Klare Schritte, klare Prioritäten und verständliche Kommunikation statt Folien, die nach dem Termin liegen bleiben.",
+          title: "Klare Zusammenarbeit",
+          text: "Weniger Präsentationstheater, mehr saubere Prioritäten und sichtbarer Fortschritt.",
         },
       ],
-      processTitle: "So läuft die Zusammenarbeit",
+      processTitle: "Ablauf",
       process: [
         {
           title: "Erstberatung",
@@ -129,7 +129,7 @@ export const siteContent = {
       ],
       finalCtaTitle: "Bereit für einen klareren digitalen Auftritt?",
       finalCtaLead:
-        "Beschreibe kurz dein Unternehmen, dein Ziel und die aktuelle Website. Wir melden uns mit einer ehrlichen Einschätzung und einem sinnvollen nächsten Schritt.",
+        "Beschreibe kurz Unternehmen, Ziel und Website. Wir melden uns mit einer ehrlichen Einschätzung und einem sinnvollen nächsten Schritt.",
     },
   },
   subpages: [
@@ -166,12 +166,12 @@ export const siteContent = {
       bullets: ["GEO und KI-Sichtbarkeit", "Chatbots und Workflows", "Automatisierungen mit praktischem Nutzen"],
     },
     {
-      href: "/leistungen/google-ads",
-      title: "Google Ads",
+      href: "/leistungen/paid-ads",
+      title: "Paid Ads",
       category: "Paid Advertising",
       intro:
-        "Google Ads erreicht Menschen genau dann, wenn sie aktiv suchen, vergleichen oder kaufen wollen. Entscheidend ist, dass Kampagne, Landingpage und Tracking zusammenpassen.",
-      bullets: ["Search, Shopping und Performance Max", "Landingpage-Abgleich", "Conversion-Tracking und Budgetsteuerung"],
+        "Paid Ads machen Angebote über Google, Meta und weitere Kanäle sichtbar. Entscheidend ist, dass Kampagnen, Zielgruppen, Landingpages, Tracking und Budgetsteuerung zusammenpassen.",
+      bullets: ["Kampagnenstrategie über passende Kanäle", "Landingpage- und Anzeigenabgleich", "Conversion-Tracking und Budgetsteuerung"],
     },
     {
       href: "/leistungen/meta-ads",
@@ -212,6 +212,14 @@ export const siteContent = {
       intro:
         "Webdesign ist für viele Unternehmen der wichtigste digitale Verkaufsraum. Eine gute Website erklärt Angebot, Vertrauen und nächsten Schritt in wenigen Sekunden.",
       bullets: ["Informationsarchitektur", "Responsive UI", "Conversion und Launch-Check"],
+    },
+    {
+      href: "/leistungen/website-hilfe",
+      title: "1:1 Website-Hilfe",
+      category: "Digital Design",
+      intro:
+        "1:1 Website-Hilfe unterstützt Unternehmen live per Screen-Sharing, wenn konkrete Fragen, kleine Verbesserungen oder schnelle Entscheidungen an der Website anstehen.",
+      bullets: ["Live-Screen-Sharing", "UX- und Conversion-Feedback", "Konkrete nächste Schritte"],
     },
     {
       href: "/leistungen/app-design",
@@ -367,11 +375,11 @@ export const siteContent = {
       ["Klarere digitale Expertise", "Weniger manuelle Routinearbeit", "Bessere Vorbereitung auf KI-gestützte Suche"],
       "KI-Potenzial einordnen",
     ),
-    "/leistungen/google-ads": detail(
-      "Warum Google Ads oft der schnellste Nachfragehebel ist",
-      "Google Ads kann sofort Sichtbarkeit erzeugen, wenn Menschen aktiv suchen. Nachhaltig wird der Kanal erst, wenn Keywords, Anzeigen, Landingpages, Tracking und Budgetlogik zusammenpassen.",
-      ["Budget läuft auf breite oder schwache Suchbegriffe.", "Landingpages passen nicht zur Anzeige.", "Conversions werden falsch oder unvollständig gemessen."],
-      ["Kampagnenarchitektur für Search, Shopping, Performance Max oder YouTube.", "Abgleich von Keywords, Anzeigen, Suchbegriffen und Landingpages.", "Conversion-Tracking, Tests, Budgetsteuerung und Reporting."],
+    "/leistungen/paid-ads": detail(
+      "Warum Paid Ads schnelle Nachfrage und Reichweite schaffen",
+      "Paid Ads können sofort Sichtbarkeit erzeugen, wenn Angebot, Zielgruppe, Kanal und Zielseite zusammenpassen. Nachhaltig wird der Kanal erst, wenn Kampagnen, Anzeigenmotive, Tracking und Budgetlogik gemeinsam gesteuert werden.",
+      ["Budget läuft auf zu breite Zielgruppen oder schwache Suchbegriffe.", "Landingpages passen nicht zum Anzeigenversprechen.", "Conversions werden falsch oder unvollständig gemessen."],
+      ["Kampagnenarchitektur für Google, Meta, YouTube, LinkedIn oder weitere passende Kanäle.", "Abgleich von Zielgruppen, Keywords, Anzeigen, Creatives und Landingpages.", "Conversion-Tracking, Tests, Budgetsteuerung und Reporting."],
       ["Mehr Anfragen pro Budget", "Weniger Streuverlust", "Klarere Entscheidungen für Skalierung"],
       "Kampagne prüfen lassen",
     ),
@@ -414,6 +422,14 @@ export const siteContent = {
       ["Informationsarchitektur, Seitenstruktur, UX-Texte und Conversion-Flows.", "Responsive UI, visuelle Richtung und Komponenten.", "SEO-Grundlagen, Performance, Tracking und Launch-Check."],
       ["Klarere Website-Struktur", "Mehr Vertrauen in wenigen Sekunden", "Bessere Grundlage für SEO und Ads"],
       "Webdesign-Projekt besprechen",
+    ),
+    "/leistungen/website-hilfe": detail(
+      "Warum direkte Website-Hilfe oft schneller wirkt",
+      "Nicht jede Website-Frage braucht ein großes Projekt. In einer Live-Session lassen sich Struktur, Texte, Kontaktwege oder kleine Conversion-Hürden direkt anschauen und priorisieren.",
+      ["Du weißt, dass die Website bremst, aber nicht welcher Punkt zuerst wichtig ist.", "Kleine Entscheidungen ziehen sich hin, weil fachlicher Blick von außen fehlt.", "Es gibt konkrete Fragen zu Layout, Text, SEO-Grundlagen oder Anfragewegen."],
+      ["Live-Screen-Sharing mit einem echten Webdesigner.", "Schnelle UX-, Text- und Conversion-Einschätzung anhand deiner Website.", "Priorisierte Aufgabenliste für die nächsten sinnvollen Verbesserungen."],
+      ["Schnellere Entscheidungen", "Klarere nächste Schritte", "Besserer Blick auf echte Website-Hürden"],
+      "Website-Hilfe anfragen",
     ),
     "/leistungen/app-design": detail(
       "Warum App Design Klarheit vor Oberfläche braucht",

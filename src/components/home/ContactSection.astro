@@ -5,18 +5,16 @@ import { siteContent } from "../../data/siteContent";
 const content = siteContent.home.one;
 ---
 
-<section class="bg-[oklch(0.96_0.012_250)] px-5 py-16 md:py-24" id="kontakt">
-  <div class="mx-auto grid max-w-[1320px] gap-8 border-y border-[oklch(0.78_0.03_250)] py-8 md:grid-cols-[0.7fr_0.3fr] md:items-center">
-    <div>
-      <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{content.finalCtaTitle}</h2>
-      <p class="mt-5 max-w-2xl text-pretty text-base font-semibold leading-8 text-[oklch(0.36_0.04_260)]">{content.finalCtaLead}</p>
-    </div>
+<section class="px-5 py-20 md:py-28" id="kontakt">
+  <div class="mx-auto max-w-[900px] text-center">
+    <h2 class="text-balance font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-6xl">{content.finalCtaTitle}</h2>
+    <p class="mx-auto mt-6 max-w-2xl text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">{content.finalCtaLead}</p>
     <a
       href="/kontakt"
-      class="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[oklch(0.18_0.025_260)] px-5 py-3 text-sm font-black text-white shadow-[0_12px_28px_oklch(0.18_0.035_260/0.18)] transition hover:-translate-y-0.5 hover:bg-[oklch(0.33_0.095_250)] active:translate-y-0"
+      class="group mt-9 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[oklch(0.14_0.025_260)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.18_0.035_260/0.14)] transition hover:-translate-y-0.5 hover:bg-[oklch(0.28_0.08_250)] active:translate-y-0"
     >
       Projekt besprechen
-      <Icon name="ArrowRight" size={17} class="transition-transform group-hover:translate-x-0.5" />
+      <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
     </a>
   </div>
 </section>

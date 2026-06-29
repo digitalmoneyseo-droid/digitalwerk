@@ -20,11 +20,11 @@ const resourceLinks = [
   <div class="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr]">
     <div>
       <a href="/" class="inline-flex items-center gap-2 rounded-full outline-none transition hover:translate-x-0.5">
-        <span class="grid h-10 w-10 place-items-center rounded-full bg-[oklch(0.16_0.025_260)] font-impact text-sm text-white">D</span>
-        <span class="font-display text-lg font-black">{siteContent.brand.name}</span>
+        <span class="grid h-10 w-10 place-items-center rounded-full bg-[oklch(0.18_0.03_260)] font-display text-sm font-black text-white">D</span>
+        <span class="font-display text-lg font-extrabold">{siteContent.brand.name}</span>
       </a>
       <p class="mt-5 max-w-md text-sm font-semibold leading-7 text-[oklch(0.38_0.04_260)]">
-        {siteContent.meta.defaultDescription}
+        Webdesign, SEO und Kampagnen für Unternehmen, die klarer auftreten und bessere Anfragen gewinnen wollen.
       </p>
       <a class="mt-5 inline-block text-sm font-black text-[oklch(0.36_0.11_245)]" href={`mailto:${siteContent.brand.email}`}>
         {siteContent.brand.email}
@@ -32,19 +32,19 @@ const resourceLinks = [
     </div>
     <nav class="grid gap-8 sm:grid-cols-3" aria-label="Footer">
       <div>
-        <p class="font-display text-lg font-semibold">Leistungen</p>
+        <p class="font-display text-lg font-extrabold">Leistungen</p>
         <div class="mt-4 grid gap-3">
           {serviceLinks.map((link) => <a href={link.href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{link.title}</a>)}
         </div>
       </div>
       <div>
-        <p class="font-display text-lg font-semibold">Agentur</p>
+        <p class="font-display text-lg font-extrabold">Agentur</p>
         <div class="mt-4 grid gap-3">
           {companyLinks.map(([label, href]) => <a href={href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{label}</a>)}
         </div>
       </div>
       <div>
-        <p class="font-display text-lg font-semibold">Ressourcen</p>
+        <p class="font-display text-lg font-extrabold">Ressourcen</p>
         <div class="mt-4 grid gap-3">
           {resourceLinks.map(([label, href]) => <a href={href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{label}</a>)}
         </div>

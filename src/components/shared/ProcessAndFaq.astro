@@ -14,15 +14,15 @@ const labels = siteContent.pageDetailLabels;
 {
   (process.length || faq.length) ? (
     <SectionShell>
-      <div class="mx-auto grid max-w-[1440px] min-w-0 gap-10 lg:grid-cols-[minmax(0,0.58fr)_minmax(0,0.42fr)]">
+      <div class="mx-auto grid max-w-[1180px] min-w-0 gap-12 lg:grid-cols-[minmax(0,0.5fr)_minmax(0,0.5fr)]">
         {process.length ? (
           <div class="min-w-0">
-            <h2 class="font-display text-4xl font-semibold leading-tight md:text-5xl">{labels.process}</h2>
-            <div class="dw-snap-scroll mt-8 flex max-w-full gap-3 overflow-x-auto pb-3 md:grid md:grid-cols-4 md:overflow-visible">
+            <h2 class="font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-5xl">{labels.process}</h2>
+            <div class="mt-8 border-t border-[var(--dw-line)]">
               {process.map((step, index) => (
-                <div class="min-w-[235px] border-t-4 border-[var(--dw-accent)] bg-white p-4 md:min-w-0">
+                <div class="grid grid-cols-[70px_1fr] items-center border-b border-[var(--dw-line)] py-5">
                   <span class="font-display text-3xl font-semibold text-[var(--dw-accent)]">{String(index + 1).padStart(2, "0")}</span>
-                  <p class="mt-8 font-display text-xl font-semibold">{step}</p>
+                  <p class="font-impact text-base font-extrabold">{step}</p>
                 </div>
               ))}
             </div>
@@ -30,15 +30,15 @@ const labels = siteContent.pageDetailLabels;
         ) : null}
         {faq.length ? (
           <div class="min-w-0">
-            <h2 class="mb-6 font-display text-3xl font-semibold">{labels.faq}</h2>
-            <div class="grid gap-3">
+            <h2 class="font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-5xl">{labels.faq}</h2>
+            <div class="mt-8 border-t border-[var(--dw-line)]">
               {faq.map((item) => (
-                <details class="group rounded-xl border border-[oklch(0.88_0.02_265)] bg-white p-4 shadow-sm transition hover:border-[oklch(0.72_0.04_265)]">
-                  <summary class="cursor-pointer list-none rounded-lg font-display text-xl font-semibold outline-none focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[var(--dw-accent)]">
+                <details class="group border-b border-[var(--dw-line)] py-5">
+                  <summary class="cursor-pointer list-none font-impact text-base font-extrabold outline-none focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[var(--dw-accent)]">
                     {item.question}
                     <span class="float-right transition group-open:rotate-45">+</span>
                   </summary>
-                  <p class="mt-4 text-sm font-semibold leading-7 text-[oklch(0.34_0.04_265)]">{item.answer}</p>
+                  <p class="mt-4 text-sm font-semibold leading-7 text-[oklch(0.48_0.04_265)]">{item.answer}</p>
                 </details>
               ))}
             </div>

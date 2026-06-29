@@ -1,11 +1,12 @@
 ---
-import { siteContent } from "../../data/siteContent";
-
-const content = siteContent.home.one;
+const industries = ["Lokale Dienstleister", "B2B", "E-Commerce", "Praxen", "Kanzleien", "Handwerk"];
 ---
 
-<section class="border-y border-[oklch(0.88_0.018_250)] bg-white px-5 py-6" aria-label="Zielgruppen">
-  <div class="mx-auto flex max-w-[1320px] flex-wrap items-center justify-center gap-3 md:justify-between">
-    {content.audienceLine.map((item) => <span class="rounded-full border border-[oklch(0.88_0.018_250)] bg-[oklch(0.98_0.008_250)] px-4 py-2 text-sm font-black text-[oklch(0.31_0.035_260)]">{item}</span>)}
+<section class="bg-white px-5 py-14" aria-label="Branchen">
+  <div class="mx-auto max-w-[1180px]">
+    <p class="text-center text-[12px] font-black uppercase tracking-[0.28em] text-[oklch(0.78_0.03_250)]">Für Unternehmen, die online klarer verkaufen wollen</p>
+    <div class="dw-reveal-stagger mt-10 grid grid-cols-2 gap-x-8 gap-y-6 text-center sm:grid-cols-3 lg:grid-cols-6">
+      {industries.map((item) => <span class="font-impact text-sm font-extrabold text-[oklch(0.64_0.03_260)]">{item}</span>)}
+    </div>
   </div>
 </section>

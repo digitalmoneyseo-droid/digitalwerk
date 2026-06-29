@@ -1,26 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Unbounded:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-body: "Manrope", system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", "Manrope", system-ui, sans-serif;
-  --font-editorial: "Source Serif 4", Georgia, serif;
-  --font-impact: "Unbounded", "Bricolage Grotesque", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-editorial: "Cormorant Garamond", Georgia, serif;
+  --font-impact: "Manrope", system-ui, sans-serif;
   --font-utility: "Azeret Mono", ui-monospace, SFMono-Regular, monospace;
-  --shadow-hard-violet: 10px 10px 0 oklch(0.7 0.12 270 / 0.32);
-  --shadow-hard-ink: 8px 8px 0 oklch(0.16 0.02 270);
 }
 
 :root {
   color-scheme: light;
   font-family: "Manrope", system-ui, sans-serif;
-  background: oklch(1 0 0);
-  color: oklch(0.17 0.025 265);
+  background: oklch(0.975 0.014 245);
+  color: oklch(0.17 0.025 260);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --dw-ink: oklch(0.2 0.035 260);
+  --dw-ink-soft: oklch(0.47 0.04 260);
+  --dw-line: oklch(0.86 0.02 250);
+  --dw-surface: oklch(0.998 0.001 250);
+  --dw-blue: oklch(0.56 0.14 245);
+  --dw-navy: oklch(0.18 0.03 260);
+  --dw-wash-blue: oklch(0.955 0.022 245);
 }
 
 * {
@@ -35,6 +40,20 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, oklch(0.92 0.04 235 / 0.72), transparent 38rem),
+    linear-gradient(180deg, oklch(0.975 0.014 245), white 42rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", "Manrope", system-ui, sans-serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0;
 }
 
 button,
@@ -60,7 +79,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid oklch(0.58 0.15 245);
+  outline: 3px solid var(--dw-blue);
   outline-offset: 4px;
 }
 
@@ -74,19 +93,16 @@ textarea:focus-visible {
 }
 
 .dw-menu-panel {
-  transform: translateX(-50%) translateY(8px) scale(0.985);
+  transform: translate(-50%, 8px);
   transform-origin: top center;
-  filter: blur(3px);
   transition:
     opacity 180ms var(--ease-out-quint),
     visibility 180ms var(--ease-out-quint),
-    transform 180ms var(--ease-out-quint),
-    filter 180ms var(--ease-out-quint);
+    transform 180ms var(--ease-out-quint);
 }
 
 .dw-menu-panel.visible {
-  transform: translateX(-50%) translateY(0) scale(1);
-  filter: blur(0);
+  transform: translate(-50%, 0);
 }
 
 .dw-desktop-menu:hover .dw-menu-panel,
@@ -94,8 +110,7 @@ textarea:focus-visible {
   pointer-events: auto;
   visibility: visible;
   opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
-  filter: blur(0);
+  transform: translate(-50%, 0);
 }
 
 .dw-desktop-menu:hover [data-menu-chevron],
@@ -108,67 +123,70 @@ textarea:focus-visible {
   transform-origin: top right;
 }
 
-.dw-hero-cards {
-  animation: hero-focus 780ms var(--ease-out-quint) 120ms both;
-}
-
 .dw-signal-field {
   background:
-    linear-gradient(115deg, oklch(1 0 0 / 0.78), oklch(0.94 0.018 240 / 0.7) 48%, oklch(0.98 0.008 250 / 0.88)),
-    linear-gradient(90deg, oklch(0.66 0.12 245 / 0.09) 1px, transparent 1px),
-    linear-gradient(0deg, oklch(0.66 0.12 245 / 0.08) 1px, transparent 1px);
-  background-size: auto, 84px 84px, 84px 84px;
-}
-
-.dw-signal-field::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(110deg, transparent 0 42%, oklch(0.58 0.15 245 / 0.18) 42.1% 42.45%, transparent 42.55%),
-    linear-gradient(110deg, transparent 0 58%, oklch(0.64 0.12 185 / 0.14) 58.1% 58.45%, transparent 58.55%);
-  opacity: 0.9;
-}
-
-.dw-card-rise {
-  animation: card-rise 760ms var(--ease-out-quint) both;
-  transition:
-    transform 180ms var(--ease-out-quint),
-    box-shadow 180ms var(--ease-out-quint);
-}
-
-.dw-card-rise:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 34px oklch(0.24 0.04 250 / 0.12);
+    radial-gradient(circle at 50% 0%, oklch(0.9 0.045 240 / 0.85), transparent 35rem),
+    linear-gradient(180deg, oklch(0.972 0.017 245), oklch(1 0 0) 42rem);
 }
 
 .dw-page-spanning-line {
   height: 1px;
-  background: oklch(0.74 0.025 265 / 0.36);
+  background: oklch(0.86 0.02 250);
   overflow: hidden;
 }
 
 .dw-page-spanning-line::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, oklch(0.6 0.16 245 / 0.85), transparent);
-  transform: translateX(-100%);
-  animation: full-line-sweep 4.8s var(--ease-in-out-strong) infinite;
+  display: none;
 }
 
 .dw-page-grid {
   background:
-    radial-gradient(circle at 82% 14%, var(--dw-accent), transparent 22%),
-    linear-gradient(90deg, oklch(0.74 0.025 265 / 0.12) 1px, transparent 1px),
-    linear-gradient(0deg, oklch(0.74 0.025 265 / 0.12) 1px, transparent 1px);
-  background-size: auto, 72px 72px, 72px 72px;
-  opacity: 0.22;
-  mask-image: linear-gradient(to bottom, black 50%, transparent);
+    radial-gradient(circle at 50% 0%, oklch(0.91 0.04 240 / 0.72), transparent 38rem),
+    linear-gradient(180deg, var(--dw-wash), white 42rem);
+  opacity: 1;
+  mask-image: linear-gradient(to bottom, black 46%, transparent);
 }
 
 .dw-panel-enter {
   animation: panel-enter 520ms var(--ease-out-quint) 90ms both;
+}
+
+.dw-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms var(--ease-out-quint),
+    transform 700ms var(--ease-out-quint);
+}
+
+.dw-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dw-reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 620ms var(--ease-out-quint),
+    transform 620ms var(--ease-out-quint);
+}
+
+.dw-reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dw-reveal-stagger.is-visible > *:nth-child(2) {
+  transition-delay: 90ms;
+}
+
+.dw-reveal-stagger.is-visible > *:nth-child(3) {
+  transition-delay: 180ms;
+}
+
+.dw-reveal-stagger.is-visible > *:nth-child(4) {
+  transition-delay: 270ms;
 }
 
 .dw-snap-scroll {
@@ -202,32 +220,6 @@ textarea:focus-visible {
     opacity: 0;
     transform: translateY(-8px) scale(0.98);
     filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes hero-focus {
-  from {
-    opacity: 0;
-    transform: translateY(22px) scale(0.985);
-    filter: blur(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes card-rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.985);
-    filter: blur(8px);
   }
   to {
     opacity: 1;

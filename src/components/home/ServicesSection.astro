@@ -4,31 +4,30 @@ import { siteContent } from "../../data/siteContent";
 import type { IconName } from "../../lib/navigation";
 
 const content = siteContent.home.one;
-const serviceIcons: IconName[] = ["Monitor", "Search", "Megaphone", "Layers", "Palette", "Bot"];
+const serviceIcons: IconName[] = ["Monitor", "Search", "Megaphone", "Share2", "Palette", "Sparkles"];
 ---
 
-<section class="px-5 py-16 md:py-24" id="leistungen">
-  <div class="mx-auto max-w-[1320px]">
-    <div class="grid gap-6 md:grid-cols-[0.6fr_0.4fr] md:items-end">
-      <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-6xl">{content.serviceRunwayTitle}</h2>
-      <p class="text-pretty text-base font-semibold leading-8 text-[oklch(0.36_0.04_260)]">{content.serviceRunwayLead}</p>
+<section class="bg-white px-5 py-16 md:py-24" id="leistungen">
+  <div class="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
+    <div class="dw-reveal">
+      <h2 class="text-balance font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-5xl">{content.serviceRunwayTitle}</h2>
+      <p class="mt-5 max-w-md text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">{content.serviceRunwayLead}</p>
     </div>
-    <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="dw-reveal-stagger border-t border-[var(--dw-line)]">
       {
         content.services.map((service, index) => (
           <a
             href={service.href}
-            class="group grid min-h-[260px] rounded-2xl border border-[oklch(0.84_0.022_250)] bg-white p-5 shadow-[0_8px_22px_oklch(0.2_0.03_250/0.055)] transition hover:-translate-y-1 hover:border-[oklch(0.52_0.12_245)] hover:shadow-[0_16px_38px_oklch(0.2_0.03_250/0.11)] active:translate-y-0"
+            class="group grid gap-4 border-b border-[var(--dw-line)] py-6 transition hover:bg-[oklch(0.985_0.008_245)] sm:grid-cols-[54px_1fr_auto] sm:items-center"
           >
-            <span class="grid h-11 w-11 place-items-center rounded-xl bg-[oklch(0.95_0.032_245)] text-[oklch(0.42_0.13_245)] transition group-hover:bg-[oklch(0.88_0.055_245)]">
-              <Icon name={serviceIcons[index] ?? "Monitor"} size={23} />
+            <span class="grid h-11 w-11 place-items-center rounded-[12px] bg-[oklch(0.94_0.032_245)] text-[oklch(0.5_0.14_245)]">
+              <Icon name={serviceIcons[index] ?? "Monitor"} size={19} />
             </span>
-            <h3 class="mt-7 font-display text-2xl font-semibold">{service.title}</h3>
-            <p class="mt-3 text-sm font-semibold leading-7 text-[oklch(0.38_0.035_260)]">{service.text}</p>
-            <span class="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-black text-[oklch(0.36_0.11_245)]">
-              Mehr erfahren
-              <Icon name="ArrowRight" size={15} class="transition-transform group-hover:translate-x-1" />
+            <span>
+              <span class="block font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">{service.title}</span>
+              <span class="mt-1 block text-sm font-semibold leading-6 text-[oklch(0.5_0.04_260)]">{service.text}</span>
             </span>
+            <Icon name="ArrowRight" size={17} class="hidden text-[oklch(0.58_0.14_245)] transition-transform group-hover:translate-x-1 sm:block" />
           </a>
         ))
       }
