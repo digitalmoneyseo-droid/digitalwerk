@@ -1,0 +1,21 @@
+---
+import { siteContent } from "../../data/siteContent";
+
+const content = siteContent.home.one;
+---
+
+<section class="px-5 py-16 md:py-24">
+  <div class="mx-auto max-w-[1320px]">
+    <h2 class="max-w-3xl text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{content.whyTitle}</h2>
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {
+        content.whyItems.map((item) => (
+          <article class="border-t border-[oklch(0.82_0.02_250)] py-6">
+            <h3 class="font-display text-2xl font-semibold">{item.title}</h3>
+            <p class="mt-3 text-sm font-semibold leading-7 text-[oklch(0.36_0.04_260)]">{item.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

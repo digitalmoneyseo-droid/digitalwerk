@@ -1,0 +1,58 @@
+---
+import { siteContent } from "../data/siteContent";
+
+const serviceLinks = siteContent.home.one.services.slice(0, 6);
+const companyLinks = [
+  ["Über uns", "/agentur"],
+  ["Methode", "/methode"],
+  ["Preise", "/preise"],
+  ["Arbeiten", "/cases"],
+  ["Kontakt", "/kontakt"],
+] as const;
+const resourceLinks = [
+  ["Briefing-Vorlage", "/ressourcen/briefing"],
+  ["Marketing-Notizen", "/ressourcen/notizen"],
+  ["Enterprise", "/enterprise"],
+] as const;
+---
+
+<footer class="border-t border-[oklch(0.86_0.018_250)] bg-white px-5 py-12 text-[oklch(0.18_0.025_260)]">
+  <div class="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+    <div>
+      <a href="/" class="inline-flex items-center gap-2 rounded-full outline-none transition hover:translate-x-0.5">
+        <span class="grid h-10 w-10 place-items-center rounded-full bg-[oklch(0.16_0.025_260)] font-impact text-sm text-white">D</span>
+        <span class="font-display text-lg font-black">{siteContent.brand.name}</span>
+      </a>
+      <p class="mt-5 max-w-md text-sm font-semibold leading-7 text-[oklch(0.38_0.04_260)]">
+        {siteContent.meta.defaultDescription}
+      </p>
+      <a class="mt-5 inline-block text-sm font-black text-[oklch(0.36_0.11_245)]" href={`mailto:${siteContent.brand.email}`}>
+        {siteContent.brand.email}
+      </a>
+    </div>
+    <nav class="grid gap-8 sm:grid-cols-3" aria-label="Footer">
+      <div>
+        <p class="font-display text-lg font-semibold">Leistungen</p>
+        <div class="mt-4 grid gap-3">
+          {serviceLinks.map((link) => <a href={link.href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{link.title}</a>)}
+        </div>
+      </div>
+      <div>
+        <p class="font-display text-lg font-semibold">Agentur</p>
+        <div class="mt-4 grid gap-3">
+          {companyLinks.map(([label, href]) => <a href={href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{label}</a>)}
+        </div>
+      </div>
+      <div>
+        <p class="font-display text-lg font-semibold">Ressourcen</p>
+        <div class="mt-4 grid gap-3">
+          {resourceLinks.map(([label, href]) => <a href={href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{label}</a>)}
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="mx-auto mt-10 flex max-w-[1320px] flex-col gap-2 border-t border-[oklch(0.88_0.018_250)] pt-5 text-xs font-bold text-[oklch(0.48_0.035_260)] sm:flex-row sm:items-center sm:justify-between">
+    <p>{siteContent.brand.location} · {siteContent.brand.addressLine}</p>
+    <p>© {new Date().getFullYear()} {siteContent.brand.name}</p>
+  </div>
+</footer>

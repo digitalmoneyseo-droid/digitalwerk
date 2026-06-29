@@ -1,0 +1,312 @@
+---
+import Icon from "./Icon.astro";
+import { siteContent } from "../data/siteContent";
+import { normalizePath } from "../lib/pageContent";
+import type { NavGroup } from "../lib/navigation";
+
+const navTone = {
+  shell: "border-[oklch(0.87_0.016_250)] bg-white text-[oklch(0.16_0.025_260)] shadow-[0_10px_28px_oklch(0.2_0.035_250/0.12)]",
+  brand: "bg-[oklch(0.16_0.025_260)] text-white",
+  link: "text-[oklch(0.27_0.035_260)] hover:bg-[oklch(0.96_0.012_250)] hover:text-[oklch(0.12_0.025_260)]",
+  active: "bg-[oklch(0.95_0.018_245)] text-[oklch(0.32_0.11_245)]",
+  panel: "border-[oklch(0.9_0.018_250)] bg-white text-[oklch(0.18_0.025_260)]",
+  button: "bg-[oklch(0.17_0.025_260)] text-white hover:bg-[oklch(0.32_0.1_245)]",
+};
+
+const navGroups: NavGroup[] = [
+  {
+    key: "services",
+    label: siteContent.navigation.servicesLabel,
+    items: [
+      {
+        label: "Webdesign",
+        href: "/leistungen/webdesign",
+        description: "Websites und Landingpages, die Vertrauen und Anfrageführung klar machen",
+        icon: "Monitor",
+        iconBg: "bg-[oklch(0.92_0.055_250)]",
+        iconText: "text-[oklch(0.48_0.16_250)]",
+      },
+      {
+        label: "SEO",
+        href: "/leistungen/local-seo",
+        description: "Struktur, Inhalte und Technik für bessere Sichtbarkeit in Google",
+        icon: "Search",
+        iconBg: "bg-[oklch(0.92_0.095_150)]",
+        iconText: "text-[oklch(0.47_0.17_150)]",
+      },
+      {
+        label: "Google Ads",
+        href: "/leistungen/google-ads",
+        description: "Kampagnen, Landingpages und Tracking für gezielte Anfragen",
+        icon: "Megaphone",
+        iconBg: "bg-[oklch(0.93_0.085_70)]",
+        iconText: "text-[oklch(0.57_0.16_65)]",
+      },
+      {
+        label: "Social Media",
+        href: "/leistungen/social-media",
+        description: "Content-Serien und Kampagnen mit erkennbarem Rhythmus",
+        icon: "Share2",
+        iconBg: "bg-[oklch(0.92_0.06_205)]",
+        iconText: "text-[oklch(0.44_0.13_215)]",
+      },
+      {
+        label: "Branding",
+        href: "/leistungen/branding",
+        description: "Positionierung, Tonalität und visuelle Identität",
+        icon: "Palette",
+        iconBg: "bg-[oklch(0.92_0.06_330)]",
+        iconText: "text-[oklch(0.5_0.14_330)]",
+      },
+      {
+        label: "KI & Automatisierung",
+        href: "/leistungen/geo",
+        description: "GEO, Chatbots und Workflows mit praktischem Nutzen",
+        icon: "Bot",
+        iconBg: "bg-[oklch(0.92_0.085_300)]",
+        iconText: "text-[oklch(0.52_0.18_300)]",
+      },
+    ],
+  },
+  {
+    key: "work",
+    label: siteContent.navigation.workLabel,
+    items: [
+      {
+        label: "Projektarten",
+        href: "/cases",
+        description: "Relaunches, SEO-Strukturen und Kampagnen-Landingpages",
+        icon: "BriefcaseBusiness",
+        iconBg: "bg-[oklch(0.92_0.06_210)]",
+        iconText: "text-[oklch(0.42_0.13_225)]",
+      },
+      {
+        label: "Methode",
+        href: "/methode",
+        description: "Wie aus Erstberatung, Empfehlung und Umsetzung ein klarer Ablauf wird",
+        icon: "Target",
+        iconBg: "bg-[oklch(0.93_0.085_30)]",
+        iconText: "text-[oklch(0.52_0.18_30)]",
+      },
+      {
+        label: "Leistungsfelder",
+        href: "/leistungen/webdesign",
+        description: "Website, Suche, Kampagnen, Marke und Automatisierung im Zusammenspiel",
+        icon: "Layers",
+        iconBg: "bg-[oklch(0.94_0.05_245)]",
+        iconText: "text-[oklch(0.43_0.13_250)]",
+      },
+    ],
+  },
+];
+
+const topLinks = [
+  ["Über uns", "/agentur"],
+  ["Preise", "/preise"],
+  ["Enterprise", "/enterprise"],
+  ["Kontakt", "/kontakt"],
+] as const;
+
+const currentPath = normalizePath(Astro.url.pathname);
+const isActive = (href: string) => (href === "/" ? currentPath === "/" : currentPath === href || currentPath.startsWith(`${href}/`));
+const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(item.href));
+---
+
+<header class="fixed left-0 right-0 top-0 z-50 px-3 pt-2 sm:px-5" data-nav-root>
+  <div class={`mx-auto max-w-[1370px] rounded-[18px] border px-4 py-2 ${navTone.shell}`}>
+    <div class="grid grid-cols-[auto_1fr_auto] items-center gap-3">
+      <a
+        href="/"
+        aria-current={isActive("/") ? "page" : undefined}
+        class="flex min-w-0 items-center gap-2 rounded-full pr-2 outline-none transition-transform hover:translate-x-0.5 active:scale-[0.98]"
+      >
+        <span class={`grid h-9 w-9 shrink-0 place-items-center rounded-full font-impact text-sm ${navTone.brand}`}>D</span>
+        <span class="block truncate font-display text-base font-black leading-none">{siteContent.brand.name}</span>
+      </a>
+
+      <nav class="hidden items-center justify-center gap-1 lg:flex" aria-label="Hauptnavigation">
+        <a href="/agentur" aria-current={isActive("/agentur") ? "page" : undefined} class={`rounded-full px-3 py-2 text-sm font-bold transition active:scale-[0.97] ${navTone.link} ${isActive("/agentur") ? navTone.active : ""}`}>
+          Über uns
+        </a>
+        {
+          navGroups.map((group) => (
+            <div class="dw-desktop-menu relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls={`${group.key}-menu`}
+                class={`relative flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold transition active:scale-[0.97] ${navTone.link} ${isGroupActive(group) ? navTone.active : ""}`}
+              >
+                {group.label}
+                <Icon name="ChevronDown" size={15} class="transition-transform" />
+              </button>
+              <div
+                id={`${group.key}-menu`}
+                class="dw-menu-panel pointer-events-none invisible absolute left-1/2 top-[calc(100%_-_2px)] w-[min(430px,calc(100vw-32px))] -translate-x-1/2 pt-3 opacity-0 transition duration-200"
+              >
+                <div class={`rounded-2xl border p-5 shadow-[0_8px_18px_oklch(0.18_0.025_250/0.12)] ${navTone.panel}`}>
+                  <div class="grid gap-3">
+                    {group.items.map((item) => (
+                      <a
+                        href={item.href}
+                        aria-current={isActive(item.href) ? "page" : undefined}
+                        class={`group grid grid-cols-[auto_1fr] items-start gap-4 rounded-xl p-2 transition hover:bg-[oklch(0.975_0.01_250)] active:scale-[0.98] ${isActive(item.href) ? navTone.active : ""}`}
+                      >
+                        <span class={`grid h-11 w-11 shrink-0 place-items-center rounded-xl ${item.iconBg} ${item.iconText}`}>
+                          <Icon name={item.icon} size={20} />
+                        </span>
+                        <span class="pt-0.5">
+                          <span class="block text-sm font-extrabold leading-5">{item.label}</span>
+                          <span class="mt-1 block text-xs font-semibold leading-5 text-[oklch(0.46_0.035_260)]">{item.description}</span>
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+        <a href="/preise" aria-current={isActive("/preise") ? "page" : undefined} class={`rounded-full px-3 py-2 text-sm font-bold transition active:scale-[0.97] ${navTone.link} ${isActive("/preise") ? navTone.active : ""}`}>
+          Preise
+        </a>
+        <a href="/enterprise" aria-current={isActive("/enterprise") ? "page" : undefined} class={`rounded-full px-3 py-2 text-sm font-bold transition active:scale-[0.97] ${navTone.link} ${isActive("/enterprise") ? navTone.active : ""}`}>
+          Enterprise
+        </a>
+        <a href="/kontakt" aria-current={isActive("/kontakt") ? "page" : undefined} class={`rounded-full px-3 py-2 text-sm font-bold transition active:scale-[0.97] ${navTone.link} ${isActive("/kontakt") ? navTone.active : ""}`}>
+          Kontakt
+        </a>
+      </nav>
+
+      <div class="flex items-center justify-end gap-2">
+        <a
+          href="/kontakt"
+          class={`group hidden min-h-10 items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold shadow-[0_8px_18px_oklch(0.18_0.035_260/0.14)] transition hover:-translate-y-0.5 active:translate-y-0 lg:inline-flex ${navTone.button}`}
+        >
+          {siteContent.navigation.ctaLabel}
+          <Icon name="ArrowRight" size={15} class="transition-transform group-hover:translate-x-0.5" />
+        </a>
+        <button
+          type="button"
+          class={`grid h-10 w-10 place-items-center rounded-full transition hover:bg-[oklch(0.95_0.014_250)] active:scale-[0.96] lg:hidden ${navTone.link}`}
+          aria-label={siteContent.navigation.menuOpen}
+          aria-expanded="false"
+          data-mobile-toggle
+        >
+          <span data-menu-icon-open><Icon name="Menu" size={20} /></span>
+          <span data-menu-icon-close hidden><Icon name="X" size={20} /></span>
+        </button>
+      </div>
+    </div>
+
+    <div class={`dw-mobile-menu mt-3 rounded-2xl border p-3 lg:hidden ${navTone.panel}`} data-mobile-panel hidden>
+      <div class="grid gap-2" data-mobile-main>
+        {
+          navGroups.map((group) => (
+            <button
+              type="button"
+              class={`flex items-center justify-between rounded-xl bg-[oklch(0.96_0.012_250)] p-4 text-left transition hover:bg-[oklch(0.92_0.02_250)] active:scale-[0.98] ${isGroupActive(group) ? navTone.active : ""}`}
+              data-mobile-open={group.key}
+            >
+              <span class="font-display text-xl font-black">{group.label}</span>
+              <Icon name="ArrowRight" size={18} />
+            </button>
+          ))
+        }
+        {
+          topLinks.map(([label, href]) => (
+            <a
+              href={href}
+              class={`rounded-xl bg-[oklch(0.96_0.012_250)] p-4 text-left font-display text-xl font-black transition hover:bg-[oklch(0.92_0.02_250)] active:scale-[0.98] ${isActive(href) ? navTone.active : ""}`}
+            >
+              {label}
+            </a>
+          ))
+        }
+        <a href="/kontakt" class={`rounded-xl p-4 text-left font-display text-xl font-black transition active:scale-[0.98] ${navTone.button}`}>
+          {siteContent.navigation.ctaLabel}
+        </a>
+      </div>
+
+      {
+        navGroups.map((group) => (
+          <div data-mobile-view={group.key} hidden>
+            <button
+              type="button"
+              class="mb-3 inline-flex items-center gap-2 rounded-full bg-[oklch(0.96_0.012_250)] px-3 py-2 text-sm font-black transition hover:bg-[oklch(0.92_0.02_250)] active:scale-[0.98]"
+              data-mobile-back
+            >
+              <Icon name="ChevronLeft" size={16} />
+              Zurück
+            </button>
+            <p class="px-2 font-display text-2xl font-black">{group.label}</p>
+            <div class="mt-4 grid gap-2">
+              {group.items.map((item) => (
+                <a
+                  href={item.href}
+                  class={`grid min-h-[82px] grid-cols-[auto_1fr] items-start gap-3 rounded-xl p-3 text-left transition hover:bg-[oklch(0.965_0.012_250)] active:scale-[0.98] ${isActive(item.href) ? navTone.active : ""}`}
+                >
+                  <span class={`grid h-11 w-11 shrink-0 place-items-center rounded-xl ${item.iconBg} ${item.iconText}`}>
+                    <Icon name={item.icon} size={20} />
+                  </span>
+                  <span>
+                    <span class="block text-sm font-extrabold leading-5">{item.label}</span>
+                    <span class="mt-1 line-clamp-2 block text-xs leading-5 text-[oklch(0.45_0.035_260)]">{item.description}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-nav-root]").forEach((root) => {
+    const toggle = root.querySelector<HTMLButtonElement>("[data-mobile-toggle]");
+    const panel = root.querySelector<HTMLElement>("[data-mobile-panel]");
+    const main = root.querySelector<HTMLElement>("[data-mobile-main]");
+    const openIcon = root.querySelector<HTMLElement>("[data-menu-icon-open]");
+    const closeIcon = root.querySelector<HTMLElement>("[data-menu-icon-close]");
+    const viewPanels = Array.from(root.querySelectorAll<HTMLElement>("[data-mobile-view]"));
+
+    if (!toggle || !panel || !main || !openIcon || !closeIcon) return;
+
+    const showView = (key: string | null) => {
+      main.hidden = key !== null;
+      viewPanels.forEach((view) => {
+        view.hidden = view.dataset.mobileView !== key;
+      });
+    };
+
+    const setOpen = (open: boolean) => {
+      panel.hidden = !open;
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+      openIcon.hidden = open;
+      closeIcon.hidden = !open;
+      if (!open) showView(null);
+    };
+
+    toggle.addEventListener("click", () => setOpen(panel.hidden));
+
+    root.querySelectorAll<HTMLElement>("[data-mobile-open]").forEach((button) => {
+      button.addEventListener("click", () => showView(button.dataset.mobileOpen ?? null));
+    });
+
+    root.querySelectorAll<HTMLElement>("[data-mobile-back]").forEach((button) => {
+      button.addEventListener("click", () => showView(null));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+      if (!root.contains(event.target as Node)) setOpen(false);
+    });
+  });
+</script>

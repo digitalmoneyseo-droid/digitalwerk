@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SubpageContent from "../components/subpage/SubpageContent.astro";
+import { siteContent } from "../data/siteContent";
+import { getNotFoundPage } from "../lib/pageContent";
+
+const page = getNotFoundPage();
+---
+
+<BaseLayout title={`${siteContent.brand.name} - ${page.title}`} description={siteContent.meta.defaultDescription}>
+  <SubpageContent page={page} />
+</BaseLayout>

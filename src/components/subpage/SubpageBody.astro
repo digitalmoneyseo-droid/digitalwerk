@@ -1,0 +1,375 @@
+---
+import Icon from "../Icon.astro";
+import BorderList from "../shared/BorderList.astro";
+import ProcessAndFaq from "../shared/ProcessAndFaq.astro";
+import SectionShell from "../shared/SectionShell.astro";
+import { siteContent } from "../../data/siteContent";
+import { corePageConfigs, type CurrentPage, type PageDetail, type PageFamily } from "../../lib/pageContent";
+
+type Props = {
+  family: PageFamily;
+  current: CurrentPage;
+  detail: PageDetail | null;
+};
+
+const { family, current, detail } = Astro.props;
+const labels = siteContent.pageDetailLabels;
+const coreConfig = corePageConfigs[current.href] ?? null;
+const core = coreConfig && detail ? { config: coreConfig, detail } : null;
+const includes = detail?.includes ?? current.bullets;
+const outcomes = detail?.outcomes ?? current.bullets;
+const process = detail?.process ?? [];
+const faq = detail?.faq ?? [];
+const isPricing = !core && family === "pricing";
+const isContact = !core && family === "contact";
+const isCases = !core && family === "cases";
+const isMethod = !core && family === "method";
+const isAgency = !core && family === "agency";
+const isEnterprise = !core && family === "enterprise";
+const isResource = !core && family === "resource";
+const isGeneric = !core && !isPricing && !isContact && !isCases && !isMethod && !isAgency && !isEnterprise && !isResource;
+---
+
+{
+  core && (
+    <SectionShell>
+      <div class="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-[0.44fr_0.56fr] lg:items-start">
+        <div class="lg:sticky lg:top-28">
+          <h2 class="max-w-2xl text-balance font-display text-4xl font-semibold leading-tight text-[oklch(0.32_0.075_250)] md:text-6xl">{core.config.headline}</h2>
+          <p class="mt-6 max-w-xl text-pretty text-base font-semibold leading-8 text-[oklch(0.33_0.04_265)]">{core.config.lead}</p>
+          <a href="/kontakt" class="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.16_0.03_265/0.14)] transition hover:-translate-y-0.5 active:translate-y-0">
+            {core.detail.ctaLabel}
+            <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+          </a>
+        </div>
+        <div class="border-y border-[oklch(0.76_0.028_265)]">
+          {core.config.columns.map((item) => (
+            <article class="grid gap-4 border-b border-[oklch(0.86_0.024_265)] py-7 last:border-b-0 md:grid-cols-[180px_1fr]">
+              <h3 class="font-display text-2xl font-semibold text-[oklch(0.22_0.035_265)]">{item.title}</h3>
+              <p class="max-w-3xl text-pretty text-base font-semibold leading-8 text-[oklch(0.34_0.04_265)]">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  core && (
+    <SectionShell dark>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
+        <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{labels.problems}</h2>
+        <div class="grid gap-3 md:grid-cols-3">
+          {core.detail.problems.map((item) => (
+            <article class="border-t border-white/24 py-5">
+              <p class="text-pretty text-sm font-semibold leading-7 text-white/76">{item}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  core && (
+    <SectionShell>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.45fr_0.55fr]">
+        <div>
+          <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{core.config.proofTitle}</h2>
+          <div class="mt-8 grid gap-3">
+            {core.detail.outcomes.map((item) => (
+              <div class="flex items-start gap-3 border-t border-[oklch(0.84_0.024_265)] pt-4">
+                <Icon name="CircleCheckBig" size={20} class="mt-1 shrink-0 text-[var(--dw-accent)]" />
+                <p class="font-display text-xl font-semibold leading-tight text-[oklch(0.22_0.035_265)]">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <BorderList title={labels.includes} items={core.detail.includes} />
+      </div>
+    </SectionShell>
+  )
+}
+
+{core && <ProcessAndFaq process={core.detail.process} faq={core.detail.faq} />}
+
+{
+  isGeneric && (
+    <SectionShell>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.42fr_0.58fr]">
+        <div>
+          <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{detail?.whyTitle ?? current.title}</h2>
+          <p class="mt-6 max-w-xl text-pretty text-base font-semibold leading-8 text-[oklch(0.34_0.04_265)]">{detail?.whyText ?? current.intro}</p>
+          <a href="/kontakt" class="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.16_0.03_265/0.14)] transition hover:-translate-y-0.5 active:translate-y-0">
+            {detail?.ctaLabel ?? "Projekt besprechen"}
+            <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+          </a>
+        </div>
+        <BorderList title={labels.includes} items={includes} />
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  isGeneric && (
+    <SectionShell dark>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.34fr_0.66fr]">
+        <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{labels.outcomes}</h2>
+        <div class="grid gap-4 md:grid-cols-3">
+          {outcomes.map((item) => (
+            <article class="border-t border-white/24 py-5">
+              <p class="text-pretty text-sm font-semibold leading-7 text-white/76">{item}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+{isGeneric && <ProcessAndFaq process={process} faq={faq} />}
+
+{
+  isPricing && (
+    <SectionShell>
+      <div class="mx-auto max-w-[1440px]">
+        <div class="grid gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
+          <div>
+            <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-6xl">Richtwerte für typische Projektgrößen.</h2>
+            <p class="mt-6 max-w-xl text-pretty text-base font-semibold leading-8 text-[oklch(0.34_0.04_265)]">
+              Die Beträge sind Orientierung zzgl. MwSt. Externe Tools und Media-Budget werden separat geplant.
+            </p>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            {siteContent.pricingModels.map((model) => (
+              <article class="rounded-2xl border border-[oklch(0.84_0.024_265)] bg-white p-5">
+                <p class="font-display text-2xl font-semibold">{model.title}</p>
+                <p class="mt-6 font-display text-3xl font-semibold text-[var(--dw-accent)]">{model.price}</p>
+                <p class="mt-4 text-sm font-semibold leading-7 text-[oklch(0.35_0.04_265)]">{model.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <a href="/kontakt" class="group mt-10 inline-flex items-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.16_0.03_265/0.14)] transition hover:-translate-y-0.5 active:translate-y-0">
+          Budget einordnen lassen
+          <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  isCases && (
+    <SectionShell>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.36fr_0.64fr]">
+        <div>
+          <h2 class="font-display text-4xl font-semibold leading-tight md:text-6xl">Keine erfundenen Zahlen. Echte Projektarten.</h2>
+          <p class="mt-6 max-w-lg text-base font-semibold leading-8 text-[oklch(0.34_0.04_265)]">
+            Freigegebene Cases brauchen Kontext. Bis dahin zeigen wir offen, welche Arbeiten sinnvoll als Startpunkt dienen.
+          </p>
+          <a href="/kontakt" class="mt-8 inline-flex rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.16_0.03_265/0.14)] transition hover:-translate-y-0.5 active:translate-y-0">
+            Eigenes Projekt besprechen
+          </a>
+        </div>
+        <div class="grid gap-4">
+          {siteContent.home.one.projectTypes.map((item) => (
+            <article class="grid gap-3 border-t border-[oklch(0.84_0.024_265)] py-6 md:grid-cols-[250px_1fr]">
+              <h3 class="font-display text-2xl font-semibold">{item.title}</h3>
+              <p class="text-sm font-semibold leading-7 text-[oklch(0.34_0.04_265)]">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  isMethod && (
+    <SectionShell dark>
+      <div class="mx-auto max-w-[1440px]">
+        <div class="grid gap-10 lg:grid-cols-[0.32fr_0.68fr]">
+          <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-6xl">Ein ruhiger Ablauf für bessere Entscheidungen.</h2>
+          <div class="grid gap-4 md:grid-cols-2">
+            {siteContent.home.one.process.map((step, index) => (
+              <article class="border-t border-white/20 py-6">
+                <p class="text-sm font-black text-[var(--dw-accent)]">{String(index + 1).padStart(2, "0")}</p>
+                <p class="mt-5 font-display text-3xl font-semibold">{step.title}</p>
+                <p class="mt-3 text-sm font-semibold leading-7 text-white/74">{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <a href="/kontakt" class="mt-10 inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-[var(--dw-dark)] transition hover:-translate-y-0.5 hover:bg-white/90 active:translate-y-0">
+          {detail?.ctaLabel ?? "Methode kennenlernen"}
+        </a>
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  isAgency && (
+    <SectionShell>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.42fr_0.58fr]">
+        <div>
+          <h2 class="text-balance font-display text-4xl font-semibold leading-tight text-[oklch(0.42_0.12_245)] md:text-6xl">
+            Eine Agentur für Unternehmen, die klarer auftreten und besser verkaufen wollen.
+          </h2>
+          <a href="/kontakt" class="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.16_0.03_265/0.14)] transition hover:-translate-y-0.5 active:translate-y-0">
+            {detail?.ctaLabel ?? "Erstgespräch anfragen"}
+            <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+          </a>
+        </div>
+        <BorderList title={labels.includes} items={detail?.includes ?? []} />
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  isAgency && (
+    <SectionShell dark>
+      <div class="mx-auto grid max-w-[1440px] gap-8 lg:grid-cols-[0.32fr_0.68fr]">
+        <h2 class="font-display text-4xl font-semibold leading-tight md:text-5xl">Was anders läuft</h2>
+        <div class="dw-snap-scroll flex max-w-full gap-3 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:overflow-visible">
+          {(detail?.problems ?? []).map((item) => (
+            <article class="min-w-[min(74vw,320px)] rounded-xl bg-white/[0.075] p-5 text-white md:min-w-0">
+              <p class="text-pretty text-sm font-semibold leading-7 text-white/76">{item}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  isEnterprise && (
+    <SectionShell dark>
+      <div class="mx-auto max-w-[1440px]">
+        <div class="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
+          <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-6xl">Struktur für Marketing mit mehr beweglichen Teilen.</h2>
+          <div class="grid gap-3 md:grid-cols-3">
+            {(detail?.includes ?? []).map((item) => (
+              <article class="min-h-[190px] border-t-4 border-[var(--dw-accent)] bg-white/[0.075] p-5">
+                <p class="text-pretty text-sm font-semibold leading-7 text-white/76">{item}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <a href="/kontakt" class="group mt-10 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-black text-[var(--dw-dark)] transition hover:-translate-y-0.5 hover:bg-white/90 active:translate-y-0">
+          {detail?.ctaLabel ?? "Enterprise-Projekt besprechen"}
+          <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+    </SectionShell>
+  )
+}
+
+{isEnterprise && <ProcessAndFaq process={process} faq={faq} />}
+
+{
+  isContact && (
+    <SectionShell>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.4fr_0.6fr]">
+        <div class="lg:sticky lg:top-28">
+          <h2 class="font-display text-4xl font-semibold leading-tight text-[oklch(0.28_0.075_300)] md:text-6xl">Erzähl kurz, was sich verbessern soll.</h2>
+          <p class="mt-6 max-w-xl text-pretty text-base font-semibold leading-8 text-[oklch(0.34_0.04_265)]">
+            Wir melden uns mit einer ehrlichen Einschätzung und sagen klar, ob Website, Suchmaschinenoptimierung, Kampagnen, Social Media oder Branding zuerst Sinn ergibt.
+          </p>
+          <div class="mt-8 grid gap-4 border-y border-[oklch(0.78_0.03_265)] py-5 text-sm font-semibold leading-6 text-[oklch(0.31_0.04_265)]">
+            <p>{siteContent.brand.addressLine}</p>
+            <p>{siteContent.brand.responseTime}</p>
+            <a class="font-black text-[var(--dw-accent)]" href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>
+          </div>
+        </div>
+        <form
+          class="rounded-2xl border border-[oklch(0.82_0.026_265)] bg-white p-4 shadow-[0_14px_40px_oklch(0.18_0.03_265/0.08)] md:p-6"
+          action={`mailto:${siteContent.brand.email}`}
+          method="post"
+          enctype="text/plain"
+        >
+          <div class="grid gap-4 md:grid-cols-2">
+            <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              Name
+              <input name="name" required class="min-h-12 rounded-xl border border-[oklch(0.82_0.024_265)] px-4 font-semibold outline-none transition hover:border-[oklch(0.66_0.05_265)] focus:border-[var(--dw-accent)]" placeholder="Vor- und Nachname" />
+            </label>
+            <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              Unternehmen
+              <input name="unternehmen" class="min-h-12 rounded-xl border border-[oklch(0.82_0.024_265)] px-4 font-semibold outline-none transition hover:border-[oklch(0.66_0.05_265)] focus:border-[var(--dw-accent)]" placeholder="Firma oder Organisation" />
+            </label>
+            <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              E-Mail
+              <input name="email" type="email" required class="min-h-12 rounded-xl border border-[oklch(0.82_0.024_265)] px-4 font-semibold outline-none transition hover:border-[oklch(0.66_0.05_265)] focus:border-[var(--dw-accent)]" placeholder="name@unternehmen.de" />
+            </label>
+            <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              Website
+              <input name="website" class="min-h-12 rounded-xl border border-[oklch(0.82_0.024_265)] px-4 font-semibold outline-none transition hover:border-[oklch(0.66_0.05_265)] focus:border-[var(--dw-accent)]" placeholder="https://..." />
+            </label>
+            <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              Thema
+              <select name="thema" required class="min-h-12 rounded-xl border border-[oklch(0.82_0.024_265)] bg-white px-4 font-semibold outline-none transition hover:border-[oklch(0.66_0.05_265)] focus:border-[var(--dw-accent)]">
+                <option value="">Bitte einordnen</option>
+                <option>Webdesign / Relaunch</option>
+                <option>SEO / lokale Sichtbarkeit</option>
+                <option>Google Ads / Paid Media</option>
+                <option>Social Media / Branding</option>
+                <option>Noch unklar</option>
+              </select>
+            </label>
+            <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              Unternehmenstyp
+              <select name="unternehmenstyp" class="min-h-12 rounded-xl border border-[oklch(0.82_0.024_265)] bg-white px-4 font-semibold outline-none transition hover:border-[oklch(0.66_0.05_265)] focus:border-[var(--dw-accent)]">
+                <option>Lokales Unternehmen</option>
+                <option>B2B</option>
+                <option>E-Commerce</option>
+                <option>Praxis / Kanzlei</option>
+                <option>Mehrere Standorte</option>
+              </select>
+            </label>
+            <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)] md:col-span-2">
+              Ausgangslage
+              <textarea
+                name="ausgangslage"
+                required
+                class="min-h-36 rounded-xl border border-[oklch(0.82_0.024_265)] px-4 py-3 font-semibold leading-7 outline-none transition hover:border-[oklch(0.66_0.05_265)] focus:border-[var(--dw-accent)]"
+                placeholder="Was soll sich verbessern? Mehr lokale Anfragen, bessere Kampagnen, Relaunch, Tracking, Markenauftritt..."
+              ></textarea>
+            </label>
+          </div>
+          <div class="mt-6 flex flex-col gap-3 border-t border-[oklch(0.86_0.025_265)] pt-5 sm:flex-row sm:items-center sm:justify-between">
+            <p class="max-w-md text-sm font-semibold leading-6 text-[oklch(0.36_0.04_265)]">
+              Mit dem Absenden öffnet sich dein E-Mail-Programm. Pflichtfelder sind Name, E-Mail, Thema und Ausgangslage.
+            </p>
+            <button type="submit" class="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.16_0.03_265/0.14)] transition hover:-translate-y-0.5 active:translate-y-0">
+              {detail?.ctaLabel ?? "Anfrage senden"}
+              <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+            </button>
+          </div>
+        </form>
+      </div>
+    </SectionShell>
+  )
+}
+
+{
+  isResource && (
+    <SectionShell>
+      <div class="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.36fr_0.64fr]">
+        <h2 class="font-display text-4xl font-semibold leading-tight md:text-6xl">{labels.includes}</h2>
+        <div class="columns-1 gap-8 md:columns-2">
+          {(detail?.includes ?? current.bullets).map((item) => (
+            <p class="mb-5 break-inside-avoid border-t border-[oklch(0.78_0.03_265)] pt-4 text-lg font-semibold leading-8">{item}</p>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+{isResource && <ProcessAndFaq process={process} faq={faq} />}

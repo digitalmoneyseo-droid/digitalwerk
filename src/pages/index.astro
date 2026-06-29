@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AudienceRibbon from "../components/home/AudienceRibbon.astro";
+import CaseStudiesSection from "../components/home/CaseStudiesSection.astro";
+import ContactSection from "../components/home/ContactSection.astro";
+import HeroSection from "../components/home/HeroSection.astro";
+import PricingSection from "../components/home/PricingSection.astro";
+import ProcessSection from "../components/home/ProcessSection.astro";
+import ServicesSection from "../components/home/ServicesSection.astro";
+import WhySection from "../components/home/WhySection.astro";
+import { siteContent } from "../data/siteContent";
+---
+
+<BaseLayout title={`${siteContent.brand.name} - ${siteContent.brand.shortDescriptor}`} description={siteContent.meta.defaultDescription}>
+  <main class="min-h-screen bg-[oklch(0.985_0.006_250)] text-[oklch(0.17_0.025_260)]">
+    <HeroSection />
+    <AudienceRibbon />
+    <ServicesSection />
+    <CaseStudiesSection />
+    <WhySection />
+    <ProcessSection />
+    <PricingSection />
+    <ContactSection />
+  </main>
+</BaseLayout>

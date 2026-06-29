@@ -1,0 +1,32 @@
+---
+import Icon from "../Icon.astro";
+import { siteContent } from "../../data/siteContent";
+---
+
+<section class="bg-white px-5 py-16 md:py-24" id="preise">
+  <div class="mx-auto max-w-[1320px]">
+    <div class="grid gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
+      <div>
+        <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">Pakete mit klarem Einstieg.</h2>
+        <p class="mt-6 max-w-xl text-pretty text-base font-semibold leading-8 text-[oklch(0.34_0.04_265)]">
+          Richtwerte helfen beim Einordnen. Im Erstgespräch klären wir, welcher Umfang für dein Ziel sinnvoll ist.
+        </p>
+        <a href="/preise" class="group mt-8 inline-flex items-center gap-2 rounded-full border border-[oklch(0.72_0.03_260)] bg-white px-5 py-3 text-sm font-black text-[oklch(0.2_0.03_260)] transition hover:-translate-y-0.5 hover:border-[oklch(0.44_0.12_245)] hover:bg-[oklch(0.975_0.012_250)] active:translate-y-0">
+          Preise ansehen
+          <Icon name="ArrowRight" size={15} class="transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          siteContent.pricingModels.map((model) => (
+            <article class="rounded-2xl border border-[oklch(0.84_0.024_265)] bg-[oklch(0.985_0.006_250)] p-5">
+              <p class="font-display text-2xl font-semibold">{model.title}</p>
+              <p class="mt-6 font-display text-3xl font-semibold text-[oklch(0.42_0.13_245)]">{model.price}</p>
+              <p class="mt-4 text-sm font-semibold leading-7 text-[oklch(0.35_0.04_265)]">{model.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

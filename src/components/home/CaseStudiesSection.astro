@@ -1,0 +1,24 @@
+---
+import { siteContent } from "../../data/siteContent";
+
+const content = siteContent.home.one;
+---
+
+<section class="bg-white px-5 py-16 md:py-24" id="cases">
+  <div class="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.38fr_0.62fr]">
+    <div>
+      <h2 class="text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{content.projectTypesTitle}</h2>
+      <p class="mt-5 text-pretty text-base font-semibold leading-8 text-[oklch(0.36_0.04_260)]">{content.projectTypesLead}</p>
+    </div>
+    <div class="grid gap-4">
+      {
+        content.projectTypes.map((project) => (
+          <article class="grid gap-3 border-t border-[oklch(0.84_0.02_250)] py-6 md:grid-cols-[220px_1fr]">
+            <h3 class="font-display text-2xl font-semibold">{project.title}</h3>
+            <p class="text-sm font-semibold leading-7 text-[oklch(0.36_0.04_260)]">{project.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

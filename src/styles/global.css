@@ -89,6 +89,20 @@ textarea:focus-visible {
   filter: blur(0);
 }
 
+.dw-desktop-menu:hover .dw-menu-panel,
+.dw-desktop-menu:focus-within .dw-menu-panel {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.dw-desktop-menu:hover [data-menu-chevron],
+.dw-desktop-menu:focus-within [data-menu-chevron] {
+  transform: rotate(180deg);
+}
+
 .dw-mobile-menu {
   animation: menu-rise 190ms var(--ease-out-quint) both;
   transform-origin: top right;

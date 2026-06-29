@@ -100,33 +100,33 @@ export const corePageConfigs: Record<
   "/leistungen/local-seo": {
     headline: "Sichtbarkeit entsteht, wenn Suchintention, Standort und Vertrauen zusammenpassen.",
     lead:
-      "SEO ist keine einzelne MaÃŸnahme. FÃ¼r deutsche Unternehmen wird es wirksam, wenn Leistungsseiten, lokale Signale, technische Grundlage und Kontaktwege gemeinsam gedacht werden.",
+      "SEO ist keine einzelne Maßnahme. Für deutsche Unternehmen wird es wirksam, wenn Leistungsseiten, lokale Signale, technische Grundlage und Kontaktwege gemeinsam gedacht werden.",
     columns: [
-      { title: "Suchintention", text: "Wir klÃ¤ren, welche Begriffe Menschen wirklich nutzen, wenn sie vergleichen, anrufen oder einen Termin buchen wollen." },
+      { title: "Suchintention", text: "Wir klären, welche Begriffe Menschen wirklich nutzen, wenn sie vergleichen, anrufen oder einen Termin buchen wollen." },
       { title: "Struktur", text: "Aus Leistungen, Standorten und Zielgruppen entsteht eine Seitenarchitektur, die Google und Besucher leichter verstehen." },
-      { title: "Vertrauen", text: "Bewertungen, Profilinformationen, Belege, klare Kontaktwege und verstÃ¤ndliche Texte unterstÃ¼tzen die Anfrageentscheidung." },
+      { title: "Vertrauen", text: "Bewertungen, Profilinformationen, Belege, klare Kontaktwege und verständliche Texte unterstützen die Anfrageentscheidung." },
     ],
     proofTitle: "Woran bessere SEO-Arbeit sichtbar wird",
   },
   "/leistungen/google-ads": {
     headline: "Google Ads funktioniert besser, wenn Anzeige und Landingpage dieselbe Entscheidung vorbereiten.",
     lead:
-      "Budget allein lÃ¶st kein Nachfrageproblem. Digitalwerk prÃ¼ft Suchbegriffe, Anzeigenversprechen, Zielseite und Messung gemeinsam.",
+      "Budget allein löst kein Nachfrageproblem. Digitalwerk prüft Suchbegriffe, Anzeigenversprechen, Zielseite und Messung gemeinsam.",
     columns: [
       { title: "Suchbegriffe", text: "Wir trennen konkrete Nachfrage von zu breiter Streuung und ordnen Kampagnen nach Absicht, Angebot und Budget." },
-      { title: "Landingpage", text: "Die Seite nach dem Klick muss das Anzeigenversprechen einlÃ¶sen und den nÃ¤chsten Schritt leicht machen." },
-      { title: "Messung", text: "Conversions, Formulare, Anrufe und Entscheidungen werden so aufgesetzt, dass aus Daten echte PrioritÃ¤ten werden." },
+      { title: "Landingpage", text: "Die Seite nach dem Klick muss das Anzeigenversprechen einlösen und den nächsten Schritt leicht machen." },
+      { title: "Messung", text: "Conversions, Formulare, Anrufe und Entscheidungen werden so aufgesetzt, dass aus Daten echte Prioritäten werden." },
     ],
     proofTitle: "Woran bessere Kampagnen erkennbar werden",
   },
   "/leistungen/webdesign": {
     headline: "Eine Website muss nicht lauter werden. Sie muss schneller verstanden werden.",
     lead:
-      "Gutes Webdesign macht Angebot, Zielgruppe, Belege und nÃ¤chsten Schritt klar. Der visuelle Auftritt unterstÃ¼tzt diese Entscheidung, statt sie zu Ã¼berdecken.",
+      "Gutes Webdesign macht Angebot, Zielgruppe, Belege und nächsten Schritt klar. Der visuelle Auftritt unterstützt diese Entscheidung, statt sie zu überdecken.",
     columns: [
       { title: "Aufbau", text: "Wir ordnen Inhalte, Seiten und Nutzungswege, bevor Farben und Komponenten entschieden werden." },
-      { title: "Interface", text: "Typografie, Layout, mobile FÃ¼hrung und Interaktionen helfen Besuchern, sich sicher durch das Angebot zu bewegen." },
-      { title: "Launch", text: "SEO-Grundlagen, Performance, Tracking und Content-Ãœbergabe werden in den Relaunch eingebaut." },
+      { title: "Interface", text: "Typografie, Layout, mobile Führung und Interaktionen helfen Besuchern, sich sicher durch das Angebot zu bewegen." },
+      { title: "Launch", text: "SEO-Grundlagen, Performance, Tracking und Content-Übergabe werden in den Relaunch eingebaut." },
     ],
     proofTitle: "Woran ein besserer Webauftritt sichtbar wird",
   },

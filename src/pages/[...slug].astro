@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SubpageContent from "../components/subpage/SubpageContent.astro";
+import { siteContent, type Subpage } from "../data/siteContent";
+
+export function getStaticPaths() {
+  return siteContent.subpages.map((page) => ({
+    params: {
+      slug: page.href.replace(/^\//, ""),
+    },
+    props: {
+      page,
+    },
+  }));
+}
+
+type Props = {
+  page: Subpage;
+};
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={`${siteContent.brand.name} - ${page.title}`} description={`${page.intro} ${siteContent.meta.defaultDescription}`}>
+  <SubpageContent page={page} />
+</BaseLayout>
