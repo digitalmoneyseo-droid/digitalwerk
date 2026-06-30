@@ -1,28 +1,27 @@
 ---
-import { siteContent } from "../../data/siteContent";
-
-const content = siteContent.home.one;
-const stats = [
-  ["Websites", "klar aufgebaut, schnell geladen, mobil sauber"],
-  ["SEO", "Struktur und Inhalte von Anfang an mitgedacht"],
-  ["Ads", "Kampagnen mit passender Landingpage und Messung"],
+const benefits = [
+  ["Klares Angebot", "Besucher verstehen in wenigen Sekunden, was du anbietest und warum es relevant ist."],
+  ["Mehr Vertrauen", "Struktur, Belege, Texte und Gestaltung machen die Entscheidung leichter."],
+  ["Bessere Anfragen", "Kontaktwege, SEO und Kampagnen führen Nutzer gezielt zum nächsten Schritt."],
 ] as const;
 ---
 
 <section class="bg-[oklch(0.972_0.016_245)] px-5 py-20 md:py-28">
   <div class="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[0.52fr_0.48fr] lg:items-center">
     <div class="dw-reveal">
-      <p class="text-[12px] font-black uppercase tracking-[0.28em] text-[oklch(0.58_0.14_245)]">Warum Unternehmen uns wählen</p>
-      <h2 class="mt-6 text-balance font-display text-5xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-6xl">
-        Eine Website soll nicht nur gut aussehen. Sie soll Vertrauen und Anfragen schaffen.
+      <p class="text-[12px] font-black uppercase tracking-[0.16em] text-[var(--dw-accent-strong)]">Warum Unternehmen uns wählen</p>
+      <h2 class="mt-6 text-balance font-display text-5xl font-extrabold leading-[1.02] text-[oklch(0.22_0.04_260)] md:text-6xl">
+        Deine Website muss in Sekunden erklären, warum Kunden dich anfragen sollten.
       </h2>
-      <p class="mt-6 max-w-xl text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">{content.serviceRunwayLead}</p>
+      <p class="mt-6 max-w-xl text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">
+        Wir verbinden Webdesign, SEO und Kampagnen so, dass Besucher nicht nur schauen, sondern den nächsten Schritt machen.
+      </p>
     </div>
 
     <div class="dw-reveal-stagger grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-      {stats.map(([title, text]) => (
-        <article class="rounded-[24px] border border-[oklch(0.88_0.018_250)] bg-white/86 p-6 shadow-[0_14px_40px_oklch(0.2_0.035_250/0.06)]">
-          <p class="font-display text-5xl font-semibold leading-none text-[oklch(0.22_0.04_260)]">{title}</p>
+      {benefits.map(([title, text]) => (
+        <article class="rounded-2xl border border-[var(--dw-card-border)] bg-white/90 p-6 shadow-[var(--dw-card-shadow)]">
+          <p class="font-display text-3xl font-extrabold leading-tight text-[oklch(0.22_0.04_260)]">{title}</p>
           <p class="mt-3 text-sm font-bold leading-6 text-[oklch(0.5_0.04_260)]">{text}</p>
         </article>
       ))}

@@ -12,13 +12,13 @@ import { siteContent } from "../data/siteContent";
 ---
 
 <BaseLayout title={`${siteContent.brand.name} - ${siteContent.brand.shortDescriptor}`} description={siteContent.meta.defaultDescription}>
-  <main class="min-h-screen bg-[oklch(0.975_0.014_245)] text-[oklch(0.17_0.025_260)]">
+  <main id="main-content" class="min-h-screen bg-[oklch(0.975_0.014_245)] text-[oklch(0.17_0.025_260)]">
     <HeroSection />
     <AudienceRibbon />
-    <WhySection />
     <ServicesSection />
-    <PricingSection />
+    <WhySection />
     <CaseStudiesSection />
+    <PricingSection />
     <ProcessSection />
     <ContactSection />
   </main>

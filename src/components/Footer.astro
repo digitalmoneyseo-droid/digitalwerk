@@ -1,57 +1,46 @@
 ---
 import { siteContent } from "../data/siteContent";
 
-const serviceLinks = siteContent.home.one.services.slice(0, 6);
+const serviceLinks = siteContent.home.one.services;
 const companyLinks = [
   ["Über uns", "/agentur"],
-  ["Methode", "/methode"],
   ["Preise", "/preise"],
-  ["Arbeiten", "/cases"],
   ["Kontakt", "/kontakt"],
-] as const;
-const resourceLinks = [
-  ["Briefing-Vorlage", "/ressourcen/briefing"],
-  ["Marketing-Notizen", "/ressourcen/notizen"],
-  ["Enterprise", "/enterprise"],
+  ["Impressum", "/impressum"],
+  ["Datenschutz", "/datenschutz"],
 ] as const;
 ---
 
 <footer class="border-t border-[oklch(0.86_0.018_250)] bg-white px-5 py-12 text-[oklch(0.18_0.025_260)]">
   <div class="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr]">
     <div>
-      <a href="/" class="inline-flex items-center gap-2 rounded-full outline-none transition hover:translate-x-0.5">
-        <span class="grid h-10 w-10 place-items-center rounded-full bg-[oklch(0.18_0.03_260)] font-display text-sm font-black text-white">D</span>
-        <span class="font-display text-lg font-extrabold">{siteContent.brand.name}</span>
+      <a href="/" class="inline-flex min-h-11 items-center gap-2 rounded-full outline-none transition hover:translate-x-0.5">
+        <span class="grid h-10 w-10 place-items-center rounded-full bg-[oklch(0.18_0.03_260)] font-impact text-sm font-black text-white">D</span>
+        <span class="font-impact text-lg font-extrabold">{siteContent.brand.name}</span>
       </a>
       <p class="mt-5 max-w-md text-sm font-semibold leading-7 text-[oklch(0.38_0.04_260)]">
-        Webdesign, SEO und Kampagnen für Unternehmen, die klarer auftreten und bessere Anfragen gewinnen wollen.
+        Websites, SEO und Kampagnen für Unternehmen, die online schneller verstanden werden und mehr passende Anfragen erhalten wollen.
       </p>
-      <a class="mt-5 inline-block text-sm font-black text-[oklch(0.36_0.11_245)]" href={`mailto:${siteContent.brand.email}`}>
+      <a class="mt-5 inline-flex min-h-11 items-center text-sm font-black text-[var(--dw-accent-strong)]" href={`mailto:${siteContent.brand.email}`}>
         {siteContent.brand.email}
       </a>
     </div>
-    <nav class="grid gap-8 sm:grid-cols-3" aria-label="Footer">
+    <nav class="grid gap-8 sm:grid-cols-2" aria-label="Footer">
       <div>
-        <p class="font-display text-lg font-extrabold">Leistungen</p>
+        <p class="font-impact text-lg font-extrabold">Leistungen</p>
         <div class="mt-4 grid gap-3">
-          {serviceLinks.map((link) => <a href={link.href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{link.title}</a>)}
+          {serviceLinks.map((link) => <a href={link.href} class="inline-flex min-h-11 items-center text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[var(--dw-accent-strong)]">{link.title}</a>)}
         </div>
       </div>
       <div>
-        <p class="font-display text-lg font-extrabold">Agentur</p>
+        <p class="font-impact text-lg font-extrabold">Digitalwerk</p>
         <div class="mt-4 grid gap-3">
-          {companyLinks.map(([label, href]) => <a href={href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{label}</a>)}
-        </div>
-      </div>
-      <div>
-        <p class="font-display text-lg font-extrabold">Ressourcen</p>
-        <div class="mt-4 grid gap-3">
-          {resourceLinks.map(([label, href]) => <a href={href} class="text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[oklch(0.32_0.11_245)]">{label}</a>)}
+          {companyLinks.map(([label, href]) => <a href={href} class="inline-flex min-h-11 items-center text-sm font-bold text-[oklch(0.38_0.04_260)] transition hover:text-[var(--dw-accent-strong)]">{label}</a>)}
         </div>
       </div>
     </nav>
   </div>
-  <div class="mx-auto mt-10 flex max-w-[1320px] flex-col gap-2 border-t border-[oklch(0.88_0.018_250)] pt-5 text-xs font-bold text-[oklch(0.48_0.035_260)] sm:flex-row sm:items-center sm:justify-between">
+  <div class="mx-auto mt-10 flex max-w-[1320px] flex-col gap-2 border-t border-[var(--dw-card-border)] pt-5 text-xs font-bold text-[oklch(0.48_0.035_260)] sm:flex-row sm:items-center sm:justify-between">
     <p>{siteContent.brand.location} · {siteContent.brand.addressLine}</p>
     <p>© {new Date().getFullYear()} {siteContent.brand.name}</p>
   </div>

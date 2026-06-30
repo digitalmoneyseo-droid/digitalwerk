@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteContent } from "../data/siteContent";
+---
+
+<BaseLayout title={`${siteContent.brand.name} - Impressum`} description={`Impressum und Kontaktangaben von ${siteContent.brand.name}.`}>
+  <main id="main-content" class="min-h-screen bg-white px-5 py-32 text-[oklch(0.17_0.025_260)] md:py-40">
+    <section class="mx-auto max-w-[820px]">
+      <p class="text-xs font-black uppercase tracking-[0.16em] text-[var(--dw-accent-strong)]">Rechtliches</p>
+      <h1 class="mt-5 font-display text-5xl font-extrabold leading-tight text-[oklch(0.2_0.035_260)]">Impressum</h1>
+      <div class="mt-8 rounded-2xl border border-[var(--dw-card-border)] bg-[oklch(0.985_0.008_245)] p-6 text-sm font-semibold leading-7 text-[oklch(0.36_0.04_260)]">
+        <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Angaben nach Paragraf 5 DDG</h2>
+        <p class="mt-4">{siteContent.brand.name}</p>
+        <p>{siteContent.brand.addressLine}</p>
+
+        <h2 class="mt-8 font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Kontakt</h2>
+        <p class="mt-4">
+          E-Mail: <a class="inline-flex min-h-11 items-center font-black text-[var(--dw-accent-strong)]" href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>
+        </p>
+
+        <h2 class="mt-8 font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Verantwortlich fuer den Inhalt</h2>
+        <p class="mt-4">{siteContent.brand.name}</p>
+
+        <h2 class="mt-8 font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Hinweis</h2>
+        <p class="mt-4">
+          Diese Angaben bilden die im Projekt hinterlegten Kontakt- und Anbieterinformationen ab. Vor einer produktiven
+          Veroeffentlichung sollten Rechtsform, vertretungsberechtigte Person, vollstaendige ladungsfaehige Anschrift,
+          Umsatzsteuer-ID und weitere branchenspezifische Pflichtangaben fachlich geprueft und ergaenzt werden.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

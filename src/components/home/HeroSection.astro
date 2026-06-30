@@ -3,31 +3,44 @@ import Icon from "../Icon.astro";
 import { siteContent } from "../../data/siteContent";
 
 const content = siteContent.home.one;
+const [titleStart, titleEnd = ""] = content.title.split(content.highlight);
 ---
 
-<section class="relative overflow-hidden px-5 pb-20 pt-32 md:pb-28 md:pt-40">
+<section class="relative overflow-hidden px-5 pb-18 pt-32 md:pb-24 md:pt-40">
   <div class="dw-signal-field absolute inset-0" aria-hidden="true"></div>
+
   <div class="relative mx-auto max-w-[1180px] text-center">
-    <h1 class="mx-auto max-w-5xl text-balance font-display text-5xl font-semibold leading-[0.98] text-[oklch(0.22_0.04_260)] md:text-6xl lg:text-7xl">
-      Websites, die wirklich <span class="italic text-[oklch(0.58_0.15_245)]">Anfragen bringen</span>
+    <p class="mx-auto inline-flex rounded-full border border-[oklch(0.82_0.03_245)] bg-white/80 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[oklch(0.42_0.11_245)] shadow-sm">
+      {content.heroBadge}
+    </p>
+
+    <h1 class="mx-auto mt-6 max-w-5xl text-balance font-display text-5xl font-extrabold leading-[0.96] text-[oklch(0.18_0.035_260)] md:text-6xl lg:text-7xl">
+      {titleStart}<span class="text-[oklch(0.52_0.15_245)]">{content.highlight}</span>{titleEnd}
     </h1>
-    <p class="mx-auto mt-8 max-w-2xl text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)] md:text-lg">
+
+    <p class="mx-auto mt-7 max-w-2xl text-pretty text-base font-semibold leading-8 text-[oklch(0.43_0.04_260)] md:text-lg">
       {content.lead}
     </p>
+
     <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
         href="/kontakt"
-        class="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[oklch(0.14_0.025_260)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.18_0.035_260/0.14)] transition hover:-translate-y-0.5 hover:bg-[oklch(0.28_0.08_250)] active:translate-y-0"
+        class="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--dw-dark)] px-6 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[oklch(0.28_0.08_250)] active:translate-y-0"
       >
         {content.primaryCta}
         <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
       </a>
+
       <a
         href="/leistungen/webdesign"
-        class="inline-flex min-h-11 items-center justify-center rounded-full border border-[oklch(0.78_0.03_250)] bg-white/76 px-5 py-3 text-sm font-black text-[oklch(0.26_0.035_260)] transition hover:-translate-y-0.5 hover:bg-white active:translate-y-0"
+        class="inline-flex min-h-12 items-center justify-center rounded-full border border-[oklch(0.78_0.03_250)] bg-white/80 px-6 py-3 text-sm font-black text-[oklch(0.24_0.035_260)] transition hover:-translate-y-0.5 hover:bg-white active:translate-y-0"
       >
         {content.secondaryCta}
       </a>
     </div>
+
+    <p class="mx-auto mt-6 max-w-xl text-sm font-bold leading-6 text-[oklch(0.52_0.04_260)]">
+      {content.audienceLine}
+    </p>
   </div>
 </section>

@@ -11,7 +11,7 @@ const content = siteContent.home.one;
       {
         content.process.map((step, index) => (
           <article class="grid gap-3 border-b border-[var(--dw-line)] py-6 md:grid-cols-[90px_180px_1fr]">
-            <p class="font-display text-4xl font-semibold leading-none text-[oklch(0.58_0.15_245)]">{String(index + 1).padStart(2, "0")}</p>
+            <p class="font-display text-4xl font-semibold leading-none text-[var(--dw-accent-strong)]">{String(index + 1).padStart(2, "0")}</p>
             <h3 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">{step.title}</h3>
             <p class="text-sm font-semibold leading-7 text-[oklch(0.48_0.04_260)]">{step.text}</p>
           </article>

@@ -1,62 +1,41 @@
 ---
 import Icon from "../Icon.astro";
+import { siteContent } from "../../data/siteContent";
 
-const plans = [
-  {
-    name: "Starter",
-    lead: "Für den schnellen professionellen Web-Auftritt",
-    price: "ab 1.900 €",
-    features: ["Responsive Website", "SEO-Grundlage", "Kontaktweg und Tracking", "Launch-Check"],
-    featured: false,
-  },
-  {
-    name: "Professional",
-    lead: "Website, SEO-Struktur und Kampagnenbasis in einem System",
-    price: "ab 4.800 €",
-    features: ["Alles aus Starter", "Premium Webdesign", "Leistungsseiten für SEO", "Landingpage für Kampagnen", "Reporting-Grundlage"],
-    featured: true,
-  },
-  {
-    name: "Betreuung",
-    lead: "Laufende Optimierung für Sichtbarkeit und Anfragen",
-    price: "ab 950 € / Monat",
-    features: ["SEO- oder Ads-Betreuung", "Tests und Optimierung", "Monatliche Auswertung", "Priorisierte Empfehlungen"],
-    featured: false,
-  },
-] as const;
+const plans = siteContent.pricingCards;
 ---
 
 <section class="bg-white px-5 py-20 md:py-28" id="preise">
   <div class="mx-auto max-w-[1180px]">
     <div class="mx-auto max-w-3xl text-center dw-reveal">
-      <h2 class="text-balance font-display text-5xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-6xl">Preise</h2>
+      <h2 class="text-balance break-words font-display text-4xl font-extrabold leading-[1.05] text-[oklch(0.22_0.04_260)] sm:text-5xl md:text-6xl">Klare Einstiegspakete</h2>
       <p class="mt-5 text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">
-        Drei klare Einstiege. Im Erstgespräch klären wir, welcher Umfang wirklich sinnvoll ist.
+        Transparente Richtwerte für Websites, Relaunches und laufende Betreuung. Das genaue Angebot richtet sich nach Umfang, Technik und Ziel.
       </p>
     </div>
 
     <div class="dw-reveal-stagger mt-12 grid gap-5 lg:grid-cols-3 lg:items-stretch">
       {plans.map((plan) => (
         <article
-          class={`relative flex min-h-[560px] flex-col rounded-[28px] border p-7 shadow-[0_18px_56px_oklch(0.2_0.035_250/0.08)] ${
+          class={`relative flex min-h-[560px] flex-col rounded-2xl border p-7 ${
             plan.featured
               ? "border-[oklch(0.24_0.045_250)] bg-[oklch(0.18_0.045_250)] text-white lg:-mt-6 lg:min-h-[620px]"
-              : "border-[oklch(0.9_0.018_250)] bg-white text-[oklch(0.2_0.035_260)]"
+              : "border-[var(--dw-card-border)] bg-white text-[oklch(0.2_0.035_260)] shadow-[var(--dw-card-shadow)]"
           }`}
         >
           {plan.featured && (
-            <span class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[oklch(0.62_0.15_245)] px-6 py-2 text-xs font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_28px_oklch(0.2_0.08_245/0.28)]">
+            <span class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--dw-accent-strong)] px-6 py-2 text-xs font-black uppercase tracking-[0.12em] text-white">
               Beliebt
             </span>
           )}
-          <p class={`text-[12px] font-black uppercase tracking-[0.24em] ${plan.featured ? "text-[oklch(0.68_0.13_245)]" : "text-[oklch(0.58_0.15_245)]"}`}>{plan.name}</p>
-          <p class={`mt-4 text-lg font-bold leading-7 ${plan.featured ? "text-white/68" : "text-[oklch(0.5_0.04_260)]"}`}>{plan.lead}</p>
-          <p class="mt-10 font-display text-6xl font-semibold leading-none">{plan.price}</p>
+          <p class={`text-[12px] font-black uppercase tracking-[0.16em] ${plan.featured ? "text-[oklch(0.82_0.08_245)]" : "text-[var(--dw-accent-strong)]"}`}>{plan.name}</p>
+          <p class={`mt-4 text-lg font-bold leading-7 ${plan.featured ? "text-[oklch(0.9_0.018_245)]" : "text-[oklch(0.42_0.04_260)]"}`}>{plan.lead}</p>
+          <p class="mt-10 font-display text-5xl font-extrabold leading-none md:text-6xl">{plan.price}</p>
           <div class={`my-8 h-px ${plan.featured ? "bg-white/14" : "bg-[var(--dw-line)]"}`}></div>
           <ul class="grid gap-4">
             {plan.features.map((feature) => (
-              <li class={`flex items-start gap-3 text-sm font-bold leading-6 ${plan.featured ? "text-white/74" : "text-[oklch(0.42_0.04_260)]"}`}>
-                <Icon name="CircleCheckBig" size={17} class={`mt-1 shrink-0 ${plan.featured ? "text-[oklch(0.62_0.15_245)]" : "text-[oklch(0.58_0.15_245)]"}`} />
+              <li class={`flex items-start gap-3 text-sm font-bold leading-6 ${plan.featured ? "text-[oklch(0.92_0.016_245)]" : "text-[oklch(0.42_0.04_260)]"}`}>
+                <Icon name="CircleCheckBig" size={17} class={`mt-1 shrink-0 ${plan.featured ? "text-[oklch(0.82_0.08_245)]" : "text-[var(--dw-accent-strong)]"}`} />
                 <span>{feature}</span>
               </li>
             ))}
@@ -65,11 +44,11 @@ const plans = [
             href="/kontakt"
             class={`mt-auto inline-flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-sm font-black transition hover:-translate-y-0.5 active:translate-y-0 ${
               plan.featured
-                ? "bg-[oklch(0.62_0.15_245)] text-white shadow-[0_12px_30px_oklch(0.15_0.08_245/0.28)]"
+                ? "bg-white text-[oklch(0.18_0.045_250)]"
                 : "border border-[oklch(0.78_0.03_250)] bg-white text-[oklch(0.22_0.04_260)]"
             }`}
           >
-            Anfragen
+            Plan anfragen
           </a>
         </article>
       ))}

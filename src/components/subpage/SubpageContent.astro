@@ -17,24 +17,19 @@ const style = `--dw-accent: ${theme.accent}; --dw-wash: ${theme.wash}; --dw-dark
 const heroItems = detail?.outcomes ?? current.bullets;
 ---
 
-<main class="min-h-screen bg-[var(--dw-wash)] text-[oklch(0.17_0.025_265)]" style={style}>
+<main id="main-content" class="min-h-screen bg-[var(--dw-wash)] text-[oklch(0.17_0.025_265)]" style={style}>
   <section class="relative overflow-hidden px-5 pb-16 pt-32 md:pb-24 md:pt-40">
     <div class="dw-page-grid absolute inset-0" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-[1180px]">
-      <a
-        href="/"
-        class="mb-10 inline-flex items-center gap-2 rounded-full border border-[oklch(0.78_0.025_265)] bg-white/78 px-4 py-2 text-sm font-black shadow-sm transition hover:-translate-x-0.5 hover:bg-white active:scale-[0.97]"
-      >
-        <Icon name="ArrowLeft" size={16} />
-        {siteContent.subpageTemplate.backLabel}
-      </a>
-
       <div class="grid gap-12 lg:grid-cols-[0.58fr_0.42fr] lg:items-end">
         <div class="page-rise">
-          <h1 class="max-w-4xl text-balance font-display text-5xl font-semibold leading-[0.98] text-[oklch(0.2_0.035_260)] md:text-7xl">{current.title}</h1>
+          <p class="mb-5 inline-flex rounded-full border border-current/15 bg-white/70 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[var(--dw-accent)]">
+            {current.category}
+          </p>
+          <h1 class="max-w-4xl text-balance font-display text-5xl font-extrabold leading-[0.98] text-[oklch(0.2_0.035_260)] md:text-7xl">{current.title}</h1>
           <p class="mt-8 max-w-3xl text-pretty text-base font-semibold leading-8 text-[oklch(0.46_0.04_265)] md:text-lg">{current.intro}</p>
           <div class="mt-9 flex flex-wrap gap-3">
-            <a href="/kontakt" class="group inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white shadow-[0_10px_24px_oklch(0.16_0.03_265/0.14)] transition hover:-translate-y-0.5 active:translate-y-0">
+            <a href="/kontakt" class="group inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 active:translate-y-0">
               {detail?.ctaLabel ?? siteContent.subpageTemplate.ctaLabel}
               <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
             </a>

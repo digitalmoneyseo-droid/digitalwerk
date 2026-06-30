@@ -4,30 +4,48 @@ import { siteContent } from "../../data/siteContent";
 import type { IconName } from "../../lib/navigation";
 
 const content = siteContent.home.one;
-const serviceIcons: IconName[] = ["Monitor", "Search", "Megaphone", "Share2", "Palette", "Sparkles"];
+const serviceIcons: IconName[] = ["Monitor", "Search", "Megaphone", "Sparkles"];
+const flow = [
+  ["01", "Angebot klären", "Was muss ein Besucher in den ersten Sekunden verstehen?"],
+  ["02", "Sichtbarkeit führen", "Welche Such- und Kampagnenwege bringen passende Nutzer?"],
+  ["03", "Anfrage sichern", "Welche Belege, Kontaktwege und Messpunkte nehmen Risiko raus?"],
+] as const;
 ---
 
 <section class="bg-white px-5 py-16 md:py-24" id="leistungen">
-  <div class="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
+  <div class="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.38fr_0.62fr] lg:items-start">
     <div class="dw-reveal">
-      <h2 class="text-balance font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-5xl">{content.serviceRunwayTitle}</h2>
+      <h2 class="text-balance font-display text-4xl font-extrabold leading-[1.05] text-[oklch(0.22_0.04_260)] md:text-5xl">{content.serviceRunwayTitle}</h2>
       <p class="mt-5 max-w-md text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">{content.serviceRunwayLead}</p>
+      <div class="mt-8 grid gap-3">
+        {flow.map(([step, title, text]) => (
+          <div class="grid grid-cols-[44px_1fr] gap-3 border-t border-[var(--dw-line)] py-4">
+            <span class="font-impact text-sm font-black text-[var(--dw-accent-strong)]">{step}</span>
+            <span>
+              <span class="block text-sm font-extrabold text-[oklch(0.2_0.035_260)]">{title}</span>
+              <span class="mt-1 block text-sm font-semibold leading-6 text-[oklch(0.46_0.04_260)]">{text}</span>
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
-    <div class="dw-reveal-stagger border-t border-[var(--dw-line)]">
+    <div class="dw-reveal-stagger grid gap-3 md:grid-cols-2">
       {
         content.services.map((service, index) => (
           <a
             href={service.href}
-            class="group grid gap-4 border-b border-[var(--dw-line)] py-6 transition hover:bg-[oklch(0.985_0.008_245)] sm:grid-cols-[54px_1fr_auto] sm:items-center"
+            class="group grid min-h-[190px] content-between rounded-2xl border border-[var(--dw-card-border)] bg-[oklch(0.995_0.004_245)] p-5 transition hover:-translate-y-0.5 hover:bg-[oklch(0.98_0.012_245)] active:translate-y-0"
           >
-            <span class="grid h-11 w-11 place-items-center rounded-[12px] bg-[oklch(0.94_0.032_245)] text-[oklch(0.5_0.14_245)]">
-              <Icon name={serviceIcons[index] ?? "Monitor"} size={19} />
+            <span class="flex items-start justify-between gap-4">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-[oklch(0.94_0.032_245)] text-[var(--dw-accent-strong)]">
+                <Icon name={serviceIcons[index] ?? "Monitor"} size={19} />
+              </span>
+              <Icon name="ArrowRight" size={17} class="text-[var(--dw-accent-strong)] transition-transform group-hover:translate-x-1" />
             </span>
-            <span>
-              <span class="block font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">{service.title}</span>
-              <span class="mt-1 block text-sm font-semibold leading-6 text-[oklch(0.5_0.04_260)]">{service.text}</span>
+            <span class="mt-8 block">
+              <span class="block font-impact text-xl font-extrabold leading-tight text-[oklch(0.18_0.035_260)]">{service.title}</span>
+              <span class="mt-2 block text-sm font-semibold leading-6 text-[oklch(0.43_0.04_260)]">{service.text}</span>
             </span>
-            <Icon name="ArrowRight" size={17} class="hidden text-[oklch(0.58_0.14_245)] transition-transform group-hover:translate-x-1 sm:block" />
           </a>
         ))
       }

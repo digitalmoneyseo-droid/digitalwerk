@@ -5,23 +5,23 @@ import { normalizePath } from "../lib/pageContent";
 import type { NavGroup } from "../lib/navigation";
 
 const navTone = {
-  shell: "border-[oklch(0.88_0.018_250)] bg-white/90 text-[oklch(0.22_0.035_260)] shadow-[0_12px_40px_oklch(0.2_0.035_250/0.1)] backdrop-blur-xl",
-  brand: "bg-[oklch(0.14_0.025_260)] text-white shadow-[0_8px_18px_oklch(0.18_0.03_260/0.14)]",
+  shell: "border-[var(--dw-card-border)] bg-white/94 text-[oklch(0.22_0.035_260)] shadow-[var(--dw-card-shadow)] backdrop-blur-md",
+  brand: "bg-[var(--dw-dark)] text-white",
   link: "text-[oklch(0.36_0.035_260)] hover:bg-[oklch(0.94_0.024_245)] hover:text-[oklch(0.17_0.03_260)]",
   active: "bg-[oklch(0.9_0.04_245)] text-[oklch(0.34_0.12_245)]",
-  panel: "border-[oklch(0.88_0.018_250)] bg-white text-[oklch(0.18_0.025_260)] shadow-[0_18px_54px_oklch(0.2_0.035_250/0.14)]",
-  button: "bg-[oklch(0.14_0.025_260)] text-white hover:bg-[oklch(0.28_0.08_250)]",
+  panel: "border-[var(--dw-card-border)] bg-white text-[oklch(0.18_0.025_260)] shadow-[var(--dw-card-shadow)]",
+  button: "bg-[var(--dw-dark)] text-white hover:bg-[oklch(0.28_0.08_250)]",
 };
 
 const navGroups: NavGroup[] = [
   {
     key: "services",
-    label: siteContent.navigation.servicesLabel,
+    label: "Leistungen",
     items: [
       {
         label: "Webdesign",
         href: "/leistungen/webdesign",
-        description: "Individuelle Websites, die Besucher in Kunden verwandeln",
+        description: "Schnelle, mobile Websites, die Angebot und nächsten Schritt klar machen",
         icon: "Monitor",
         iconBg: "bg-[oklch(0.9_0.075_260)]",
         iconText: "text-[oklch(0.48_0.17_250)]",
@@ -29,7 +29,7 @@ const navGroups: NavGroup[] = [
       {
         label: "SEO",
         href: "/leistungen/local-seo",
-        description: "Besser bei Google ranken und organischen Traffic steigern",
+        description: "Struktur, Inhalte und lokale Signale für bessere Google-Sichtbarkeit",
         icon: "Search",
         iconBg: "bg-[oklch(0.9_0.11_150)]",
         iconText: "text-[oklch(0.56_0.18_150)]",
@@ -37,48 +37,18 @@ const navGroups: NavGroup[] = [
       {
         label: "Paid Ads",
         href: "/leistungen/paid-ads",
-        description: "Werbekampagnen über Google, Meta und weitere Kanäle",
+        description: "Google- und Social-Kampagnen mit passender Landingpage und Tracking",
         icon: "Megaphone",
         iconBg: "bg-[oklch(0.91_0.085_84)]",
         iconText: "text-[oklch(0.63_0.16_72)]",
       },
       {
-        label: "KI-Lösungen",
-        href: "/leistungen/geo",
-        description: "Mit intelligenten KI-Tools automatisieren und skalieren",
+        label: "KI & Automation",
+        href: "/leistungen/ki-automatisierung",
+        description: "Chatbots, Workflows und KI-Sichtbarkeit mit praktischem Nutzen",
         icon: "Sparkles",
         iconBg: "bg-[oklch(0.91_0.08_300)]",
         iconText: "text-[oklch(0.58_0.21_300)]",
-      },
-      {
-        label: "1:1 Website-Hilfe",
-        href: "/leistungen/website-hilfe",
-        description: "Live-Screen-Sharing-Sessions mit einem echten Webdesigner",
-        icon: "Video",
-        iconBg: "bg-[oklch(0.92_0.105_95)]",
-        iconText: "text-[oklch(0.64_0.17_70)]",
-      },
-    ],
-  },
-  {
-    key: "work",
-    label: siteContent.navigation.workLabel,
-    items: [
-      {
-        label: "Projektarten",
-        href: "/cases",
-        description: "Relaunches, SEO-Strukturen und Landingpages als Startpunkte",
-        icon: "BriefcaseBusiness",
-        iconBg: "bg-[oklch(0.94_0.04_245)]",
-        iconText: "text-[oklch(0.42_0.12_245)]",
-      },
-      {
-        label: "Methode",
-        href: "/methode",
-        description: "Erstberatung, Empfehlung und Umsetzung ohne Umwege",
-        icon: "Target",
-        iconBg: "bg-[oklch(0.94_0.04_245)]",
-        iconText: "text-[oklch(0.42_0.12_245)]",
       },
     ],
   },
@@ -87,7 +57,7 @@ const navGroups: NavGroup[] = [
 const topLinks = [
   ["Über uns", "/agentur"],
   ["Preise", "/preise"],
-  ["Enterprise", "/enterprise"],
+  ["Kontakt", "/kontakt"],
 ] as const;
 
 const currentPath = normalizePath(Astro.url.pathname);
@@ -96,19 +66,19 @@ const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(i
 ---
 
 <header class="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-5" data-nav-root>
-  <div class={`mx-auto max-w-[1180px] rounded-[28px] border px-3 py-2 ${navTone.shell}`}>
+  <div class={`mx-auto max-w-[1180px] rounded-2xl border px-3 py-2 ${navTone.shell}`}>
     <div class="grid grid-cols-[auto_1fr_auto] items-center gap-3">
       <a
         href="/"
         aria-current={isActive("/") ? "page" : undefined}
-        class="flex min-w-0 items-center gap-2 rounded-full pr-2 outline-none transition-transform hover:translate-x-0.5 active:scale-[0.98]"
+        class="flex min-h-11 min-w-0 items-center gap-2 rounded-full pr-2 outline-none transition-transform hover:translate-x-0.5 active:scale-[0.98]"
       >
         <span class={`grid h-8 w-8 shrink-0 place-items-center rounded-full font-impact text-xs font-black leading-none ${navTone.brand}`}>D</span>
         <span class="block truncate font-impact text-base font-extrabold leading-[1.25]">{siteContent.brand.name}</span>
       </a>
 
       <nav class="hidden items-center justify-center gap-1 lg:flex" aria-label="Hauptnavigation">
-        <a href="/agentur" aria-current={isActive("/agentur") ? "page" : undefined} class={`inline-flex min-h-10 items-center rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isActive("/agentur") ? navTone.active : ""}`}>
+        <a href="/agentur" aria-current={isActive("/agentur") ? "page" : undefined} class={`inline-flex min-h-11 items-center rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isActive("/agentur") ? navTone.active : ""}`}>
           Über uns
         </a>
         {
@@ -120,7 +90,7 @@ const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(i
                 aria-expanded="false"
                 aria-controls={`${group.key}-menu`}
                 data-menu-trigger
-                class={`relative flex min-h-10 items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isGroupActive(group) ? navTone.active : ""}`}
+                class={`relative flex min-h-11 items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isGroupActive(group) ? navTone.active : ""}`}
               >
                 {group.label}
                 <span data-menu-chevron class="grid transition-transform">
@@ -130,10 +100,10 @@ const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(i
               <div
                 id={`${group.key}-menu`}
                 data-menu-panel
-                class={`dw-menu-panel pointer-events-none invisible absolute left-1/2 top-full pt-3 opacity-0 transition duration-200 ${group.key === "services" ? "w-[min(470px,calc(100vw-32px))]" : "w-[min(360px,calc(100vw-32px))]"}`}
+                class="dw-menu-panel pointer-events-none invisible absolute left-1/2 top-full w-[min(470px,calc(100vw-32px))] pt-3 opacity-0 transition duration-200"
               >
-                <div class={`relative z-10 rounded-[22px] border p-4 ${navTone.panel}`}>
-                  <span class="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 border-l border-t border-[oklch(0.88_0.018_250)] bg-white" aria-hidden="true"></span>
+                <div class={`relative z-10 rounded-2xl border p-4 ${navTone.panel}`}>
+                  <span class="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 border-l border-t border-[var(--dw-card-border)] bg-white" aria-hidden="true"></span>
                   <div class="grid gap-1">
                     {group.items.map((item) => (
                       <a
@@ -156,13 +126,10 @@ const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(i
             </div>
           ))
         }
-        <a href="/preise" aria-current={isActive("/preise") ? "page" : undefined} class={`inline-flex min-h-10 items-center rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isActive("/preise") ? navTone.active : ""}`}>
+        <a href="/preise" aria-current={isActive("/preise") ? "page" : undefined} class={`inline-flex min-h-11 items-center rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isActive("/preise") ? navTone.active : ""}`}>
           Preise
         </a>
-        <a href="/enterprise" aria-current={isActive("/enterprise") ? "page" : undefined} class={`inline-flex min-h-10 items-center rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isActive("/enterprise") ? navTone.active : ""}`}>
-          Enterprise
-        </a>
-        <a href="/kontakt" aria-current={isActive("/kontakt") ? "page" : undefined} class={`inline-flex min-h-10 items-center rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isActive("/kontakt") ? navTone.active : ""}`}>
+        <a href="/kontakt" aria-current={isActive("/kontakt") ? "page" : undefined} class={`inline-flex min-h-11 items-center rounded-full px-3.5 py-2 text-[13px] font-extrabold leading-[1.35] transition active:scale-[0.97] ${navTone.link} ${isActive("/kontakt") ? navTone.active : ""}`}>
           Kontakt
         </a>
       </nav>
@@ -170,14 +137,14 @@ const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(i
       <div class="flex items-center justify-end gap-2">
         <a
           href="/kontakt"
-          class={`group hidden min-h-10 items-center gap-2 rounded-full px-4 py-2 text-[13px] font-extrabold leading-[1.35] shadow-[0_10px_22px_oklch(0.18_0.035_260/0.14)] transition hover:-translate-y-0.5 active:translate-y-0 lg:inline-flex ${navTone.button}`}
+          class={`group hidden min-h-11 items-center gap-2 rounded-full px-4 py-2 text-[13px] font-extrabold leading-[1.35] transition hover:-translate-y-0.5 active:translate-y-0 lg:inline-flex ${navTone.button}`}
         >
           {siteContent.navigation.ctaLabel}
           <Icon name="ArrowRight" size={15} class="transition-transform group-hover:translate-x-0.5" />
         </a>
         <button
           type="button"
-          class={`grid h-10 w-10 place-items-center rounded-full transition hover:bg-[oklch(0.95_0.014_250)] active:scale-[0.96] lg:hidden ${navTone.link}`}
+          class={`grid h-11 w-11 place-items-center rounded-full transition hover:bg-[oklch(0.95_0.014_250)] active:scale-[0.96] lg:hidden ${navTone.link}`}
           aria-label={siteContent.navigation.menuOpen}
           aria-expanded="false"
           data-mobile-toggle
@@ -188,7 +155,7 @@ const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(i
       </div>
     </div>
 
-    <div class={`dw-mobile-menu mt-3 rounded-[22px] border p-3 shadow-[0_18px_44px_oklch(0.18_0.035_250/0.12)] lg:hidden ${navTone.panel}`} data-mobile-panel hidden>
+    <div class={`dw-mobile-menu mt-3 rounded-2xl border p-3 lg:hidden ${navTone.panel}`} data-mobile-panel hidden>
       <div class="grid gap-2" data-mobile-main>
         {
           navGroups.map((group) => (
@@ -253,6 +220,26 @@ const isGroupActive = (group: NavGroup) => group.items.some((item) => isActive(i
 </header>
 
 <script>
+  document.querySelectorAll<HTMLElement>(".dw-desktop-menu").forEach((menu) => {
+    const trigger = menu.querySelector<HTMLButtonElement>("[data-menu-trigger]");
+    const panel = menu.querySelector<HTMLElement>("[data-menu-panel]");
+
+    if (!trigger || !panel) return;
+
+    const setExpanded = (expanded: boolean) => {
+      trigger.setAttribute("aria-expanded", String(expanded));
+    };
+
+    menu.addEventListener("mouseenter", () => setExpanded(true));
+    menu.addEventListener("mouseleave", () => setExpanded(false));
+    menu.addEventListener("focusin", () => setExpanded(true));
+    menu.addEventListener("focusout", (event) => {
+      if (!menu.contains(event.relatedTarget as Node | null)) {
+        setExpanded(false);
+      }
+    });
+  });
+
   document.querySelectorAll<HTMLElement>("[data-nav-root]").forEach((root) => {
     const toggle = root.querySelector<HTMLButtonElement>("[data-mobile-toggle]");
     const panel = root.querySelector<HTMLElement>("[data-mobile-panel]");

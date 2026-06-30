@@ -1,12 +1,18 @@
 ---
-const industries = ["Lokale Dienstleister", "B2B", "E-Commerce", "Praxen", "Kanzleien", "Handwerk"];
+const points = [
+  ["Schneller verstanden", "Klare Struktur, klare Texte, klare Kontaktwege."],
+  ["Mobil sauber", "Layouts, die auf Smartphone, Tablet und Desktop funktionieren."],
+  ["Für Anfragen gebaut", "SEO, Vertrauen und Conversion werden von Anfang an mitgedacht."],
+] as const;
 ---
 
-<section class="bg-white px-5 py-14" aria-label="Branchen">
-  <div class="mx-auto max-w-[1180px]">
-    <p class="text-center text-[12px] font-black uppercase tracking-[0.28em] text-[oklch(0.78_0.03_250)]">Für Unternehmen, die online klarer verkaufen wollen</p>
-    <div class="dw-reveal-stagger mt-10 grid grid-cols-2 gap-x-8 gap-y-6 text-center sm:grid-cols-3 lg:grid-cols-6">
-      {industries.map((item) => <span class="font-impact text-sm font-extrabold text-[oklch(0.64_0.03_260)]">{item}</span>)}
-    </div>
+<section class="bg-white px-5 py-10" aria-label="Vorteile">
+  <div class="mx-auto grid max-w-[1180px] gap-4 md:grid-cols-3">
+    {points.map(([title, text]) => (
+      <article class="rounded-2xl border border-[var(--dw-card-border)] bg-[oklch(0.985_0.008_245)] p-5">
+        <p class="font-impact text-base font-extrabold text-[oklch(0.2_0.035_260)]">{title}</p>
+        <p class="mt-2 text-sm font-semibold leading-6 text-[oklch(0.46_0.04_260)]">{text}</p>
+      </article>
+    ))}
   </div>
 </section>
