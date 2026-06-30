@@ -14,15 +14,15 @@ const labels = siteContent.pageDetailLabels;
 {
   (process.length || faq.length) ? (
     <SectionShell>
-      <div class="mx-auto grid max-w-[1180px] min-w-0 gap-12 lg:grid-cols-[minmax(0,0.5fr)_minmax(0,0.5fr)]">
+      <div class="dw-container grid min-w-0 gap-12 lg:grid-cols-[minmax(0,0.5fr)_minmax(0,0.5fr)]">
         {process.length ? (
           <div class="min-w-0">
-            <h2 class="font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-5xl">{labels.process}</h2>
-            <div class="mt-8 border-t border-[var(--dw-line)]">
+            <h2 class="font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">{labels.process}</h2>
+            <div class="mt-8 border-y border-[var(--dw-card-border)]">
               {process.map((step, index) => (
-                <div class="grid grid-cols-[70px_1fr] items-center border-b border-[var(--dw-line)] py-5">
-                  <span class="font-display text-3xl font-semibold text-[var(--dw-accent)]">{String(index + 1).padStart(2, "0")}</span>
-                  <p class="font-impact text-base font-extrabold">{step}</p>
+                <div class="grid grid-cols-[70px_1fr] items-center border-b border-[var(--dw-card-border)] py-5 last:border-b-0">
+                  <span class="font-display text-3xl font-black tracking-[-0.035em] text-[var(--dw-accent-strong)]">{String(index + 1).padStart(2, "0")}</span>
+                  <p class="text-base font-black">{step}</p>
                 </div>
               ))}
             </div>
@@ -30,15 +30,15 @@ const labels = siteContent.pageDetailLabels;
         ) : null}
         {faq.length ? (
           <div class="min-w-0">
-            <h2 class="font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-5xl">{labels.faq}</h2>
-            <div class="mt-8 border-t border-[var(--dw-line)]">
+            <h2 class="font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">{labels.faq}</h2>
+            <div class="mt-8 border-y border-[var(--dw-card-border)]">
               {faq.map((item) => (
-                <details class="group border-b border-[var(--dw-line)] py-5">
-                  <summary class="cursor-pointer list-none font-impact text-base font-extrabold outline-none focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[var(--dw-accent)]">
-                    {item.question}
-                    <span class="float-right transition group-open:rotate-45">+</span>
+                <details class="group border-b border-[var(--dw-card-border)] py-5 last:border-b-0">
+                  <summary class="flex cursor-pointer list-none items-start justify-between gap-4 font-impact text-base font-black outline-none focus-visible:rounded-md focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[var(--dw-accent)]">
+                    <span>{item.question}</span>
+                    <span class="shrink-0 text-2xl leading-none text-[var(--dw-accent-strong)] transition group-open:rotate-45" aria-hidden="true">+</span>
                   </summary>
-                  <p class="mt-4 text-sm font-semibold leading-7 text-[oklch(0.48_0.04_265)]">{item.answer}</p>
+                  <p class="mt-4 text-sm font-medium leading-7 text-[var(--dw-ink-soft)]">{item.answer}</p>
                 </details>
               ))}
             </div>

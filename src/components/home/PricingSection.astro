@@ -6,36 +6,38 @@ const plans = siteContent.pricingCards;
 ---
 
 <section class="bg-white px-5 py-20 md:py-28" id="preise">
-  <div class="mx-auto max-w-[1180px]">
-    <div class="mx-auto max-w-3xl text-center dw-reveal">
-      <h2 class="text-balance break-words font-display text-4xl font-extrabold leading-[1.05] text-[oklch(0.22_0.04_260)] sm:text-5xl md:text-6xl">Klare Einstiegspakete</h2>
-      <p class="mt-5 text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">
-        Transparente Richtwerte für Websites, Relaunches und laufende Betreuung. Das genaue Angebot richtet sich nach Umfang, Technik und Ziel.
+  <div class="dw-container">
+    <div class="dw-reveal mx-auto max-w-3xl text-center">
+      <h2 class="text-balance break-words font-display text-4xl font-black leading-[1.05] tracking-[-0.025em] text-[var(--dw-ink)] sm:text-5xl md:text-6xl">
+        Klare Einstiegspakete
+      </h2>
+      <p class="mt-5 text-pretty text-base font-medium leading-8 text-[var(--dw-ink-soft)]">
+        Transparente Richtwerte für Websites, Relaunches und laufende Betreuung. Der konkrete Umfang entsteht nach dem Erstgespräch.
       </p>
     </div>
 
     <div class="dw-reveal-stagger mt-12 grid gap-5 lg:grid-cols-3 lg:items-stretch">
       {plans.map((plan) => (
         <article
-          class={`relative flex min-h-[560px] flex-col rounded-2xl border p-7 ${
+          class={`relative flex min-h-[560px] flex-col rounded-lg border p-6 ${
             plan.featured
-              ? "border-[oklch(0.24_0.045_250)] bg-[oklch(0.18_0.045_250)] text-white lg:-mt-6 lg:min-h-[620px]"
-              : "border-[var(--dw-card-border)] bg-white text-[oklch(0.2_0.035_260)] shadow-[var(--dw-card-shadow)]"
+              ? "border-[oklch(0.22_0.045_255)] bg-[var(--dw-dark)] text-white lg:-mt-5"
+              : "border-[var(--dw-card-border)] bg-[var(--dw-surface)] text-[var(--dw-ink)]"
           }`}
         >
           {plan.featured && (
-            <span class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--dw-accent-strong)] px-6 py-2 text-xs font-black uppercase tracking-[0.12em] text-white">
-              Beliebt
+            <span class="absolute right-5 top-5 rounded-full bg-white px-3 py-1 text-xs font-black text-[var(--dw-dark)]">
+              Häufigster Einstieg
             </span>
           )}
-          <p class={`text-[12px] font-black uppercase tracking-[0.16em] ${plan.featured ? "text-[oklch(0.82_0.08_245)]" : "text-[var(--dw-accent-strong)]"}`}>{plan.name}</p>
-          <p class={`mt-4 text-lg font-bold leading-7 ${plan.featured ? "text-[oklch(0.9_0.018_245)]" : "text-[oklch(0.42_0.04_260)]"}`}>{plan.lead}</p>
-          <p class="mt-10 font-display text-5xl font-extrabold leading-none md:text-6xl">{plan.price}</p>
-          <div class={`my-8 h-px ${plan.featured ? "bg-white/14" : "bg-[var(--dw-line)]"}`}></div>
-          <ul class="grid gap-4">
+          <p class={`text-sm font-black ${plan.featured ? "pr-36 text-white/82" : "text-[var(--dw-accent-strong)]"}`}>{plan.name}</p>
+          <p class={`mt-4 text-base font-medium leading-7 ${plan.featured ? "text-white/72" : "text-[var(--dw-ink-soft)]"}`}>{plan.lead}</p>
+          <p class="mt-8 font-display text-4xl font-black leading-none tracking-[-0.035em] md:text-5xl">{plan.price}</p>
+          <div class={`my-7 h-px ${plan.featured ? "bg-white/14" : "bg-[var(--dw-card-border)]"}`}></div>
+          <ul class="grid gap-3">
             {plan.features.map((feature) => (
-              <li class={`flex items-start gap-3 text-sm font-bold leading-6 ${plan.featured ? "text-[oklch(0.92_0.016_245)]" : "text-[oklch(0.42_0.04_260)]"}`}>
-                <Icon name="CircleCheckBig" size={17} class={`mt-1 shrink-0 ${plan.featured ? "text-[oklch(0.82_0.08_245)]" : "text-[var(--dw-accent-strong)]"}`} />
+              <li class={`flex items-start gap-3 text-sm font-medium leading-6 ${plan.featured ? "text-white/84" : "text-[var(--dw-ink-soft)]"}`}>
+                <Icon name="CircleCheckBig" size={17} class={`mt-1 shrink-0 ${plan.featured ? "text-[oklch(0.78_0.12_155)]" : "text-[var(--dw-green)]"}`} />
                 <span>{feature}</span>
               </li>
             ))}
@@ -44,8 +46,8 @@ const plans = siteContent.pricingCards;
             href="/kontakt"
             class={`mt-auto inline-flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-sm font-black transition hover:-translate-y-0.5 active:translate-y-0 ${
               plan.featured
-                ? "bg-white text-[oklch(0.18_0.045_250)]"
-                : "border border-[oklch(0.78_0.03_250)] bg-white text-[oklch(0.22_0.04_260)]"
+                ? "bg-white text-[var(--dw-dark)]"
+                : "border border-[oklch(0.78_0.04_250)] bg-white text-[var(--dw-ink)] hover:border-[var(--dw-accent)]"
             }`}
           >
             Plan anfragen
@@ -53,5 +55,9 @@ const plans = siteContent.pricingCards;
         </article>
       ))}
     </div>
+
+    <p class="mx-auto mt-6 max-w-3xl text-center text-sm font-medium leading-6 text-[var(--dw-muted)]">
+      Richtwerte zzgl. ggf. Media-Budget, Tools oder Hosting. Nach dem Gespräch ist klar, was wirklich gebraucht wird.
+    </p>
   </div>
 </section>

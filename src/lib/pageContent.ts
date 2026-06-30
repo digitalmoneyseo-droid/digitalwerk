@@ -16,42 +16,50 @@ export const familyThemes: Record<
   PageFamily,
   {
     accent: string;
+    accentStrong: string;
     wash: string;
     dark: string;
   }
 > = {
   search: {
-    accent: "oklch(0.44 0.14 255)",
-    wash: "oklch(0.988 0.005 255)",
+    accent: "oklch(0.48 0.15 250)",
+    accentStrong: "oklch(0.4 0.14 250)",
+    wash: "oklch(0.986 0.009 250)",
     dark: "oklch(0.15 0.025 265)",
   },
   paid: {
-    accent: "oklch(0.45 0.14 34)",
-    wash: "oklch(0.985 0.008 52)",
+    accent: "oklch(0.58 0.16 62)",
+    accentStrong: "oklch(0.44 0.13 62)",
+    wash: "oklch(0.986 0.012 62)",
     dark: "oklch(0.16 0.03 32)",
   },
   design: {
-    accent: "oklch(0.44 0.11 190)",
-    wash: "oklch(0.986 0.007 205)",
+    accent: "oklch(0.48 0.13 190)",
+    accentStrong: "oklch(0.36 0.11 190)",
+    wash: "oklch(0.986 0.01 205)",
     dark: "oklch(0.15 0.025 220)",
   },
   pricing: {
     accent: "oklch(0.43 0.13 270)",
-    wash: "oklch(0.99 0.004 270)",
+    accentStrong: "oklch(0.36 0.12 270)",
+    wash: "oklch(0.99 0.006 270)",
     dark: "oklch(0.16 0.025 265)",
   },
   agency: {
     accent: "oklch(0.5 0.12 245)",
-    wash: "oklch(0.988 0.006 245)",
+    accentStrong: "oklch(0.4 0.12 245)",
+    wash: "oklch(0.988 0.008 245)",
     dark: "oklch(0.15 0.025 245)",
   },
   contact: {
     accent: "oklch(0.44 0.12 320)",
-    wash: "oklch(0.99 0.006 320)",
+    accentStrong: "oklch(0.36 0.12 320)",
+    wash: "oklch(0.99 0.008 320)",
     dark: "oklch(0.16 0.03 320)",
   },
   plain: {
     accent: "oklch(0.43 0.13 270)",
+    accentStrong: "oklch(0.36 0.12 270)",
     wash: "oklch(1 0 0)",
     dark: "oklch(0.16 0.025 265)",
   },
@@ -84,7 +92,7 @@ export const corePageConfigs: Record<
     columns: [
       { title: "Suchintention", text: "Wir klären, welche Begriffe Menschen wirklich nutzen, wenn sie vergleichen, anrufen oder einen Termin buchen wollen." },
       { title: "Struktur", text: "Aus Leistungen, Standorten und Zielgruppen entsteht eine Seitenarchitektur, die Google und Besucher leichter verstehen." },
-      { title: "Vertrauen", text: "Bewertungen, Profilinformationen, Belege, klare Kontaktwege und verständliche Texte unterstützen die Anfrageentscheidung." },
+      { title: "Vertrauen", text: "Bewertungen, Profilinformationen, Belege, Kontaktwege und verständliche Texte unterstützen die Anfrageentscheidung." },
     ],
     proofTitle: "Woran bessere SEO-Arbeit sichtbar wird",
   },
@@ -106,7 +114,7 @@ export const corePageConfigs: Record<
     columns: [
       { title: "Chatbots", text: "Assistenten für Website, Support oder Beratung mit klaren Grenzen und nachvollziehbaren Antworten." },
       { title: "Workflows", text: "Automatisierungen für wiederkehrende Aufgaben, damit Teams schneller reagieren und weniger manuell nacharbeiten." },
-      { title: "KI-Sichtbarkeit", text: "Klare Inhalte, Quellen und FAQ-Strukturen, damit Expertise besser gefunden und verstanden wird." },
+      { title: "KI-Suche", text: "Klare Inhalte, Quellen und FAQ-Strukturen, damit Expertise besser gefunden und verstanden wird." },
     ],
     proofTitle: "Woran sinnvolle Automatisierung sichtbar wird",
   },
@@ -122,7 +130,7 @@ export function getPageFamily(page: CurrentPage): PageFamily {
   if (page.href === "/agentur") return "agency";
   if (page.href === "/kontakt") return "contact";
   if (page.href === "/leistungen/webdesign") return "design";
-  if (page.href.includes("paid-ads") || page.category.includes("Kampagnen")) return "paid";
+  if (page.href.includes("paid-ads") || page.category.includes("Paid")) return "paid";
   if (page.href.startsWith("/leistungen")) return "search";
   return "plain";
 }

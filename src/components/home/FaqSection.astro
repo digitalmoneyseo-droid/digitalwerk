@@ -1,0 +1,27 @@
+---
+import { siteContent } from "../../data/siteContent";
+
+const content = siteContent.home.one;
+---
+
+<section class="bg-white px-5 py-20 md:py-28">
+  <div class="dw-container grid gap-10 lg:grid-cols-[0.36fr_0.64fr]">
+    <div class="dw-reveal">
+      <h2 class="text-balance font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">
+        {content.faqTitle}
+      </h2>
+    </div>
+
+    <div class="dw-reveal-stagger border-y border-[var(--dw-card-border)]">
+      {content.faq.map((item) => (
+        <details class="group border-b border-[var(--dw-card-border)] py-5 last:border-b-0">
+          <summary class="flex cursor-pointer list-none items-start justify-between gap-5 text-left text-base font-black leading-7 text-[var(--dw-ink)] outline-none focus-visible:rounded-md focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[var(--dw-blue)]">
+            <span>{item.question}</span>
+            <span class="mt-0.5 shrink-0 text-2xl leading-none text-[var(--dw-accent-strong)] transition group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <p class="mt-4 max-w-2xl text-sm font-medium leading-7 text-[var(--dw-ink-soft)]">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

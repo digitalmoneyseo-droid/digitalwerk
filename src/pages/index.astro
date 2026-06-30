@@ -1,25 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import AudienceRibbon from "../components/home/AudienceRibbon.astro";
-import CaseStudiesSection from "../components/home/CaseStudiesSection.astro";
 import ContactSection from "../components/home/ContactSection.astro";
+import FaqSection from "../components/home/FaqSection.astro";
 import HeroSection from "../components/home/HeroSection.astro";
+import IncludedSection from "../components/home/IncludedSection.astro";
 import PricingSection from "../components/home/PricingSection.astro";
 import ProcessSection from "../components/home/ProcessSection.astro";
+import ReviewsSection from "../components/home/ReviewsSection.astro";
 import ServicesSection from "../components/home/ServicesSection.astro";
+import StickyMobileCta from "../components/home/StickyMobileCta.astro";
+import TrustSection from "../components/home/TrustSection.astro";
 import WhySection from "../components/home/WhySection.astro";
+import WorkPreviewSection from "../components/home/WorkPreviewSection.astro";
 import { siteContent } from "../data/siteContent";
 ---
 
 <BaseLayout title={`${siteContent.brand.name} - ${siteContent.brand.shortDescriptor}`} description={siteContent.meta.defaultDescription}>
-  <main id="main-content" class="min-h-screen bg-[oklch(0.975_0.014_245)] text-[oklch(0.17_0.025_260)]">
+  <main id="main-content" class="min-h-screen text-[var(--dw-ink)]">
     <HeroSection />
-    <AudienceRibbon />
+    <TrustSection />
     <ServicesSection />
+    <WorkPreviewSection />
+    <IncludedSection />
     <WhySection />
-    <CaseStudiesSection />
+    <ReviewsSection />
     <PricingSection />
     <ProcessSection />
+    <FaqSection />
     <ContactSection />
+    <StickyMobileCta />
   </main>
 </BaseLayout>

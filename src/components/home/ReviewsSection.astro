@@ -1,0 +1,35 @@
+---
+import Icon from "../Icon.astro";
+import { siteContent } from "../../data/siteContent";
+
+const content = siteContent.home.one;
+---
+
+<section class="px-5 py-20 md:py-24" aria-labelledby="proof-heading">
+  <div class="dw-container overflow-hidden rounded-lg bg-[var(--dw-dark)] text-white shadow-[var(--dw-card-shadow)]">
+    <div class="grid gap-8 p-6 md:p-9 lg:grid-cols-[0.46fr_0.54fr] lg:items-center">
+      <div class="dw-reveal">
+        <p class="font-utility text-xs font-bold uppercase tracking-[0.12em] text-white/58">Stimmen & Nachweise</p>
+        <h2 id="proof-heading" class="mt-4 text-balance font-display text-3xl font-black leading-[1.07] tracking-[-0.025em] md:text-5xl">
+          {content.reviewTitle}
+        </h2>
+        <p class="mt-5 max-w-xl text-base font-medium leading-8 text-white/72">
+          {content.reviewLead}
+        </p>
+      </div>
+
+      <div class="dw-reveal-stagger grid gap-3">
+        {content.reviewItems.map((item) => (
+          <div class="flex items-start gap-3 rounded-md border border-white/12 bg-white/[0.07] p-4">
+            <Icon name="CircleCheckBig" size={18} class="mt-1 shrink-0 text-[oklch(0.78_0.12_155)]" />
+            <p class="text-sm font-bold leading-6 text-white/86">{item}</p>
+          </div>
+        ))}
+        <a href="/kontakt" class="group mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-black text-[var(--dw-dark)] transition hover:-translate-y-0.5 active:translate-y-0 sm:w-max">
+          Beleg oder Projekt besprechen
+          <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

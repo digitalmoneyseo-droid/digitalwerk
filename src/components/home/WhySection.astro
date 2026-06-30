@@ -1,28 +1,31 @@
 ---
-const benefits = [
-  ["Klares Angebot", "Besucher verstehen in wenigen Sekunden, was du anbietest und warum es relevant ist."],
-  ["Mehr Vertrauen", "Struktur, Belege, Texte und Gestaltung machen die Entscheidung leichter."],
-  ["Bessere Anfragen", "Kontaktwege, SEO und Kampagnen führen Nutzer gezielt zum nächsten Schritt."],
-] as const;
+import Icon from "../Icon.astro";
+import { siteContent } from "../../data/siteContent";
+
+const content = siteContent.home.one;
 ---
 
-<section class="bg-[oklch(0.972_0.016_245)] px-5 py-20 md:py-28">
-  <div class="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[0.52fr_0.48fr] lg:items-center">
+<section class="bg-white px-5 py-20 md:py-28">
+  <div class="dw-container grid gap-12 lg:grid-cols-[0.5fr_0.5fr] lg:items-center">
     <div class="dw-reveal">
-      <p class="text-[12px] font-black uppercase tracking-[0.16em] text-[var(--dw-accent-strong)]">Warum Unternehmen uns wählen</p>
-      <h2 class="mt-6 text-balance font-display text-5xl font-extrabold leading-[1.02] text-[oklch(0.22_0.04_260)] md:text-6xl">
-        Deine Website muss in Sekunden erklären, warum Kunden dich anfragen sollten.
+      <h2 class="text-balance font-display text-4xl font-black leading-[1.04] tracking-[-0.03em] text-[var(--dw-ink)] md:text-6xl">
+        {content.whyTitle}
       </h2>
-      <p class="mt-6 max-w-xl text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">
-        Wir verbinden Webdesign, SEO und Kampagnen so, dass Besucher nicht nur schauen, sondern den nächsten Schritt machen.
+      <p class="mt-6 max-w-xl text-base font-medium leading-8 text-[var(--dw-ink-soft)]">
+        {content.whyLead}
       </p>
     </div>
 
-    <div class="dw-reveal-stagger grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-      {benefits.map(([title, text]) => (
-        <article class="rounded-2xl border border-[var(--dw-card-border)] bg-white/90 p-6 shadow-[var(--dw-card-shadow)]">
-          <p class="font-display text-3xl font-extrabold leading-tight text-[oklch(0.22_0.04_260)]">{title}</p>
-          <p class="mt-3 text-sm font-bold leading-6 text-[oklch(0.5_0.04_260)]">{text}</p>
+    <div class="dw-reveal-stagger border-y border-[var(--dw-card-border)]">
+      {content.whyItems.map((item) => (
+        <article class="grid gap-4 border-b border-[var(--dw-card-border)] py-6 last:border-b-0 sm:grid-cols-[2.75rem_1fr]">
+          <span class="grid h-11 w-11 place-items-center rounded-md bg-[oklch(0.94_0.05_250)] text-[var(--dw-accent-strong)]">
+            <Icon name="BriefcaseBusiness" size={18} />
+          </span>
+          <div>
+            <h3 class="text-xl font-black leading-7 tracking-[-0.015em] text-[var(--dw-ink)]">{item.title}</h3>
+            <p class="mt-2 text-sm font-medium leading-7 text-[var(--dw-ink-soft)]">{item.text}</p>
+          </div>
         </article>
       ))}
     </div>

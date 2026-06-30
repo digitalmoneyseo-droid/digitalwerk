@@ -1,0 +1,47 @@
+---
+import Icon from "../Icon.astro";
+import { siteContent } from "../../data/siteContent";
+
+const content = siteContent.home.one;
+---
+
+<section class="px-5 py-20 md:py-28" id="arbeiten">
+  <div class="dw-container">
+    <div class="grid gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-end">
+      <div class="dw-reveal">
+        <p class="font-utility text-xs font-bold uppercase tracking-[0.12em] text-[var(--dw-accent-strong)]">
+          Arbeiten
+        </p>
+        <h2 class="mt-4 text-balance font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">
+          {content.projectTypesTitle}
+        </h2>
+      </div>
+      <p class="dw-reveal max-w-2xl text-pretty text-base font-medium leading-8 text-[var(--dw-ink-soft)]">
+        {content.projectTypesLead}
+      </p>
+    </div>
+
+    <div class="dw-reveal-stagger mt-10 grid gap-5 lg:grid-cols-3">
+      {content.projectTypes.map((project) => (
+        <article class="overflow-hidden rounded-lg border border-[var(--dw-card-border)] bg-white shadow-[var(--dw-card-shadow-tight)]">
+          <img src={project.image} alt={project.alt} class="h-48 w-full object-cover" loading="lazy" />
+          <div class="p-5">
+            <p class="inline-flex rounded-full bg-[oklch(0.955_0.03_82)] px-3 py-1 text-xs font-black text-[oklch(0.42_0.09_62)]">
+              {project.tag}
+            </p>
+            <h3 class="mt-4 font-display text-2xl font-black leading-tight tracking-[-0.02em] text-[var(--dw-ink)]">{project.title}</h3>
+            <p class="mt-3 text-sm font-medium leading-6 text-[var(--dw-ink-soft)]">{project.text}</p>
+            <ul class="mt-5 grid gap-2">
+              {project.points.map((point) => (
+                <li class="flex items-start gap-2 text-sm font-bold leading-6 text-[var(--dw-ink)]">
+                  <Icon name="CircleCheckBig" size={15} class="mt-1 shrink-0 text-[var(--dw-green)]" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -17,10 +17,16 @@ export async function onRequestPost({ request, env }: ContactContext) {
     name: clean(formData.get("name")),
     company: clean(formData.get("unternehmen")),
     email: clean(formData.get("email")),
+    phone: clean(formData.get("phone")),
     website: clean(formData.get("website")),
     topic: clean(formData.get("thema")),
     message: clean(formData.get("ausgangslage")),
+    honeypot: clean(formData.get("website_url_confirm")),
   };
+
+  if (values.honeypot) {
+    return Response.redirect(new URL("/kontakt?sent=1", request.url), 303);
+  }
 
   const missingField = requiredFields.find((field) => {
     if (field === "thema") return values.topic.length === 0;
@@ -29,7 +35,7 @@ export async function onRequestPost({ request, env }: ContactContext) {
   });
 
   if (missingField || !isEmail(values.email)) {
-    return new Response("Bitte alle Pflichtfelder korrekt ausfüllen.", { status: 400 });
+    return Response.redirect(new URL("/kontakt?error=validation", request.url), 303);
   }
 
   const apiKey = env.RESEND_API_KEY;
@@ -37,16 +43,21 @@ export async function onRequestPost({ request, env }: ContactContext) {
   const from = env.CONTACT_FROM_EMAIL ?? "Digitalwerk <kontakt@digitalwerk.de>";
 
   if (!apiKey) {
-    return new Response("Kontaktformular ist noch nicht konfiguriert.", { status: 500 });
+    return Response.redirect(new URL("/kontakt?error=config", request.url), 303);
   }
 
   const text = [
+    `Zeitpunkt: ${new Date().toISOString()}`,
+    `User-Agent: ${request.headers.get("user-agent") ?? "-"}`,
+    "",
     `Name: ${values.name}`,
-    `Unternehmen: ${values.company || "-"}`,
+    `Unternehmen / Branche: ${values.company || "-"}`,
     `E-Mail: ${values.email}`,
+    `Telefon / WhatsApp: ${values.phone || "-"}`,
     `Website: ${values.website || "-"}`,
     `Thema: ${values.topic}`,
     "",
+    "Was soll sich verbessern?",
     values.message,
   ].join("\n");
 
@@ -66,7 +77,7 @@ export async function onRequestPost({ request, env }: ContactContext) {
   });
 
   if (!response.ok) {
-    return new Response("Anfrage konnte nicht gesendet werden.", { status: 502 });
+    return Response.redirect(new URL("/kontakt?error=send", request.url), 303);
   }
 
   return Response.redirect(new URL("/kontakt?sent=1", request.url), 303);

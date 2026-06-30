@@ -53,10 +53,20 @@ const siteOrigin = new URL(siteUrl).origin;
       "@type": "ProfessionalService",
       name: siteContent.brand.name,
       description,
-      areaServed: "Deutschland",
+      areaServed: {
+        "@type": "Country",
+        name: "Deutschland",
+      },
       email: siteContent.brand.email,
       url: siteOrigin,
-      sameAs: [],
+      priceRange: "€€",
+      availableLanguage: ["de"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: siteContent.brand.email,
+        contactType: "sales",
+        availableLanguage: ["de"],
+      },
       serviceType: [
         "Webdesign",
         "Suchmaschinenoptimierung",

@@ -4,19 +4,25 @@ import { siteContent } from "../../data/siteContent";
 const content = siteContent.home.one;
 ---
 
-<section class="px-5 py-16 md:py-24">
-  <div class="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.42fr_0.58fr]">
-    <h2 class="dw-reveal text-balance font-display text-4xl font-semibold leading-none text-[oklch(0.22_0.04_260)] md:text-5xl">{content.processTitle}</h2>
-    <div class="dw-reveal-stagger border-t border-[var(--dw-line)]">
-      {
-        content.process.map((step, index) => (
-          <article class="grid gap-3 border-b border-[var(--dw-line)] py-6 md:grid-cols-[90px_180px_1fr]">
-            <p class="font-display text-4xl font-semibold leading-none text-[var(--dw-accent-strong)]">{String(index + 1).padStart(2, "0")}</p>
-            <h3 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">{step.title}</h3>
-            <p class="text-sm font-semibold leading-7 text-[oklch(0.48_0.04_260)]">{step.text}</p>
-          </article>
-        ))
-      }
+<section class="px-5 py-20 md:py-28">
+  <div class="dw-container grid gap-10 lg:grid-cols-[0.38fr_0.62fr]">
+    <div class="dw-reveal">
+      <h2 class="text-balance font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">
+        {content.processTitle}
+      </h2>
+      <p class="mt-5 max-w-md text-base font-medium leading-8 text-[var(--dw-ink-soft)]">{content.processLead}</p>
+    </div>
+
+    <div class="dw-reveal-stagger border-y border-[var(--dw-card-border)]">
+      {content.process.map((step, index) => (
+        <article class="grid gap-3 border-b border-[var(--dw-card-border)] py-6 last:border-b-0 md:grid-cols-[4.5rem_12rem_1fr]">
+          <p class="font-display text-4xl font-black leading-none tracking-[-0.04em] text-[var(--dw-accent-strong)]">
+            {String(index + 1).padStart(2, "0")}
+          </p>
+          <h3 class="text-lg font-black leading-7 text-[var(--dw-ink)]">{step.title}</h3>
+          <p class="text-sm font-medium leading-7 text-[var(--dw-ink-soft)]">{step.text}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>

@@ -22,22 +22,24 @@ const isContact = family === "contact";
 const fallbackColumnTitles = ["Analyse", "Struktur", "Umsetzung", "Optimierung"] as const;
 const pricingCards = siteContent.pricingCards;
 const fieldClass =
-  "min-h-12 rounded-xl border border-[oklch(0.82_0.024_265)] bg-white px-4 font-semibold outline-none transition focus:border-[var(--dw-accent)]";
+  "min-h-12 rounded-md border border-[var(--dw-card-border)] bg-white px-4 text-base font-medium outline-none transition hover:border-[oklch(0.74_0.04_250)] focus:border-[var(--dw-accent)]";
+const textareaClass =
+  "min-h-36 rounded-md border border-[var(--dw-card-border)] bg-white px-4 py-3 text-base font-medium leading-7 outline-none transition hover:border-[oklch(0.74_0.04_250)] focus:border-[var(--dw-accent)]";
 ---
 
 {
   !isPricing && !isContact && (
     <section class="bg-white px-5 py-16 md:py-24">
-      <div class="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.42fr_0.58fr]">
+      <div class="dw-container grid gap-10 lg:grid-cols-[0.42fr_0.58fr]">
         <div>
-          <h2 class="text-balance font-display text-4xl font-extrabold leading-[1.05] text-[oklch(0.22_0.04_260)] md:text-5xl">{coreConfig?.headline ?? detail?.whyTitle ?? current.title}</h2>
-          <p class="mt-6 max-w-md text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_265)]">{coreConfig?.lead ?? detail?.whyText ?? current.intro}</p>
+          <h2 class="text-balance font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">{coreConfig?.headline ?? detail?.whyTitle ?? current.title}</h2>
+          <p class="mt-6 max-w-md text-pretty text-base font-medium leading-8 text-[var(--dw-ink-soft)]">{coreConfig?.lead ?? detail?.whyText ?? current.intro}</p>
         </div>
-        <div class="border-t border-[var(--dw-line)]">
+        <div class="border-y border-[var(--dw-card-border)]">
           {(coreConfig?.columns ?? includes.map((item, index) => ({ title: fallbackColumnTitles[index] ?? "Begleitung", text: item }))).slice(0, 4).map((item) => (
-            <article class="grid gap-3 border-b border-[var(--dw-line)] py-6 md:grid-cols-[180px_1fr]">
-              <h3 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_265)]">{item.title}</h3>
-              <p class="text-sm font-semibold leading-7 text-[oklch(0.48_0.04_265)]">{item.text}</p>
+            <article class="grid gap-3 border-b border-[var(--dw-card-border)] py-6 last:border-b-0 md:grid-cols-[180px_1fr]">
+              <h3 class="text-lg font-black text-[var(--dw-ink)]">{item.title}</h3>
+              <p class="text-sm font-medium leading-7 text-[var(--dw-ink-soft)]">{item.text}</p>
             </article>
           ))}
         </div>
@@ -49,13 +51,13 @@ const fieldClass =
 {
   !isPricing && !isContact && (
     <section class="px-5 py-16 md:py-24">
-      <div class="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.42fr_0.58fr]">
-        <h2 class="text-balance font-display text-4xl font-extrabold leading-[1.05] text-[oklch(0.22_0.04_260)] md:text-5xl">{coreConfig?.proofTitle ?? labels.outcomes}</h2>
-        <div class="dw-reveal-stagger grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+      <div class="dw-container grid gap-10 lg:grid-cols-[0.42fr_0.58fr]">
+        <h2 class="text-balance font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">{coreConfig?.proofTitle ?? labels.outcomes}</h2>
+        <div class="dw-reveal-stagger grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
           {outcomes.map((item) => (
-            <div class="flex items-start gap-3 rounded-2xl border border-[var(--dw-card-border)] bg-white/88 p-5 shadow-[var(--dw-card-shadow)]">
-              <Icon name="CircleCheckBig" size={18} class="mt-1 shrink-0 text-[var(--dw-accent)]" />
-              <p class="text-sm font-extrabold leading-7 text-[oklch(0.28_0.04_265)]">{item}</p>
+            <div class="flex items-start gap-3 rounded-lg border border-[var(--dw-card-border)] bg-white/88 p-5 shadow-[var(--dw-card-shadow-tight)]">
+              <Icon name="CircleCheckBig" size={18} class="mt-1 shrink-0 text-[var(--dw-green)]" />
+              <p class="text-sm font-bold leading-7 text-[var(--dw-ink)]">{item}</p>
             </div>
           ))}
         </div>
@@ -67,35 +69,35 @@ const fieldClass =
 {
   isPricing && (
     <section class="bg-white px-5 py-16 md:py-24">
-      <div class="mx-auto max-w-[1180px]">
-        <div class="mx-auto max-w-3xl text-center dw-reveal">
-          <h2 class="text-balance break-words font-display text-4xl font-extrabold leading-[1.05] text-[oklch(0.22_0.04_260)] sm:text-5xl md:text-6xl">Klare Einstiegspakete</h2>
-          <p class="mt-6 text-base font-semibold leading-8 text-[oklch(0.48_0.04_265)]">
-            Transparente Richtwerte für Websites, Relaunches und laufende Betreuung. Das genaue Angebot richtet sich nach Umfang, Technik und Ziel.
+      <div class="dw-container">
+        <div class="dw-reveal mx-auto max-w-3xl text-center">
+          <h2 class="text-balance break-words font-display text-4xl font-black leading-[1.05] tracking-[-0.025em] text-[var(--dw-ink)] sm:text-5xl md:text-6xl">Klare Einstiegspakete</h2>
+          <p class="mt-6 text-base font-medium leading-8 text-[var(--dw-ink-soft)]">
+            Transparente Richtwerte für Websites, Relaunches und laufende Betreuung. Der konkrete Umfang entsteht nach dem Erstgespräch.
           </p>
         </div>
         <div class="dw-reveal-stagger mt-12 grid gap-5 lg:grid-cols-3 lg:items-stretch">
           {pricingCards.map((plan) => (
             <article
-              class={`relative flex min-h-[560px] flex-col rounded-2xl border p-7 ${
+              class={`relative flex min-h-[560px] flex-col rounded-lg border p-6 ${
                 plan.featured
-                  ? "border-[oklch(0.24_0.045_250)] bg-[oklch(0.18_0.045_250)] text-white lg:-mt-6 lg:min-h-[620px]"
-                  : "border-[var(--dw-card-border)] bg-white text-[oklch(0.2_0.035_260)] shadow-[var(--dw-card-shadow)]"
+                  ? "border-[oklch(0.22_0.045_255)] bg-[var(--dw-dark)] text-white lg:-mt-5"
+                  : "border-[var(--dw-card-border)] bg-white text-[var(--dw-ink)]"
               }`}
             >
               {plan.featured && (
-                <span class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--dw-accent-strong)] px-6 py-2 text-xs font-black uppercase tracking-[0.12em] text-white">
-                  Beliebt
+                <span class="absolute right-5 top-5 rounded-full bg-white px-3 py-1 text-xs font-black text-[var(--dw-dark)]">
+                  Häufigster Einstieg
                 </span>
               )}
-              <p class={`text-[12px] font-black uppercase tracking-[0.16em] ${plan.featured ? "text-[oklch(0.82_0.08_245)]" : "text-[var(--dw-accent-strong)]"}`}>{plan.name}</p>
-              <p class={`mt-4 text-lg font-bold leading-7 ${plan.featured ? "text-[oklch(0.9_0.018_245)]" : "text-[oklch(0.42_0.04_260)]"}`}>{plan.lead}</p>
-              <p class="mt-10 font-display text-5xl font-extrabold leading-none md:text-6xl">{plan.price}</p>
-              <div class={`my-8 h-px ${plan.featured ? "bg-white/14" : "bg-[var(--dw-line)]"}`}></div>
-              <ul class="grid gap-4">
+              <p class={`text-sm font-black ${plan.featured ? "pr-36 text-white/82" : "text-[var(--dw-accent-strong)]"}`}>{plan.name}</p>
+              <p class={`mt-4 text-base font-medium leading-7 ${plan.featured ? "text-white/72" : "text-[var(--dw-ink-soft)]"}`}>{plan.lead}</p>
+              <p class="mt-8 font-display text-4xl font-black leading-none tracking-[-0.035em] md:text-5xl">{plan.price}</p>
+              <div class={`my-7 h-px ${plan.featured ? "bg-white/14" : "bg-[var(--dw-card-border)]"}`}></div>
+              <ul class="grid gap-3">
                 {plan.features.map((feature) => (
-                  <li class={`flex items-start gap-3 text-sm font-bold leading-6 ${plan.featured ? "text-[oklch(0.92_0.016_245)]" : "text-[oklch(0.42_0.04_260)]"}`}>
-                    <Icon name="CircleCheckBig" size={17} class={`mt-1 shrink-0 ${plan.featured ? "text-[oklch(0.82_0.08_245)]" : "text-[var(--dw-accent-strong)]"}`} />
+                  <li class={`flex items-start gap-3 text-sm font-medium leading-6 ${plan.featured ? "text-white/84" : "text-[var(--dw-ink-soft)]"}`}>
+                    <Icon name="CircleCheckBig" size={17} class={`mt-1 shrink-0 ${plan.featured ? "text-[oklch(0.78_0.12_155)]" : "text-[var(--dw-green)]"}`} />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -104,8 +106,8 @@ const fieldClass =
                 href="/kontakt"
                 class={`mt-auto inline-flex min-h-12 items-center justify-center rounded-full px-5 py-3 text-sm font-black transition hover:-translate-y-0.5 active:translate-y-0 ${
                   plan.featured
-                    ? "bg-white text-[oklch(0.18_0.045_250)]"
-                    : "border border-[oklch(0.78_0.03_250)] bg-white text-[oklch(0.22_0.04_260)]"
+                    ? "bg-white text-[var(--dw-dark)]"
+                    : "border border-[oklch(0.78_0.04_250)] bg-white text-[var(--dw-ink)] hover:border-[var(--dw-accent)]"
                 }`}
               >
                 Plan anfragen
@@ -121,42 +123,49 @@ const fieldClass =
 {
   isContact && (
     <section class="bg-white px-5 py-16 md:py-24">
-      <div class="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.38fr_0.62fr]">
+      <div class="dw-container grid gap-10 lg:grid-cols-[0.38fr_0.62fr]">
         <div>
-          <h2 class="text-balance font-display text-4xl font-extrabold leading-[1.05] text-[oklch(0.22_0.04_260)] md:text-5xl">Kurz schildern. Klar starten.</h2>
-          <p class="mt-6 max-w-md text-base font-semibold leading-8 text-[oklch(0.48_0.04_265)]">
-            Wir melden uns mit einer ehrlichen Einschätzung und sagen klar, welcher nächste Schritt sinnvoll ist.
+          <h2 class="text-balance font-display text-4xl font-black leading-[1.06] tracking-[-0.025em] text-[var(--dw-ink)] md:text-5xl">Kurz schildern. Klar starten.</h2>
+          <p class="mt-6 max-w-md text-base font-medium leading-8 text-[var(--dw-ink-soft)]">
+            Wir melden uns mit einer klaren Einschätzung und sagen, welcher nächste Schritt sinnvoll ist.
           </p>
-          <div class="mt-8 grid gap-3 text-sm font-semibold leading-6 text-[oklch(0.4_0.04_265)]">
+          <div class="mt-8 grid gap-3 text-sm font-medium leading-6 text-[var(--dw-ink-soft)]">
             <p>{siteContent.brand.addressLine}</p>
             <p>{siteContent.brand.responseTime}</p>
-            <a class="inline-flex min-h-11 items-center font-black text-[var(--dw-accent)]" href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>
+            <a class="inline-flex min-h-11 items-center font-black text-[var(--dw-accent-strong)]" href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>
           </div>
         </div>
         <div>
-          <div class="mb-6 rounded-2xl border border-[oklch(0.82_0.09_150)] bg-[oklch(0.97_0.04_150)] p-5 text-sm font-bold leading-6 text-[oklch(0.32_0.09_150)]" role="status" data-contact-success hidden>
-            Danke. Die Anfrage wurde gesendet. Wir melden uns innerhalb von 1 bis 2 Werktagen.
+          <div class="mb-6 rounded-lg border border-[oklch(0.74_0.1_155)] bg-[oklch(0.965_0.04_155)] p-5 text-sm font-bold leading-6 text-[oklch(0.3_0.1_155)]" role="status" aria-live="polite" data-contact-success hidden>
+            Danke. Die Anfrage wurde gesendet. Wir melden uns innerhalb von 1-2 Werktagen.
           </div>
-          <form class="border-t border-[var(--dw-line)] pt-6" action="/api/contact" method="post">
+          <div class="mb-6 rounded-lg border border-[oklch(0.72_0.13_32)] bg-[oklch(0.965_0.04_32)] p-5 text-sm font-bold leading-6 text-[oklch(0.34_0.12_32)]" role="alert" data-contact-error hidden>
+            Die Anfrage konnte nicht gesendet werden. Bitte prüfe die Pflichtfelder oder schreib direkt an {siteContent.brand.email}.
+          </div>
+          <form class="border-t border-[var(--dw-card-border)] pt-6" action="/api/contact" method="post" data-contact-form>
             <div class="grid gap-5 md:grid-cols-2">
-              <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              <label class="grid gap-2 text-sm font-black text-[var(--dw-ink)]">
                 Name
-                <input name="name" required class={fieldClass} placeholder="Vor- und Nachname" />
+                <input name="name" required class={fieldClass} placeholder="Vor- und Nachname" autocomplete="name" />
               </label>
-              <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
-                Unternehmen
-                <input name="unternehmen" class={fieldClass} placeholder="Firma oder Organisation" />
+              <label class="grid gap-2 text-sm font-black text-[var(--dw-ink)]">
+                Unternehmen / Branche
+                <input name="unternehmen" class={fieldClass} placeholder="Firma, Praxis oder Branche" autocomplete="organization" />
               </label>
-              <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              <label class="grid gap-2 text-sm font-black text-[var(--dw-ink)]">
                 E-Mail
-                <input name="email" type="email" required class={fieldClass} placeholder="name@unternehmen.de" />
+                <input name="email" type="email" required class={fieldClass} placeholder="name@unternehmen.de" autocomplete="email" />
               </label>
-              <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)]">
+              <label class="grid gap-2 text-sm font-black text-[var(--dw-ink)]">
+                Telefon / WhatsApp
+                <input name="phone" class={fieldClass} placeholder="+49 ..." autocomplete="tel" />
+              </label>
+              <label class="grid gap-2 text-sm font-black text-[var(--dw-ink)] md:col-span-2">
                 Website
-                <input name="website" class={fieldClass} placeholder="https://..." />
+                <input name="website" class={fieldClass} placeholder="https://..." inputmode="url" />
               </label>
-              <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)] md:col-span-2">
-                Thema
+              <label class="grid gap-2 text-sm font-black text-[var(--dw-ink)] md:col-span-2">
+                Wobei brauchst du Hilfe?
                 <select name="thema" required class={fieldClass}>
                   <option value="">Bitte einordnen</option>
                   <option>Webdesign / Relaunch</option>
@@ -166,18 +175,22 @@ const fieldClass =
                   <option>Noch unklar</option>
                 </select>
               </label>
-              <label class="grid gap-2 text-sm font-black text-[oklch(0.24_0.035_265)] md:col-span-2">
-                Ausgangslage
+              <label class="grid gap-2 text-sm font-black text-[var(--dw-ink)] md:col-span-2">
+                Was soll sich verbessern?
                 <textarea
                   name="ausgangslage"
                   required
-                  class="min-h-36 rounded-xl border border-[oklch(0.82_0.024_265)] bg-white px-4 py-3 font-semibold leading-7 outline-none transition focus:border-[var(--dw-accent)]"
-                  placeholder="Was soll sich verbessern?"
+                  class={textareaClass}
+                  placeholder="Zum Beispiel: neue Website, Relaunch, mehr lokale Anfragen, bessere Landingpage, SEO, Ads ..."
                 ></textarea>
               </label>
+              <label class="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                Website URL
+                <input name="website_url_confirm" tabindex="-1" autocomplete="off" />
+              </label>
             </div>
-            <button type="submit" class="group mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 active:translate-y-0">
-              Kostenlose Erstberatung anfragen
+            <button type="submit" class="group mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 active:translate-y-0" data-submit-label="Kostenloses Erstgespräch anfragen" data-loading-label="Anfrage wird gesendet ...">
+              <span data-submit-text>Kostenloses Erstgespräch anfragen</span>
               <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
             </button>
           </form>
@@ -190,9 +203,27 @@ const fieldClass =
 {!isContact && !isPricing && <ProcessAndFaq process={process} faq={faq} />}
 
 <script>
-  if (new URLSearchParams(window.location.search).get("sent") === "1") {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("sent") === "1") {
     document.querySelectorAll<HTMLElement>("[data-contact-success]").forEach((element) => {
       element.hidden = false;
     });
   }
+
+  if (params.get("error")) {
+    document.querySelectorAll<HTMLElement>("[data-contact-error]").forEach((element) => {
+      element.hidden = false;
+    });
+  }
+
+  document.querySelectorAll<HTMLFormElement>("[data-contact-form]").forEach((form) => {
+    form.addEventListener("submit", () => {
+      const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+      const text = form.querySelector<HTMLElement>("[data-submit-text]");
+      if (!button || !text) return;
+      button.disabled = true;
+      text.textContent = button.dataset.loadingLabel ?? "Anfrage wird gesendet ...";
+    });
+  });
 </script>

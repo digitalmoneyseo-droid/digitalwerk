@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://digitalwerk.de",
+  site: "https://digitalwerk.pages.dev",
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

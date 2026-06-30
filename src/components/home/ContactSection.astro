@@ -6,15 +6,34 @@ const content = siteContent.home.one;
 ---
 
 <section class="px-5 py-20 md:py-28" id="kontakt">
-  <div class="mx-auto max-w-[900px] text-center">
-    <h2 class="text-balance font-display text-4xl font-extrabold leading-[1.03] text-[oklch(0.22_0.04_260)] md:text-6xl">{content.finalCtaTitle}</h2>
-    <p class="mx-auto mt-6 max-w-2xl text-pretty text-base font-semibold leading-8 text-[oklch(0.48_0.04_260)]">{content.finalCtaLead}</p>
-    <a
-      href="/kontakt"
-      class="group mt-9 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[oklch(0.28_0.08_250)] active:translate-y-0"
-    >
-      {content.primaryCta}
-      <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
-    </a>
+  <div class="dw-container overflow-hidden rounded-lg bg-[var(--dw-dark)] text-white shadow-[var(--dw-card-shadow)]">
+    <div class="grid gap-8 p-6 md:p-9 lg:grid-cols-[0.58fr_0.42fr] lg:items-center">
+      <div class="dw-reveal">
+        <p class="font-utility text-xs font-bold uppercase tracking-[0.12em] text-white/58">Kontakt</p>
+        <h2 class="mt-4 text-balance font-display text-4xl font-black leading-[1.04] tracking-[-0.03em] md:text-6xl">
+          {content.finalCtaTitle}
+        </h2>
+        <p class="mt-6 max-w-2xl text-base font-medium leading-8 text-white/72">{content.finalCtaLead}</p>
+      </div>
+
+      <div class="dw-reveal rounded-lg bg-white p-5 text-[var(--dw-ink)]">
+        <p class="text-lg font-black">Was du schicken kannst</p>
+        <ul class="mt-4 grid gap-3 text-sm font-medium leading-6 text-[var(--dw-ink-soft)]">
+          <li class="flex gap-2"><Icon name="CircleCheckBig" size={16} class="mt-1 text-[var(--dw-green)]" /> Deine aktuelle Website</li>
+          <li class="flex gap-2"><Icon name="CircleCheckBig" size={16} class="mt-1 text-[var(--dw-green)]" /> Was sich verbessern soll</li>
+          <li class="flex gap-2"><Icon name="CircleCheckBig" size={16} class="mt-1 text-[var(--dw-green)]" /> Ob Website, SEO, Ads oder KI geplant ist</li>
+        </ul>
+        <a
+          href="/kontakt"
+          class="group mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--dw-dark)] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 active:translate-y-0"
+        >
+          {content.primaryCta}
+          <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-0.5" />
+        </a>
+        <a class="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-full text-sm font-black text-[var(--dw-accent-strong)] transition hover:bg-[oklch(0.96_0.024_250)]" href={`mailto:${siteContent.brand.email}`}>
+          {siteContent.brand.email}
+        </a>
+      </div>
+    </div>
   </div>
 </section>

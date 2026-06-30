@@ -4,13 +4,13 @@ import { siteContent } from "../data/siteContent";
 ---
 
 <BaseLayout title={`${siteContent.brand.name} - Datenschutz`} description={`Datenschutzhinweise von ${siteContent.brand.name}.`}>
-  <main id="main-content" class="min-h-screen bg-white px-5 py-32 text-[oklch(0.17_0.025_260)] md:py-40">
+  <main id="main-content" class="min-h-screen bg-white px-5 py-32 text-[var(--dw-ink)] md:py-40">
     <section class="mx-auto max-w-[860px]">
-      <p class="text-xs font-black uppercase tracking-[0.16em] text-[var(--dw-accent-strong)]">Rechtliches</p>
-      <h1 class="mt-5 font-display text-5xl font-extrabold leading-tight text-[oklch(0.2_0.035_260)]">Datenschutz</h1>
-      <div class="mt-8 grid gap-8 rounded-2xl border border-[var(--dw-card-border)] bg-[oklch(0.985_0.008_245)] p-6 text-sm font-semibold leading-7 text-[oklch(0.36_0.04_260)]">
+      <p class="font-utility text-xs font-bold uppercase tracking-[0.12em] text-[var(--dw-accent-strong)]">Rechtliches</p>
+      <h1 class="mt-5 font-display text-5xl font-black leading-tight tracking-[-0.025em] text-[var(--dw-ink)]">Datenschutz</h1>
+      <div class="mt-8 grid gap-8 rounded-lg border border-[var(--dw-card-border)] bg-[var(--dw-surface-warm)] p-6 text-sm font-medium leading-7 text-[var(--dw-ink-soft)]">
         <section>
-          <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Verantwortlicher</h2>
+          <h2 class="font-impact text-lg font-black text-[var(--dw-ink)]">Verantwortlicher</h2>
           <p class="mt-4">{siteContent.brand.name}</p>
           <p>{siteContent.brand.addressLine}</p>
           <p>
@@ -19,56 +19,56 @@ import { siteContent } from "../data/siteContent";
         </section>
 
         <section>
-          <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Zugriffsdaten</h2>
+          <h2 class="font-impact text-lg font-black text-[var(--dw-ink)]">Zugriffsdaten</h2>
           <p class="mt-4">
-            Beim Aufruf dieser Website koennen technisch notwendige Zugriffsdaten verarbeitet werden, etwa IP-Adresse,
+            Beim Aufruf dieser Website können technisch notwendige Zugriffsdaten verarbeitet werden, etwa IP-Adresse,
             Datum und Uhrzeit, angeforderte URL, Browser- und Betriebssysteminformationen sowie Referrer. Diese Daten
             dienen dem sicheren und stabilen Betrieb der Website.
           </p>
         </section>
 
         <section>
-          <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Kontaktformular und E-Mail</h2>
+          <h2 class="font-impact text-lg font-black text-[var(--dw-ink)]">Kontaktformular und E-Mail</h2>
           <p class="mt-4">
             Wenn du das Kontaktformular nutzt oder uns per E-Mail kontaktierst, verarbeiten wir deine Angaben zur
-            Bearbeitung der Anfrage. Dazu gehoeren Name, Unternehmen, E-Mail-Adresse, Website, Thema und deine Nachricht.
-            Das Formular ist fuer den Versand ueber Resend vorbereitet; falls kein Versanddienst konfiguriert ist, wird
+            Bearbeitung der Anfrage. Dazu gehören Name, Unternehmen, E-Mail-Adresse, Telefon, Website, Thema und deine Nachricht.
+            Das Formular ist für den Versand über Resend vorbereitet; falls kein Versanddienst konfiguriert ist, wird
             keine Anfrage versendet.
           </p>
         </section>
 
         <section>
-          <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Schriften</h2>
+          <h2 class="font-impact text-lg font-black text-[var(--dw-ink)]">Schriften</h2>
           <p class="mt-4">
-            Diese Website bindet Google Fonts ein. Beim Laden der Schriftdateien koennen Verbindungsdaten an Google
-            uebertragen werden. Fuer eine strengere Datenschutzkonfiguration sollten die Schriften lokal ausgeliefert
+            Diese Website bindet Google Fonts ein. Beim Laden der Schriftdateien können Verbindungsdaten an Google
+            übertragen werden. Für eine strengere Datenschutzkonfiguration sollten die Schriften lokal ausgeliefert
             werden.
           </p>
         </section>
 
         <section>
-          <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Cookies und Tracking</h2>
+          <h2 class="font-impact text-lg font-black text-[var(--dw-ink)]">Cookies und Tracking</h2>
           <p class="mt-4">
             Im aktuellen Projektcode sind keine Analyse-Cookies, keine Werbe-Tracker und kein Cookie-Banner eingebunden.
-            Falls spaeter Tracking, Analytics oder externe Medien ergaenzt werden, muss diese Datenschutzerklaerung
+            Falls später Tracking, Analytics oder externe Medien ergänzt werden, muss diese Datenschutzerklärung
             entsprechend aktualisiert werden.
           </p>
         </section>
 
         <section>
-          <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Deine Rechte</h2>
+          <h2 class="font-impact text-lg font-black text-[var(--dw-ink)]">Deine Rechte</h2>
           <p class="mt-4">
-            Du kannst Auskunft, Berichtigung, Loeschung, Einschraenkung der Verarbeitung und Widerspruch gegen die
+            Du kannst Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Widerspruch gegen die
             Verarbeitung deiner personenbezogenen Daten verlangen, soweit die gesetzlichen Voraussetzungen vorliegen.
-            Wende dich dafuer an <a class="inline-flex min-h-11 items-center font-black text-[var(--dw-accent-strong)]" href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>.
+            Wende dich dafür an <a class="inline-flex min-h-11 items-center font-black text-[var(--dw-accent-strong)]" href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>.
           </p>
         </section>
 
         <section>
-          <h2 class="font-impact text-lg font-extrabold text-[oklch(0.2_0.035_260)]">Hinweis</h2>
+          <h2 class="font-impact text-lg font-black text-[var(--dw-ink)]">Hinweis</h2>
           <p class="mt-4">
             Diese Datenschutzhinweise spiegeln die aktuell im Code sichtbaren Funktionen wider und ersetzen keine
-            rechtliche Pruefung vor dem Launch.
+            rechtliche Prüfung vor dem Launch.
           </p>
         </section>
       </div>

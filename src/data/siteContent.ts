@@ -1,69 +1,85 @@
+const defaultProcess = ["Prüfen", "Ordnen", "Bauen", "Verbessern"] as const;
+
+const defaultFaq = [
+  {
+    question: "Wann ist dieser Bereich der richtige Startpunkt?",
+    answer:
+      "Wenn hier der größte Engpass zwischen Sichtbarkeit, Vertrauen und Anfrage liegt. Genau das klären wir im Erstgespräch.",
+  },
+  {
+    question: "Verbindet Digitalwerk Planung und Umsetzung?",
+    answer:
+      "Ja. Am Ende steht kein lose formuliertes Konzept, sondern ein umsetzbarer Plan mit Prioritäten, Verantwortlichkeiten und sauberer Umsetzung.",
+  },
+] as const;
+
 export const siteContent = {
   brand: {
     name: "Digitalwerk",
-    descriptor: "Digitale Marketingagentur",
-    shortDescriptor: "Webdesign, SEO und Ads",
+    descriptor: "Webdesign, SEO & Ads",
+    shortDescriptor: "Websites, SEO und Ads",
     location: "Deutschland",
-    addressLine: "Deutschlandweit remote, Vor-Ort-Termine nach Absprache",
+    addressLine: "Remote deutschlandweit - Vor-Ort-Termine nach Absprache",
     email: "kontakt@digitalwerk.de",
-    responseTime: "Rückmeldung innerhalb von 1 bis 2 Werktagen",
+    responseTime: "Antwort innerhalb von 1-2 Werktagen",
   },
   meta: {
     defaultDescription:
-      "Digitalwerk baut schnelle Websites, SEO-Strukturen und Kampagnen für deutsche Unternehmen, die online schneller verstanden werden und mehr passende Anfragen erhalten wollen.",
+      "Digitalwerk plant, schreibt und baut Websites, SEO-Strukturen und Kampagnen für Unternehmen in Deutschland, die online professioneller wirken und mehr passende Anfragen gewinnen wollen.",
   },
   navigation: {
     menuOpen: "Menü öffnen",
     menuClose: "Menü schließen",
     servicesLabel: "Leistungen",
     workLabel: "Arbeiten",
-    ctaLabel: "Kostenlose Erstberatung",
+    ctaLabel: "Kostenloses Erstgespräch",
   },
   globalCta: {
     eyebrow: "Nächster Schritt",
-    title: "Mehr Klarheit für Website, Sichtbarkeit und Anfragen.",
-    lead: "Im Erstgespräch ordnen wir ein, welcher Hebel zuerst Sinn ergibt: Website, SEO, Kampagne oder Automatisierung.",
-    primaryLabel: "Kostenlose Erstberatung anfragen",
+    title: "Lass uns kurz prüfen, was deine Website besser machen kann.",
+    lead:
+      "Schick uns deine Website oder beschreibe dein Projekt. Du bekommst eine klare Einschätzung, ob Website, SEO, Ads oder Automatisierung der richtige nächste Schritt ist.",
+    primaryLabel: "Kostenloses Erstgespräch anfragen",
     secondaryLabel: "Preise ansehen",
   },
   pricingCards: [
     {
-      name: "Starter",
-      lead: "Für eine professionelle Website, die schnell online gehen soll",
+      name: "Website Start",
+      lead: "Für einen professionellen Auftritt, der schnell sauber online gehen soll.",
       price: "ab 1.900 €",
       features: [
-        "Responsive Website oder Landingpage",
-        "Klare Seitenstruktur und UX-Texte",
-        "SEO-Grundlagen",
-        "Kontaktformular und Tracking-Basis",
-        "Launch-Check für Mobilgerät, Geschwindigkeit und Technik",
+        "Startseite oder kompakte Website-Struktur",
+        "Mobile-first Design für Smartphone, Tablet und Desktop",
+        "UX-Texte für Angebot, Vorteile und Kontaktweg",
+        "Kontaktformular, technische Basis und Launch-Check",
+        "SEO-Grundlagen: Meta-Texte, Struktur, Indexierung",
       ],
       featured: false,
     },
     {
-      name: "Professional",
-      lead: "Für Relaunch, SEO-Struktur und bessere Anfrageführung",
+      name: "Relaunch & Wachstum",
+      lead: "Für Unternehmen, die Website, SEO und Anfrageführung spürbar verbessern wollen.",
       price: "ab 4.800 €",
       features: [
-        "Alles aus Starter",
-        "Individuelles Webdesign",
-        "Leistungsseiten für SEO",
-        "Conversion-orientierte Kontaktwege",
-        "Landingpage-Struktur für Kampagnen",
-        "Reporting- und Tracking-Grundlage",
+        "Alles aus Website Start",
+        "Individuelles Designsystem und Seitenstruktur",
+        "Leistungsseiten für SEO und bessere Orientierung",
+        "Conversion-Abschnitte: Beweise, Einwände, Kontaktwege",
+        "Tracking-Grundlage für Formulare, Klicks und Kampagnen",
+        "Launch-Plan mit Prioritäten nach Veröffentlichung",
       ],
       featured: true,
     },
     {
       name: "Betreuung",
-      lead: "Für laufende SEO-, Ads- und Website-Optimierung",
+      lead: "Für laufende Optimierung von Website, SEO, Content oder Kampagnen.",
       price: "ab 950 € / Monat",
       features: [
-        "SEO- oder Ads-Betreuung",
-        "Monatliche Auswertung",
-        "Landingpage- und Content-Optimierung",
-        "Priorisierte Empfehlungen",
-        "Regelmäßige Tests und Verbesserungen",
+        "Monatliche Prioritäten statt blindem Retainer",
+        "SEO-, Content- oder Ads-Optimierung",
+        "Landingpage-Tests und Textverbesserungen",
+        "Reporting mit verständlichen Empfehlungen",
+        "Regelmäßige technische und mobile Checks",
       ],
       featured: false,
     },
@@ -71,208 +87,332 @@ export const siteContent = {
   home: {
     one: {
       routeLabel: "Startseite",
-      conceptName: "Finale Homepage",
-      heroBadge: "Webdesign, SEO & Ads für deutsche Unternehmen",
-      title: "Mehr Anfragen durch eine Website, die sofort verstanden wird.",
-      highlight: "sofort verstanden wird",
+      conceptName: "Homepage",
+      heroBadge: "Websites, SEO & Ads für deutsche Unternehmen",
+      title: "Websites, die besser aussehen, schneller überzeugen und mehr Anfragen bringen.",
+      highlight: "mehr Anfragen bringen",
       lead:
-        "Digitalwerk baut schnelle, mobile Websites, SEO-Strukturen und Kampagnen, die dein Angebot klar erklären, Vertrauen schaffen und Besucher zur Anfrage führen.",
-      primaryCta: "Kostenlose Erstberatung anfragen",
-      secondaryCta: "Webdesign ansehen",
+        "Wir planen, schreiben und bauen Websites für Dienstleister, Praxen, Kanzleien, Handwerksbetriebe und B2B-Unternehmen - mit sauberer Technik, klarer Sprache und Kontaktwegen, die Besucher wirklich nutzen.",
+      primaryCta: "Kostenloses Erstgespräch anfragen",
+      secondaryCta: "Leistungen ansehen",
       audienceLine:
-        "Für Dienstleister, Kanzleien, Praxen, Handwerksbetriebe, B2B-Unternehmen und lokale Anbieter.",
-      serviceRunwayTitle: "Webdesign, SEO und Kampagnen aus einem System",
+        "Für lokale Anbieter, Dienstleister, Praxen, Kanzleien, Handwerk und B2B.",
+      heroProof: [
+        "Struktur, Texte, Design und Technik aus einer Hand",
+        "Mobile-first Layouts für echte Nutzerwege",
+        "Klare Empfehlung statt pauschalem Agenturpaket",
+      ],
+      heroMetricCard: {
+        eyebrow: "Website-Check",
+        title: "Was Besucher sofort verstehen müssen",
+        items: [
+          ["01", "Was bietest du an?"],
+          ["02", "Warum sollten Kunden dir vertrauen?"],
+          ["03", "Was ist der nächste einfache Schritt?"],
+        ],
+        result: "Ziel: weniger Reibung, mehr qualifizierte Anfragen",
+      },
+      trustEyebrow: "Worauf wir optimieren",
+      trustTitle: "Dein Auftritt muss nicht lauter sein. Er muss schneller verstanden werden.",
+      trustItems: [
+        {
+          title: "Klarer erster Eindruck",
+          text: "Besucher erkennen Angebot, Nutzen und Kontaktweg ohne Suchen.",
+        },
+        {
+          title: "Saubere mobile Nutzung",
+          text: "Abschnitte, Buttons und Formulare funktionieren zuerst auf dem Smartphone.",
+        },
+        {
+          title: "Mehr Vertrauen vor dem Kontakt",
+          text: "Texte, Leistungen und Belege nehmen Unsicherheit aus der Anfrage.",
+        },
+      ],
+      serviceRunwayTitle: "Was wir für dich umsetzen",
       serviceRunwayLead:
-        "Alles, was Besucher schneller verstehen lässt, Vertrauen aufbaut und mehr passende Anfragen erzeugt.",
+        "Website, Suche, Kampagnen und Automatisierung werden gemeinsam geplant, damit der Weg bis zur Anfrage zusammenpasst.",
       services: [
         {
           title: "Webdesign",
           href: "/leistungen/webdesign",
-          text: "Schnelle, responsive Websites und Landingpages, die dein Angebot klar erklären und Besucher zur Anfrage führen.",
+          text: "Schnelle Websites und Landingpages, die Angebot, Nutzen, Belege und Kontaktweg auf den Punkt bringen.",
         },
         {
           title: "SEO",
           href: "/leistungen/local-seo",
-          text: "Seitenstruktur, Inhalte, Technik und lokale Signale, damit dein Unternehmen bei relevanten Suchanfragen sichtbar wird.",
+          text: "Leistungsseiten, lokale Signale, Technik und Inhalte für Suchanfragen, die zu deinem Angebot passen.",
         },
         {
           title: "Paid Ads",
           href: "/leistungen/paid-ads",
-          text: "Google- und Social-Kampagnen mit klarer Zielgruppe, passender Landingpage und sauberem Conversion-Tracking.",
+          text: "Google- und Social-Kampagnen mit passender Landingpage, Messung und Budgetsteuerung.",
         },
         {
           title: "KI & Automation",
           href: "/leistungen/ki-automatisierung",
-          text: "Chatbots, Workflows und KI-Strukturen, die wiederkehrende Fragen und Prozesse sinnvoll vereinfachen.",
+          text: "Chatbots, Workflows und Inhalte, die wiederkehrende Fragen und Abläufe nachvollziehbar vereinfachen.",
         },
       ],
-      projectTypesTitle: "Was wir bauen",
+      serviceFlow: [
+        {
+          label: "Angebot",
+          title: "Erst verstehen, was du verkaufst",
+          text: "Wir klären Zielgruppe, Leistung, Einwände und die Entscheidung vor dem Kontakt.",
+        },
+        {
+          label: "Seite",
+          title: "Dann den Weg zur Anfrage bauen",
+          text: "Struktur, Texte, Design und Formulare führen Besucher ohne Umwege weiter.",
+        },
+        {
+          label: "Traffic",
+          title: "Danach passende Nutzer holen",
+          text: "SEO und Kampagnen zahlen auf Seiten ein, die schon auf Kontakt ausgelegt sind.",
+        },
+      ],
+      projectTypesTitle: "Arbeiten ohne erfundene Fallstudien",
       projectTypesLead:
-        "Konkrete Website- und Marketing-Bausteine, die direkt auf Sichtbarkeit, Vertrauen und Anfragen einzahlen.",
+        "Solange keine freigegebenen Kundencases vorliegen, zeigen wir anonymisierte Projektmuster. Keine Fantasie-Logos, keine künstlichen Umsatzversprechen.",
       projectTypes: [
         {
-          title: "Websites & Relaunches",
-          text: "Klare Seitenstruktur, moderne Gestaltung, schnelle Ladezeiten, mobile UX, SEO-Grundlagen und Kontaktwege, die Besucher zur Anfrage führen.",
+          title: "Lokaler Dienstleister",
+          tag: "Anonymisiertes Beispiel",
+          image: "/images/signal-atlas.png",
+          alt: "Abstrakte Karte mit Signalen und Diagramm als Symbol für lokale Sichtbarkeit",
+          text: "Relaunch-Konzept mit klarer Startseite, Leistungsseiten, Kontaktwegen und lokaler SEO-Struktur.",
+          points: ["Angebot schneller erfassbar", "Mobile Kontaktwege priorisiert", "SEO-Seiten nach Suchintention"],
         },
         {
-          title: "SEO-Seiten & lokale Sichtbarkeit",
-          text: "Leistungsseiten, Standortseiten, interne Verlinkung, Google-Business-Signale und Inhalte, die echte Suchintentionen beantworten.",
+          title: "B2B-Unternehmen",
+          tag: "Anonymisiertes Beispiel",
+          image: "/images/orbit-commerce.png",
+          alt: "Abstrakte Orbit-Grafik als Symbol für B2B-Vertriebswege",
+          text: "Landingpage-Struktur für erklärungsbedürftige Leistung, Einwände, Nutzen und Anfrageformular.",
+          points: ["Einwandbehandlung eingebaut", "Formular kürzer geführt", "Tracking sauber vorbereitet"],
         },
         {
-          title: "Landingpages für Ads",
-          text: "Kampagnenseiten, die Anzeige, Angebot, Belege, Einwände und Anfrageformular zu einem klaren Conversion-Flow verbinden.",
+          title: "Praxis oder Kanzlei",
+          tag: "Anonymisiertes Beispiel",
+          image: "/images/studio-wall.png",
+          alt: "Abstrakte Studio-Wand mit farbigen Leuchtflächen als Symbol für Website-Module",
+          text: "Vertrauensaufbau durch bessere Seitenführung, FAQ, klare Leistungen und schnelle Termin- oder Kontaktoption.",
+          points: ["Leistungen verständlicher", "FAQ direkt vor Anfrage", "Smartphone zuerst geprüft"],
+        },
+      ],
+      includedTitle: "Was bei einem guten Webprojekt nicht fehlen darf",
+      includedLead:
+        "Nicht jede Website braucht den gleichen Umfang. Diese Grundlagen prüfen wir aber immer, weil sie über Wirkung und Nutzbarkeit entscheiden.",
+      includedItems: [
+        {
+          title: "Angebotsstruktur",
+          text: "Leistungen, Zielgruppen, Vorteile und Einwände werden so sortiert, dass Besucher nicht raten müssen.",
+        },
+        {
+          title: "UX-Texte",
+          text: "Wir schreiben nicht nur Überschriften, sondern die Entscheidungshilfe zwischen erstem Eindruck und Anfrage.",
+        },
+        {
+          title: "Mobile Details",
+          text: "Navigation, Buttons, Formulare, Abstände und Lesbarkeit werden für Smartphone-Nutzung priorisiert.",
+        },
+        {
+          title: "SEO-Basis",
+          text: "Meta-Texte, Seitenstruktur, interne Verlinkung, Indexierung und Ladezeit gehören zum Launch-Check.",
+        },
+        {
+          title: "Kontaktwege",
+          text: "Formular, E-Mail, nächste Schritte und Antwortzeit sind sichtbar, damit der Kontakt leicht fällt.",
+        },
+        {
+          title: "Messpunkte",
+          text: "Wichtige Klicks und Formulare werden so vorbereitet, dass spätere Optimierung möglich wird.",
         },
       ],
       whyTitle: "Warum Digitalwerk",
+      whyLead:
+        "Du bekommst keine lose Sammlung aus Design, SEO und Anzeigen. Wir bauen zuerst die Entscheidungssituation und danach die passenden Kanäle.",
       whyItems: [
         {
-          title: "Klares Angebot",
-          text: "Besucher verstehen schnell, was du anbietest, für wen es passt und warum es relevant ist.",
+          title: "Weniger Agentur-Gerede",
+          text: "Wir sagen konkret, was fehlt, was zuerst kommt und was aktuell keinen Sinn ergibt.",
         },
         {
-          title: "Mehr Vertrauen",
-          text: "Struktur, Belege, Texte und Gestaltung machen die Entscheidung leichter.",
+          title: "Mehr Substanz im ersten Fold",
+          text: "Angebot, Beweise, Nutzen und Kontaktweg stehen dort, wo Besucher sie brauchen.",
         },
         {
-          title: "Bessere Anfragen",
-          text: "Kontaktwege, SEO und Kampagnen führen Nutzer gezielt zum nächsten Schritt.",
+          title: "Ein System statt Einzelteile",
+          text: "Website, SEO und Kampagnen greifen ineinander, statt nebeneinander herzulaufen.",
         },
       ],
-      processTitle: "Ablauf",
+      reviewTitle: "Echte Belege statt erfundener Stimmen",
+      reviewLead:
+        "Öffentliche Kundenstimmen und Logos ergänzen wir erst, wenn sie freigegeben sind. Bis dahin bleibt die Seite ehrlich und zeigt, welche Nachweise sinnvoll wären.",
+      reviewItems: [
+        "Freigegebene Kundenlogos oder Branchen",
+        "Vorher-nachher Screenshots aus echten Projekten",
+        "Bewertungen aus Google, LinkedIn oder direkter Kundenfreigabe",
+      ],
+      processTitle: "Ein klarer Plan bis zum Launch",
+      processLead:
+        "Der Ablauf ist bewusst schlank: erst verstehen, dann ordnen, dann bauen, dann verbessern.",
       process: [
         {
-          title: "Erstberatung",
-          text: "Wir verstehen Angebot, Zielgruppe, Website und aktuellen Engpass.",
+          title: "Website prüfen",
+          text: "Wir schauen auf Angebot, Zielgruppe, aktuelle Seite, Kontaktwege und größten Engpass.",
         },
         {
-          title: "Empfehlung",
-          text: "Du erhältst eine klare Einschätzung, welcher Hebel zuerst Sinn ergibt.",
+          title: "Einstieg empfehlen",
+          text: "Du bekommst eine konkrete Empfehlung: Projekt, Sprint oder laufende Betreuung.",
         },
         {
-          title: "Umsetzung",
-          text: "Wir erstellen Website, Seitenstruktur, Kampagnen oder Automatisierung.",
+          title: "Umsetzung führen",
+          text: "Struktur, Texte, Design, Technik und Launch werden in überschaubaren Schritten umgesetzt.",
         },
         {
-          title: "Optimierung",
-          text: "Nach dem Launch wird gemessen, verbessert und sinnvoll ausgebaut.",
+          title: "Nach Launch verbessern",
+          text: "Wir prüfen Daten, mobile Nutzung, Suchstruktur und Anfragen und priorisieren die nächsten Verbesserungen.",
         },
       ],
-      finalCtaTitle: "Bereit für eine Website, die schneller verstanden wird?",
+      faqTitle: "Fragen vor dem Erstgespräch",
+      faq: [
+        {
+          question: "Muss ich schon genau wissen, ob ich Website, SEO oder Ads brauche?",
+          answer:
+            "Nein. Es reicht, wenn du beschreibst, was sich verbessern soll. Wir ordnen ein, welcher Schritt am meisten Wirkung verspricht.",
+        },
+        {
+          question: "Könnt ihr auch nur eine bestehende Website verbessern?",
+          answer:
+            "Ja. Wenn ein kompletter Relaunch nicht nötig ist, starten wir mit Struktur, Texten, Kontaktwegen, SEO-Grundlagen oder Landingpages.",
+        },
+        {
+          question: "Gibt es echte Referenzen?",
+          answer:
+            "Öffentliche Referenzen werden nur ergänzt, wenn Kunden sie freigeben. Bis dahin verwenden wir keine erfundenen Reviews oder Logos.",
+        },
+        {
+          question: "Was kostet ein Projekt?",
+          answer:
+            "Als Orientierung starten kompakte Websites ab 1.900 €, Relaunch-Projekte ab 4.800 € und laufende Betreuung ab 950 € pro Monat.",
+        },
+      ],
+      finalCtaTitle: "Lass uns deine Website kurz prüfen.",
       finalCtaLead:
-        "Erzähl kurz, was sich an Website, Sichtbarkeit oder Anfragequalität verbessern soll. Wir melden uns mit einer ehrlichen Einschätzung.",
+        "Schick uns deine aktuelle Seite oder beschreibe dein Projekt. Wir melden uns mit einer klaren Einschätzung und einem sinnvollen nächsten Schritt.",
     },
   },
   subpages: [
     {
       href: "/leistungen/webdesign",
-      title: "Webdesign",
+      title: "Websites, die nicht nur gut aussehen, sondern Anfragen bringen",
       category: "Webdesign",
       intro:
-        "Deine Website muss in wenigen Sekunden erklären, was du anbietest, für wen es passt und warum man dir vertrauen kann. Digitalwerk baut schnelle, mobile Websites, die klar führen und mehr passende Anfragen erzeugen.",
+        "Wir bauen schnelle, mobile Websites und Landingpages, die dein Angebot erklären, Vertrauen aufbauen und den Kontakt leicht machen - ohne Baukasten-Gefühl und ohne unnötige Spielereien.",
       bullets: [
-        "Klare Seitenstruktur und UX-Texte",
-        "Responsive Design für Smartphone, Tablet und Desktop",
-        "SEO-Grundlagen, Performance, Tracking und Launch-Check",
+        "Mobile-first Design und klare Seitenstruktur",
+        "UX-Texte für Angebot, Vorteile, Beweise und Kontakt",
+        "SEO-Grundlagen, Performance, Formular und Launch-Check",
       ],
     },
     {
       href: "/leistungen/local-seo",
-      title: "SEO",
-      category: "Sichtbarkeit",
+      title: "SEO, damit Kunden dich finden, bevor sie vergleichen",
+      category: "SEO",
       intro:
-        "SEO sorgt dafür, dass dein Unternehmen sichtbar wird, wenn Menschen aktiv nach deinen Leistungen suchen. Dafür braucht es klare Seiten, verständliche Inhalte, technische Grundlagen und lokale Vertrauenssignale.",
+        "Wir strukturieren Seiten, Inhalte und lokale Signale so, dass dein Unternehmen bei relevanten Suchanfragen sichtbarer wird - und Besucher danach auch verstehen, warum sie dich kontaktieren sollten.",
       bullets: [
-        "Keyword- und Wettbewerbsanalyse",
-        "Leistungsseiten, Standortsignale und interne Verlinkung",
-        "Technik, Inhalte und Google-Business-Grundlagen",
+        "Keyword- und Wettbewerbsanalyse für echte Suchintentionen",
+        "Leistungsseiten, Standortbezug und interne Verlinkung",
+        "Google-Business-Grundlagen, Technik und verständliche Inhalte",
       ],
     },
     {
       href: "/leistungen/paid-ads",
-      title: "Paid Ads",
-      category: "Kampagnen",
+      title: "Paid Ads mit Landingpages, die zum Klick passen",
+      category: "Paid Ads",
       intro:
-        "Paid Ads bringen schnelle Sichtbarkeit, wenn Zielgruppe, Anzeige, Landingpage und Tracking zusammenpassen. Digitalwerk baut Kampagnen nicht isoliert, sondern mit der passenden Seite und klarer Messung.",
+        "Kampagnen funktionieren besser, wenn Anzeige, Zielgruppe, Landingpage und Tracking zusammenpassen. Wir bauen nicht nur Anzeigen, sondern den Weg bis zur Anfrage.",
       bullets: [
         "Kampagnenstruktur für Google, Meta oder passende Kanäle",
-        "Landingpage-Abgleich mit Angebot und Suchintention",
+        "Landingpage-Abgleich mit Angebot, Suchintention und Einwänden",
         "Conversion-Tracking, Tests und Budgetsteuerung",
       ],
     },
     {
       href: "/leistungen/ki-automatisierung",
-      title: "KI & Automation",
-      category: "Automation",
+      title: "KI und Automatisierung, die echte Arbeit spart",
+      category: "KI & Automation",
       intro:
-        "KI und Automatisierung lohnen sich, wenn sie konkrete Arbeit erleichtern: wiederkehrende Fragen beantworten, Informationen auffindbarer machen oder interne Abläufe beschleunigen.",
+        "Wir helfen dir, wiederkehrende Fragen, interne Abläufe und digitale Inhalte sinnvoll zu automatisieren - praktisch, nachvollziehbar und ohne KI-Hype.",
       bullets: [
-        "Chatbots für Website, Support oder Beratung",
-        "Automatisierte Workflows für wiederkehrende Aufgaben",
-        "KI-Sichtbarkeit durch klare Inhalte, Quellen und FAQ-Struktur",
+        "Chatbots für Website, Beratung oder Support",
+        "Workflows für wiederkehrende Aufgaben und interne Prozesse",
+        "Inhalte und FAQs, die auch in KI-gestützter Suche verständlich sind",
       ],
     },
     {
       href: "/preise",
-      title: "Preise",
+      title: "Preise und Einstiegspakete",
       category: "Preise",
       intro:
-        "Transparente Richtwerte für Websites, Relaunches und laufende Betreuung. Das genaue Angebot richtet sich nach Umfang, Technik und Ziel.",
+        "Du bekommst transparente Richtwerte für Website-Projekte, Relaunches und laufende Betreuung. Nach dem Erstgespräch ist klar, welcher Umfang wirklich sinnvoll ist.",
       bullets: [
-        "Klare Projekt- und Betreuungsrahmen",
-        "Trennung von Leistung, Media-Budget und Tools",
-        "Empfehlung statt pauschalem Paketverkauf",
+        "Richtwerte für Projekt und Betreuung",
+        "Klare Trennung von Leistung, Tools, Hosting und Media-Budget",
+        "Empfehlung für Projekt, Sprint oder laufende Optimierung",
       ],
     },
     {
       href: "/kontakt",
-      title: "Kontakt",
-      category: "Anfrage",
+      title: "Lass uns deine Website kurz prüfen",
+      category: "Kontakt",
       intro:
-        "Erzähl kurz, was sich an deiner Website, Sichtbarkeit oder Anfragequalität verbessern soll. Wir melden uns mit einer ehrlichen Einschätzung und einem sinnvollen nächsten Schritt.",
+        "Schick uns deine Website oder beschreibe dein Projekt. Wir melden uns mit einer klaren Einschätzung, was als nächstes am meisten Sinn ergibt.",
       bullets: [
-        "Projekt oder Problem kurz beschreiben",
-        "Website und Ziel nennen",
-        "Klare Rückmeldung statt Verkaufsgespräch erhalten",
+        "Website oder Projekt kurz beschreiben",
+        "Ziel, Problem oder geplante Leistung nennen",
+        "Konkrete Empfehlung als nächster Schritt",
       ],
     },
     {
       href: "/agentur",
-      title: "Über Digitalwerk",
+      title: "Webdesign, SEO und Kampagnen aus einer Hand",
       category: "Agentur",
       intro:
-        "Digitalwerk baut Websites, SEO-Strukturen und Kampagnen für Unternehmen, die online schneller verstanden werden und bessere Anfragen erhalten wollen.",
+        "Digitalwerk arbeitet für Unternehmen, die online professioneller wirken, besser gefunden werden und mehr passende Anfragen gewinnen wollen - mit klarer Umsetzung statt Agentur-Gerede.",
       bullets: [
-        "Webdesign, SEO und Ads gemeinsam gedacht",
-        "Direkte Empfehlungen statt Agenturtheater",
-        "Umsetzung mit klarem nächsten Schritt",
+        "Website, SEO und Ads gemeinsam gedacht",
+        "Klare Empfehlungen ohne Agentur-Gerede",
+        "Ein sauberer Plan von Struktur bis Launch",
       ],
     },
   ],
   subpageTemplate: {
     backLabel: "Zur Startseite",
     overviewLabel: "Worum es auf dieser Seite geht",
-    detailTitle: "Was Digitalwerk konkret übernimmt",
+    detailTitle: "Was wir für dich umsetzen",
     priceTitle: "Passender Einstieg",
     priceText:
-      "Nach der Erstberatung empfehlen wir einen klaren Einstieg: fokussiertes Projekt, laufende Betreuung oder einen abgegrenzten Sprint.",
-    ctaLabel: "Kostenlose Erstberatung anfragen",
+      "Nach dem Gespräch bekommst du eine konkrete Empfehlung: Projekt, Sprint oder laufende Betreuung.",
+    ctaLabel: "Kostenloses Erstgespräch anfragen",
     notFoundTitle: "Seite nicht gefunden",
     notFoundIntro: "Diese Route existiert nicht in der aktuellen Inhaltsstruktur.",
   },
   pageDetailLabels: {
     problems: "Typische Probleme",
-    includes: "Was Digitalwerk übernimmt",
+    includes: "Was wir übernehmen",
     process: "So läuft die Arbeit ab",
-    outcomes: "Woran Fortschritt sichtbar wird",
+    outcomes: "Was sich danach verbessert",
     faq: "Häufige Fragen",
   },
   pageDetails: {
     "/leistungen/webdesign": detail(
       "Webdesign, das nicht nur gut aussieht, sondern Anfragen vorbereitet",
-      "Viele Websites sehen ordentlich aus, erklären aber Angebot, Nutzen und nächsten Schritt zu spät. Wir strukturieren Inhalte, Design und Kontaktwege so, dass Besucher schneller verstehen und leichter anfragen.",
+      "Viele Websites sehen ordentlich aus, erklären aber Angebot, Nutzen und Kontaktweg zu spät. Wir strukturieren Inhalte, Design und Formulare so, dass Besucher schneller entscheiden können.",
       [
         "Besucher verstehen Angebot und nächsten Schritt nicht schnell genug.",
-        "Die Website sieht ordentlich aus, bringt aber zu wenige Anfragen.",
+        "Die Website sieht ordentlich aus, bringt aber zu wenige passende Anfragen.",
         "Mobile Darstellung, Ladezeit, Tracking oder SEO-Grundlagen bremsen Wachstum.",
       ],
       [
@@ -281,14 +421,15 @@ export const siteContent = {
         "SEO-Grundlagen, Performance, Tracking und Launch-Check.",
       ],
       ["Klarere Website-Struktur", "Mehr Vertrauen in wenigen Sekunden", "Bessere Grundlage für SEO und Ads"],
+      ["Website prüfen", "Seitenstruktur planen", "Design und Texte bauen", "Launch vorbereiten"],
     ),
     "/leistungen/local-seo": detail(
-      "Warum SEO für deutsche Unternehmen wichtig ist",
+      "SEO, die Suchintention und Anfrage zusammendenkt",
       "SEO macht dein Angebot dort sichtbar, wo Menschen bereits nach einer Lösung suchen. Dafür müssen Leistungsseiten, lokale Signale, Technik und Kontaktwege zusammenpassen.",
       [
         "Die Website hat Seiten, aber keine klare Suchstruktur.",
-        "Google Business Profile ist unvollständig oder nicht auf Leistungen ausgerichtet.",
-        "Inhalte beantworten die Fragen der Zielgruppe nicht klar genug.",
+        "Das Google Business Profile ist unvollständig oder nicht auf Leistungen ausgerichtet.",
+        "Inhalte beantworten die Fragen der Zielgruppe nicht deutlich genug.",
       ],
       [
         "Keyword- und Wettbewerbsanalyse für relevante Leistungen.",
@@ -296,10 +437,11 @@ export const siteContent = {
         "Optimierung von Inhalten, Profilen, Technik und Anfragewegen.",
       ],
       ["Mehr qualifizierte Sichtbarkeit", "Mehr Vertrauen vor dem Erstkontakt", "Bessere Grundlage für Website und Kampagnen"],
+      ["Suchintention klären", "Struktur planen", "Inhalte optimieren", "Signale ausbauen"],
     ),
     "/leistungen/paid-ads": detail(
-      "Warum Paid Ads nur mit passender Zielseite funktionieren",
-      "Paid Ads können schnell Nachfrage erzeugen. Nachhaltig wird der Kanal, wenn Zielgruppe, Anzeige, Landingpage, Tracking und Budgetsteuerung gemeinsam geplant werden.",
+      "Paid Ads brauchen eine passende Zielseite",
+      "Paid Ads können schnell Nachfrage erzeugen. Stabil wird der Kanal, wenn Zielgruppe, Anzeige, Landingpage, Tracking und Budgetsteuerung gemeinsam geplant werden.",
       [
         "Budget läuft auf zu breite Zielgruppen oder schwache Suchbegriffe.",
         "Landingpages passen nicht zum Anzeigenversprechen.",
@@ -311,9 +453,10 @@ export const siteContent = {
         "Conversion-Tracking, Tests und Budgetsteuerung.",
       ],
       ["Mehr Anfragen pro Budget", "Weniger Streuverlust", "Klarere Entscheidungen für Skalierung"],
+      ["Kanal wählen", "Landingpage prüfen", "Kampagne bauen", "Budget steuern"],
     ),
     "/leistungen/ki-automatisierung": detail(
-      "Warum KI praktisch gedacht werden muss",
+      "KI, die konkrete Arbeit leichter macht",
       "KI lohnt sich nicht als Spielerei, sondern wenn sie Informationen auffindbarer macht, Routinefragen beantwortet oder interne Abläufe beschleunigt.",
       [
         "Anfragen wiederholen sich, werden aber manuell beantwortet.",
@@ -323,12 +466,13 @@ export const siteContent = {
       [
         "Chatbots für Website, Support oder Beratung.",
         "Automatisierte Workflows für wiederkehrende Aufgaben.",
-        "KI-Sichtbarkeit durch klare Inhalte, Quellen und FAQ-Struktur.",
+        "Inhalte und FAQs, die auch in KI-gestützter Suche verständlich sind.",
       ],
       ["Weniger manuelle Routinearbeit", "Klarere digitale Expertise", "Bessere Vorbereitung auf KI-gestützte Suche"],
+      ["Ablauf prüfen", "Use Case auswählen", "Workflow bauen", "Grenzen dokumentieren"],
     ),
     "/preise": detail(
-      "Wie Digitalwerk Preise sinnvoll strukturiert",
+      "Preise brauchen Kontext",
       "Preisorientierung hilft nur, wenn Umfang, Ziel und Verantwortlichkeiten klar sind. Deshalb zeigen wir Richtwerte und klären im Erstgespräch, welcher Rahmen zum echten Problem passt.",
       [
         "Angebote werden verglichen, obwohl Umfang und Erfolgsmessung unterschiedlich sind.",
@@ -336,7 +480,7 @@ export const siteContent = {
         "Projektbudgets vermischen Strategie, Umsetzung, Technik und Media-Budget.",
       ],
       [
-        "Kostenlose Erstberatung als Entscheidungshilfe.",
+        "Kostenloses Erstgespräch als Entscheidungshilfe.",
         "Empfehlung für Projekt, Sprint oder laufende Betreuung.",
         "Klare Trennung zwischen Leistung, Media-Budget, Tools und Betreuung.",
       ],
@@ -344,7 +488,7 @@ export const siteContent = {
     ),
     "/kontakt": detail(
       "So startet die Zusammenarbeit",
-      "Ziel ist kein pauschales Verkaufsgespräch. Digitalwerk versteht Angebot, Zielgruppe, aktuelle Kanäle und größten Engpass und empfiehlt danach den sinnvollsten nächsten Schritt.",
+      "Ziel ist kein pauschales Verkaufsgespräch. Digitalwerk versteht Angebot, Zielgruppe, aktuelle Kanäle und größten Engpass und empfiehlt danach den passenden nächsten Schritt.",
       [
         "Du bist unsicher, ob Website, SEO, Kampagnen oder Automatisierung zuerst kommt.",
         "Es gibt Marketingaktivität, aber keine klare Priorität.",
@@ -352,7 +496,7 @@ export const siteContent = {
       ],
       [
         "Einordnung von Website, Sichtbarkeit, Kampagnen, Angebot und Zielmarkt.",
-        "Empfehlung für den ersten sinnvollen Hebel statt pauschalem Paketverkauf.",
+        "Empfehlung für den ersten sinnvollen Schritt statt pauschalem Paketverkauf.",
         "Klare nächste Schritte: Projekt, Betreuung, Sprint oder ehrliche Absage.",
       ],
       ["Klarheit über den Startpunkt", "Konkrete Empfehlung", "Weniger Risiko vor Budgetentscheidung"],
@@ -366,7 +510,7 @@ export const siteContent = {
         "Marketingentscheidungen hängen an Meinungen statt an einer klaren Einschätzung.",
       ],
       [
-        "Ehrliche Einordnung von Website, Sichtbarkeit und Kampagnen.",
+        "Einordnung von Website, Sichtbarkeit und Kampagnen.",
         "Priorisierte Empfehlung mit klaren Verantwortlichkeiten.",
         "Umsetzung in fokussierten Schritten mit verständlicher Auswertung.",
       ],
@@ -381,27 +525,18 @@ function detail(
   problems: readonly string[],
   includes: readonly string[],
   outcomes: readonly string[],
+  process: readonly string[] = defaultProcess,
+  faq = defaultFaq,
 ) {
   return {
     whyTitle,
     whyText,
     problems,
     includes,
-    process: ["Erstberatung", "Empfehlung", "Umsetzung", "Optimierung"],
+    process,
     outcomes,
-    ctaLabel: "Kostenlose Erstberatung anfragen",
-    faq: [
-      {
-        question: "Wann ist dieser Bereich der richtige erste Hebel?",
-        answer:
-          "Wenn hier der größte Engpass zwischen Sichtbarkeit, Vertrauen und Anfrage liegt. Genau das klären wir in der Erstberatung.",
-      },
-      {
-        question: "Kann Digitalwerk Strategie und Umsetzung verbinden?",
-        answer:
-          "Ja. Ziel ist keine lose Präsentation, sondern ein umsetzbarer Plan mit klaren Aufgaben, Prioritäten und Messpunkten.",
-      },
-    ],
+    ctaLabel: "Kostenloses Erstgespräch anfragen",
+    faq,
   };
 }
 

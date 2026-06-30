@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digitalwerk.de/sitemap-index.xml
+Sitemap: https://digitalwerk.pages.dev/sitemap-index.xml

@@ -7,11 +7,11 @@ type Props = {
 const { title, items } = Astro.props;
 ---
 
-<div class="border-y border-[oklch(0.78_0.03_265)]">
-  <p class="py-5 text-sm font-black text-[var(--dw-accent)]">{title}</p>
+<div class="border-y border-[var(--dw-card-border)]">
+  <p class="py-5 text-sm font-black text-[var(--dw-accent-strong)]">{title}</p>
   {
     items.map((item) => (
-      <p class="border-t border-[oklch(0.86_0.025_265)] py-5 text-pretty text-base font-semibold leading-8 text-[oklch(0.34_0.04_265)]">
+      <p class="border-t border-[var(--dw-card-border)] py-5 text-pretty text-base font-medium leading-8 text-[var(--dw-ink-soft)]">
         {item}
       </p>
     ))
